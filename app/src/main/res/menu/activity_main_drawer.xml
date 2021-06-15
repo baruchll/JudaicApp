@@ -13,12 +13,12 @@
             android:icon="@drawable/ic_siddur"
             android:title="@string/menu_siddur" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/limud_yomi"
             android:icon="@drawable/ic_halacha_yomit"
-            android:title="@string/menu_halacha_yomit" />
+            android:title="@string/menu_limud_yomi" />
         <item
-            android:title="Item"
+            android:id="@+id/others"
 
-            />
+            android:title="@string/menu_others" />
     </group>
 </menu>
