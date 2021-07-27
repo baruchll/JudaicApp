@@ -64,7 +64,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <Button
-                android:id="@+id/button8"
+                android:id="@+id/siddur_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -72,29 +72,29 @@
                 android:fadingEdge="none"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:text="Button"
+                android:text="סידור"
                 app:cornerRadius="0dip" />
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/limud_yomi_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:backgroundTint="#342C91"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:text="Button"
+                android:text="לימוד יומי"
                 app:cornerRadius="0dip" />
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/other_functions_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:backgroundTint="#432371"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:text="Button"
+                android:text="פונקציות נוספות"
                 app:cornerRadius="0dip" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
