@@ -43,6 +43,12 @@ public class Home extends Fragment {
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 4.0f
         );
+
+        LinearLayout.LayoutParams param2 = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                2.0f
+        );
         Button siddur, limud, others;
         siddur = getView().findViewById(R.id.siddur_btn);
         limud = getView().findViewById(R.id.limud_yomi_btn);
@@ -51,11 +57,51 @@ public class Home extends Fragment {
         siddur.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                siddur.setLayoutParams(param4);
-                limud.setLayoutParams(param1);
-                others.setLayoutParams(param1);
+                if(siddur.getLayoutParams().equals(param4)){
+                    siddur.setLayoutParams(param2);
+                    limud.setLayoutParams(param2);
+                    others.setLayoutParams(param2);
+                }
+                else {
+                    siddur.setLayoutParams(param4);
+                    limud.setLayoutParams(param1);
+                    others.setLayoutParams(param1);
+                }
             }
         });
+
+        limud.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (limud.getLayoutParams().equals(param4)) {
+                    siddur.setLayoutParams(param2);
+                    limud.setLayoutParams(param2);
+                    others.setLayoutParams(param2);
+                } else {
+                    siddur.setLayoutParams(param1);
+                    limud.setLayoutParams(param4);
+                    others.setLayoutParams(param1);
+                }
+            }
+        });
+
+        others.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(others.getLayoutParams().equals(param4)){
+                siddur.setLayoutParams(param2);
+                limud.setLayoutParams(param2);
+                others.setLayoutParams(param2);
+            }
+            else {
+                siddur.setLayoutParams(param1);
+                limud.setLayoutParams(param1);
+                others.setLayoutParams(param4);
+            }
+        }
+        });
+
+
     }
 
 }
