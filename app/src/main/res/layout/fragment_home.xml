@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layoutDirection="rtl"
-   >
+    android:layoutDirection="rtl">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
@@ -25,6 +24,7 @@
         android:id="@+id/textView4"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#153DD1"
         android:text="הלכה יומית"
         android:textAlignment="center"
         android:textSize="20sp"
@@ -69,9 +69,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:backgroundTint="#2434B1"
+                android:fadingEdge="none"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:text="Button" />
+                android:text="Button"
+                app:cornerRadius="0dip" />
 
             <Button
                 android:id="@+id/button9"
@@ -81,7 +83,8 @@
                 android:backgroundTint="#342C91"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:text="Button" />
+                android:text="Button"
+                app:cornerRadius="0dip" />
 
             <Button
                 android:id="@+id/button10"
@@ -91,7 +94,8 @@
                 android:backgroundTint="#432371"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:text="Button" />
+                android:text="Button"
+                app:cornerRadius="0dip" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
