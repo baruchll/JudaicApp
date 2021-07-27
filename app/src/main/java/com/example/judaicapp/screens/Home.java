@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.example.judaicapp.R;
 
@@ -32,6 +33,16 @@ public class Home extends Fragment {
     }
 
     private void init() {
+        LinearLayout.LayoutParams param1 = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                1.0f
+        );
+        LinearLayout.LayoutParams param4 = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                4.0f
+        );
         Button siddur, limud, others;
         siddur = getView().findViewById(R.id.siddur_btn);
         limud = getView().findViewById(R.id.limud_yomi_btn);
@@ -40,7 +51,9 @@ public class Home extends Fragment {
         siddur.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                siddur
+                siddur.setLayoutParams(param4);
+                limud.setLayoutParams(param1);
+                others.setLayoutParams(param1);
             }
         });
     }
