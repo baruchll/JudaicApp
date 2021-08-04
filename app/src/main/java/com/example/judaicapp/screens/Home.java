@@ -17,6 +17,7 @@ import com.example.judaicapp.R;
 
 public class Home extends Fragment {
 
+    Button ashkenaz = getView().findViewById(R.id.ashkenaz);
 
 
     @Override
@@ -61,6 +62,7 @@ public class Home extends Fragment {
                     siddur.setLayoutParams(param2);
                     limud.setLayoutParams(param2);
                     others.setLayoutParams(param2);
+                    ashkenaz.setVisibility(View.VISIBLE);
                 }
                 else {
                     siddur.setLayoutParams(param4);
@@ -77,6 +79,7 @@ public class Home extends Fragment {
                     siddur.setLayoutParams(param2);
                     limud.setLayoutParams(param2);
                     others.setLayoutParams(param2);
+
                 } else {
                     siddur.setLayoutParams(param1);
                     limud.setLayoutParams(param4);
