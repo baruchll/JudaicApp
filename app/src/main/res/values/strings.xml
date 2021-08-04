@@ -14,4 +14,21 @@
     <string name="menu_others">פונקציות נוספות</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="siddur">סידור</string>
+    <string name="ashkenaz_sidder">Button</string>
+    <string name="sefard_siddur">Button</string>
+    <string name="edut_hamizrach_siddur">Button</string>
+    <string name="limud_yomi">לימוד יומי</string>
+    <string name="daf_yomi">Button</string>
+    <string name="mishna_yomi">Button</string>
+    <string name="shtayim_mikrah">Button</string>
+    <string name="tehillim">Button</string>
+    <string name="recorded_shiurim">Button</string>
+    <string name="other_functions">פונקציות נוספות</string>
+    <string name="chat_with_rav">Button</string>
+    <string name="jerusalem_compass">Button</string>
+    <string name="jewish_calender">Button</string>
+    <string name="tefillin_guide">Button</string>
+    <string name="daily_prayer_times">Button</string>
+    <string name="daily_halacha_header">הלכה יומית</string>
 </resources>
