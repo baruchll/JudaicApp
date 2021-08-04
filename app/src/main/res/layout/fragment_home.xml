@@ -25,8 +25,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#153DD1"
-        android:text="הלכה יומית"
+        android:text="@string/daily_halacha_header"
         android:textAlignment="center"
+        android:textColor="#B388FF"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
@@ -57,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:weightSum="6"
+            android:weightSum="105"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -67,35 +68,170 @@
                 android:id="@+id/siddur_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="35"
                 android:backgroundTint="#2434B1"
                 android:fadingEdge="none"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:text="סידור"
+                android:text="@string/siddur"
                 app:cornerRadius="0dip" />
+
+            <Button
+                android:id="@+id/ashkenaz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:insetTop="0dp"
+                android:text="@string/ashkenaz_sidder"
+                android:visibility="gone"
+                app:cornerRadius="0dp" />
+
+            <Button
+                android:id="@+id/sefard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:insetTop="0dp"
+                android:text="@string/sefard_siddur"
+                android:visibility="gone"
+                app:cornerRadius="0dp" />
+
+            <Button
+                android:id="@+id/edut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:insetTop="0dp"
+                android:text="@string/edut_hamizrach_siddur"
+                android:visibility="gone"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/limud_yomi_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="35"
                 android:backgroundTint="#342C91"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:text="לימוד יומי"
+                android:text="@string/limud_yomi"
                 app:cornerRadius="0dip" />
+
+            <Button
+                android:id="@+id/daf_yomi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:insetBottom="0dp"
+                android:text="@string/daf_yomi"
+                android:visibility="gone"
+                app:cornerRadius="0dp" />
+
+            <Button
+                android:id="@+id/mishna_yomi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:insetBottom="0dp"
+                android:text="@string/mishna_yomi"
+                android:visibility="gone"
+                app:cornerRadius="0dp" />
+
+            <Button
+                android:id="@+id/shtayim_mikra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:insetBottom="0dp"
+                android:text="@string/shtayim_mikrah"
+                android:visibility="gone"
+                app:cornerRadius="0dp" />
+
+            <Button
+                android:id="@+id/tehillim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:insetBottom="0dp"
+                android:text="@string/tehillim"
+                android:visibility="gone"
+                app:cornerRadius="0dp" />
+
+            <Button
+                android:id="@+id/recorded_shiurim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:insetBottom="0dp"
+                android:text="@string/recorded_shiurim"
+                android:visibility="gone"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/other_functions_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="35"
                 android:backgroundTint="#432371"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:text="פונקציות נוספות"
+                android:text="@string/other_functions"
                 app:cornerRadius="0dip" />
+
+            <Button
+                android:id="@+id/rav_chat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/chat_with_rav"
+                android:visibility="gone"
+                app:cornerRadius="0dp" />
+
+            <Button
+                android:id="@+id/compass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/jerusalem_compass"
+                android:visibility="gone"
+                app:cornerRadius="0dp" />
+
+            <Button
+                android:id="@+id/jewish_calender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/jewish_calender"
+                android:visibility="gone"
+                app:cornerRadius="0dp" />
+
+            <Button
+                android:id="@+id/tefillin_guide"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/tefillin_guide"
+                android:visibility="gone"
+                app:cornerRadius="0dp" />
+
+            <Button
+                android:id="@+id/zmanai_hayom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/daily_prayer_times"
+                android:visibility="gone"
+                app:cornerRadius="0dp" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
