@@ -15,20 +15,20 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="siddur">סידור</string>
-    <string name="ashkenaz_sidder">Button</string>
-    <string name="sefard_siddur">Button</string>
-    <string name="edut_hamizrach_siddur">Button</string>
+    <string name="ashkenaz_sidder">אשכנז</string>
+    <string name="sefard_siddur">ספרד</string>
+    <string name="edut_hamizrach_siddur">עדות המזרח</string>
     <string name="limud_yomi">לימוד יומי</string>
-    <string name="daf_yomi">Button</string>
-    <string name="mishna_yomi">Button</string>
-    <string name="shtayim_mikrah">Button</string>
-    <string name="tehillim">Button</string>
-    <string name="recorded_shiurim">Button</string>
+    <string name="daf_yomi">דף יומי</string>
+    <string name="mishna_yomi">משנה יומית</string>
+    <string name="shtayim_mikrah">שתיים מקרא</string>
+    <string name="tehillim">תהילים יומי</string>
+    <string name="recorded_shiurim">שיעורים מוקלטים</string>
     <string name="other_functions">פונקציות נוספות</string>
-    <string name="chat_with_rav">Button</string>
-    <string name="jerusalem_compass">Button</string>
-    <string name="jewish_calender">Button</string>
-    <string name="tefillin_guide">Button</string>
-    <string name="daily_prayer_times">Button</string>
+    <string name="chat_with_rav">שאלה לרב</string>
+    <string name="jerusalem_compass">כיוון תפילה</string>
+    <string name="jewish_calender">לוח שנה עברי</string>
+    <string name="tefillin_guide">מדריך להנחת תפילין</string>
+    <string name="daily_prayer_times">זמני היום</string>
     <string name="daily_halacha_header">הלכה יומית</string>
 </resources>

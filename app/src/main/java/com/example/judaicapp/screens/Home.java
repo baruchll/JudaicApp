@@ -17,7 +17,10 @@ import com.example.judaicapp.R;
 
 public class Home extends Fragment {
 
-    Button ashkenaz = getView().findViewById(R.id.ashkenaz);
+    Button siddur, limud, others;
+    Button ashkenaz, sefard, edot;
+    Button daf_yomi, mishna_yomi, shtayim_mikrah, tehillim, shiurim;
+    Button rav_chat, compass, calender, tefilllin, zmanai_hayom;
 
 
     @Override
@@ -31,43 +34,86 @@ public class Home extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         init();
+        close();
+
+    }
+
+    private void close() {
+        ashkenaz.setVisibility(View.GONE);
+        sefard.setVisibility(View.GONE);
+        edot.setVisibility(View.GONE);
+        daf_yomi.setVisibility(View.GONE);
+        mishna_yomi.setVisibility(View.GONE);
+        shtayim_mikrah.setVisibility(View.GONE);
+        tehillim.setVisibility(View.GONE);
+        shiurim.setVisibility(View.GONE);
+        rav_chat.setVisibility(View.GONE);
+        compass.setVisibility(View.GONE);
+        calender.setVisibility(View.GONE);
+        tefilllin.setVisibility(View.GONE);
+        zmanai_hayom.setVisibility(View.GONE);
+
+
     }
 
     private void init() {
-        LinearLayout.LayoutParams param1 = new LinearLayout.LayoutParams(
+        LinearLayout.LayoutParams param48 = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT,
-                1.0f
+                48.0f
         );
-        LinearLayout.LayoutParams param4 = new LinearLayout.LayoutParams(
+        LinearLayout.LayoutParams param24 = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT,
-                4.0f
+                24.0f
         );
 
-        LinearLayout.LayoutParams param2 = new LinearLayout.LayoutParams(
+        LinearLayout.LayoutParams param18 = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT,
-                2.0f
+                18.0f
         );
-        Button siddur, limud, others;
+
         siddur = getView().findViewById(R.id.siddur_btn);
         limud = getView().findViewById(R.id.limud_yomi_btn);
         others = getView().findViewById(R.id.other_functions_btn);
+        ashkenaz = getView().findViewById(R.id.ashkenaz);
+        sefard = getView().findViewById(R.id.sefard);
+        edot = getView().findViewById(R.id.edut);
+        rav_chat = getView().findViewById(R.id.rav_chat);
+        calender = getView().findViewById(R.id.jewish_calender);
+        compass = getView().findViewById(R.id.compass);
+        tefilllin = getView().findViewById(R.id.tefillin_guide);
+        zmanai_hayom = getView().findViewById(R.id.zmanai_hayom);
+        daf_yomi = getView().findViewById(R.id.daf_yomi);
+        mishna_yomi = getView().findViewById(R.id.mishna_yomi);
+        tehillim = getView().findViewById(R.id.tehillim);
+        shiurim = getView().findViewById(R.id.recorded_shiurim);
+        shtayim_mikrah = getView().findViewById(R.id.shtayim_mikra);
+
+
+        siddur.setLayoutParams(param48);
+        limud.setLayoutParams(param48);
+        others.setLayoutParams(param48);
 
         siddur.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(siddur.getLayoutParams().equals(param4)){
-                    siddur.setLayoutParams(param2);
-                    limud.setLayoutParams(param2);
-                    others.setLayoutParams(param2);
+
+                if (ashkenaz.getVisibility() == View.GONE) {
+                    close();
+                    siddur.setLayoutParams(param24);
+                    limud.setLayoutParams(param24);
+                    others.setLayoutParams(param24);
                     ashkenaz.setVisibility(View.VISIBLE);
+                    sefard.setVisibility(View.VISIBLE);
+                    edot.setVisibility(View.VISIBLE);
                 }
                 else {
-                    siddur.setLayoutParams(param4);
-                    limud.setLayoutParams(param1);
-                    others.setLayoutParams(param1);
+                    close();
+                    siddur.setLayoutParams(param48);
+                    limud.setLayoutParams(param48);
+                    others.setLayoutParams(param48);
                 }
             }
         });
@@ -75,15 +121,23 @@ public class Home extends Fragment {
         limud.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (limud.getLayoutParams().equals(param4)) {
-                    siddur.setLayoutParams(param2);
-                    limud.setLayoutParams(param2);
-                    others.setLayoutParams(param2);
 
-                } else {
-                    siddur.setLayoutParams(param1);
-                    limud.setLayoutParams(param4);
-                    others.setLayoutParams(param1);
+                if (daf_yomi.getVisibility() == View.GONE) {
+                    close();
+                    limud.setLayoutParams(param18);
+                    siddur.setLayoutParams(param18);
+                    others.setLayoutParams(param18);
+                    daf_yomi.setVisibility(View.VISIBLE);
+                    mishna_yomi.setVisibility(View.VISIBLE);
+                    shtayim_mikrah.setVisibility(View.VISIBLE);
+                    tehillim.setVisibility(View.VISIBLE);
+                    shiurim.setVisibility(View.VISIBLE);
+                }
+                else {
+                    close();
+                    siddur.setLayoutParams(param48);
+                    limud.setLayoutParams(param48);
+                    others.setLayoutParams(param48);
                 }
             }
         });
@@ -91,16 +145,24 @@ public class Home extends Fragment {
         others.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(others.getLayoutParams().equals(param4)){
-                siddur.setLayoutParams(param2);
-                limud.setLayoutParams(param2);
-                others.setLayoutParams(param2);
-            }
-            else {
-                siddur.setLayoutParams(param1);
-                limud.setLayoutParams(param1);
-                others.setLayoutParams(param4);
-            }
+
+                if (tefilllin.getVisibility() == View.GONE) {
+                    close();
+                    others.setLayoutParams(param18);
+                    siddur.setLayoutParams(param18);
+                    limud.setLayoutParams(param18);
+                    rav_chat.setVisibility(View.VISIBLE);
+                    calender.setVisibility(View.VISIBLE);
+                    compass.setVisibility(View.VISIBLE);
+                    tefilllin.setVisibility(View.VISIBLE);
+                    zmanai_hayom.setVisibility(View.VISIBLE);
+                }
+                else {
+                    close();
+                    siddur.setLayoutParams(param48);
+                    limud.setLayoutParams(param48);
+                    others.setLayoutParams(param48);
+                }
         }
         });
 
