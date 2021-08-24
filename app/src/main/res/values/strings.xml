@@ -31,4 +31,7 @@
     <string name="tefillin_guide">מדריך להנחת תפילין</string>
     <string name="daily_prayer_times">זמני היום</string>
     <string name="daily_halacha_header">הלכה יומית</string>
+    <string name="title_activity_ashkenaz_siddur">AshkenazSiddur</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
 </resources>

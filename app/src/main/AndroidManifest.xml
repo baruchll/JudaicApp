@@ -10,9 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JudaicApp">
         <activity
-            android:name=".screens.ShabbosScreen">
+            android:name=".screens.Siddurim.EdotSiddur"
+            android:exported="true" />
+        <activity
+            android:name=".screens.Siddurim.SefardSiddur"
+            android:exported="true" />
+        <activity
+            android:name=".screens.Siddurim.AshkenazSiddur"
+            android:exported="true"
+            android:label="@string/title_activity_ashkenaz_siddur"
+            android:theme="@style/Theme.JudaicApp.NoActionBar" />
 
-        </activity>
+        <activity android:name=".screens.ShabbosScreen" />
         <activity
             android:name=".HomeScreen"
             android:label="@string/title_activity_home_screen"

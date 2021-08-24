@@ -1,5 +1,6 @@
 package com.example.judaicapp.screens;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,10 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.judaicapp.R;
+import com.example.judaicapp.screens.Siddurim.AshkenazSiddur;
+import com.example.judaicapp.screens.Siddurim.EdotSiddur;
+import com.example.judaicapp.screens.Siddurim.SefardSiddur;
+
 
 
 public class Home extends Fragment {
@@ -26,8 +31,7 @@ public class Home extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-            return root;
+        return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
     @Override
@@ -74,96 +78,103 @@ public class Home extends Fragment {
                 18.0f
         );
 
-        siddur = getView().findViewById(R.id.siddur_btn);
-        limud = getView().findViewById(R.id.limud_yomi_btn);
-        others = getView().findViewById(R.id.other_functions_btn);
-        ashkenaz = getView().findViewById(R.id.ashkenaz);
-        sefard = getView().findViewById(R.id.sefard);
-        edot = getView().findViewById(R.id.edut);
-        rav_chat = getView().findViewById(R.id.rav_chat);
-        calender = getView().findViewById(R.id.jewish_calender);
-        compass = getView().findViewById(R.id.compass);
-        tefilllin = getView().findViewById(R.id.tefillin_guide);
-        zmanai_hayom = getView().findViewById(R.id.zmanai_hayom);
-        daf_yomi = getView().findViewById(R.id.daf_yomi);
-        mishna_yomi = getView().findViewById(R.id.mishna_yomi);
-        tehillim = getView().findViewById(R.id.tehillim);
-        shiurim = getView().findViewById(R.id.recorded_shiurim);
-        shtayim_mikrah = getView().findViewById(R.id.shtayim_mikra);
+        siddur = requireView().findViewById(R.id.siddur_btn);
+        limud = requireView().findViewById(R.id.limud_yomi_btn);
+        others = requireView().findViewById(R.id.other_functions_btn);
+        ashkenaz = requireView().findViewById(R.id.ashkenaz);
+        sefard = requireView().findViewById(R.id.sefard);
+        edot = requireView().findViewById(R.id.edut);
+        rav_chat = requireView().findViewById(R.id.rav_chat);
+        calender = requireView().findViewById(R.id.jewish_calender);
+        compass = requireView().findViewById(R.id.compass);
+        tefilllin = requireView().findViewById(R.id.tefillin_guide);
+        zmanai_hayom = requireView().findViewById(R.id.zmanai_hayom);
+        daf_yomi = requireView().findViewById(R.id.daf_yomi);
+        mishna_yomi = requireView().findViewById(R.id.mishna_yomi);
+        tehillim = requireView().findViewById(R.id.tehillim);
+        shiurim = requireView().findViewById(R.id.recorded_shiurim);
+        shtayim_mikrah = requireView().findViewById(R.id.shtayim_mikra);
 
 
         siddur.setLayoutParams(param48);
         limud.setLayoutParams(param48);
         others.setLayoutParams(param48);
 
-        siddur.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        siddur.setOnClickListener(v -> {
 
-                if (ashkenaz.getVisibility() == View.GONE) {
-                    close();
-                    siddur.setLayoutParams(param24);
-                    limud.setLayoutParams(param24);
-                    others.setLayoutParams(param24);
-                    ashkenaz.setVisibility(View.VISIBLE);
-                    sefard.setVisibility(View.VISIBLE);
-                    edot.setVisibility(View.VISIBLE);
-                }
-                else {
-                    close();
-                    siddur.setLayoutParams(param48);
-                    limud.setLayoutParams(param48);
-                    others.setLayoutParams(param48);
-                }
+            if (ashkenaz.getVisibility() == View.GONE) {
+                close();
+                siddur.setLayoutParams(param24);
+                limud.setLayoutParams(param24);
+                others.setLayoutParams(param24);
+                ashkenaz.setVisibility(View.VISIBLE);
+                sefard.setVisibility(View.VISIBLE);
+                edot.setVisibility(View.VISIBLE);
+            }
+            else {
+                close();
+                siddur.setLayoutParams(param48);
+                limud.setLayoutParams(param48);
+                others.setLayoutParams(param48);
             }
         });
 
-        limud.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        limud.setOnClickListener(v -> {
 
-                if (daf_yomi.getVisibility() == View.GONE) {
-                    close();
-                    limud.setLayoutParams(param18);
-                    siddur.setLayoutParams(param18);
-                    others.setLayoutParams(param18);
-                    daf_yomi.setVisibility(View.VISIBLE);
-                    mishna_yomi.setVisibility(View.VISIBLE);
-                    shtayim_mikrah.setVisibility(View.VISIBLE);
-                    tehillim.setVisibility(View.VISIBLE);
-                    shiurim.setVisibility(View.VISIBLE);
-                }
-                else {
-                    close();
-                    siddur.setLayoutParams(param48);
-                    limud.setLayoutParams(param48);
-                    others.setLayoutParams(param48);
-                }
+            if (daf_yomi.getVisibility() == View.GONE) {
+                close();
+                limud.setLayoutParams(param18);
+                siddur.setLayoutParams(param18);
+                others.setLayoutParams(param18);
+                daf_yomi.setVisibility(View.VISIBLE);
+                mishna_yomi.setVisibility(View.VISIBLE);
+                shtayim_mikrah.setVisibility(View.VISIBLE);
+                tehillim.setVisibility(View.VISIBLE);
+                shiurim.setVisibility(View.VISIBLE);
+            }
+            else {
+                close();
+                siddur.setLayoutParams(param48);
+                limud.setLayoutParams(param48);
+                others.setLayoutParams(param48);
             }
         });
 
-        others.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        others.setOnClickListener(v -> {
 
-                if (tefilllin.getVisibility() == View.GONE) {
-                    close();
-                    others.setLayoutParams(param18);
-                    siddur.setLayoutParams(param18);
-                    limud.setLayoutParams(param18);
-                    rav_chat.setVisibility(View.VISIBLE);
-                    calender.setVisibility(View.VISIBLE);
-                    compass.setVisibility(View.VISIBLE);
-                    tefilllin.setVisibility(View.VISIBLE);
-                    zmanai_hayom.setVisibility(View.VISIBLE);
-                }
-                else {
-                    close();
-                    siddur.setLayoutParams(param48);
-                    limud.setLayoutParams(param48);
-                    others.setLayoutParams(param48);
-                }
-        }
+            if (tefilllin.getVisibility() == View.GONE) {
+                close();
+                others.setLayoutParams(param18);
+                siddur.setLayoutParams(param18);
+                limud.setLayoutParams(param18);
+                rav_chat.setVisibility(View.VISIBLE);
+                calender.setVisibility(View.VISIBLE);
+                compass.setVisibility(View.VISIBLE);
+                tefilllin.setVisibility(View.VISIBLE);
+                zmanai_hayom.setVisibility(View.VISIBLE);
+            }
+            else {
+                close();
+                siddur.setLayoutParams(param48);
+                limud.setLayoutParams(param48);
+                others.setLayoutParams(param48);
+            }
+    });
+
+        ashkenaz.setOnClickListener(v -> {
+            Intent goToAshkenaz = new Intent(v.getContext(), AshkenazSiddur.class);
+            startActivity(goToAshkenaz);
+        });
+
+        sefard.setOnClickListener(v -> {
+            Intent goToSefard = new Intent(v.getContext(), SefardSiddur.class);
+            startActivity(goToSefard);
+        });
+
+
+        edot.setOnClickListener(v -> {
+            Intent goToEdot = new Intent(v.getContext(), EdotSiddur.class);
+            startActivity(goToEdot);
         });
 
 
