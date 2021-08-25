@@ -9,6 +9,8 @@
         android:name="com.example.judaicapp.screens.Home"
         android:label="Home" />
     <fragment
-        android:id="@+id/Siddur"
-        android:label="@string/menu_siddur" />
+        android:id="@+id/siddur"
+        android:name="com.example.judaicapp.screens.Siddur"
+        android:label="@string/menu_siddur"
+        tools:layout="@layout/fragment_siddur" />
 </navigation>
