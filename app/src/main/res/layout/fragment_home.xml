@@ -84,7 +84,7 @@
                 android:backgroundTint="#2434B1"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:text="@string/ashkenaz_sidder"
+                android:text="@string/ashkenaz_siddur"
                 android:textAlignment="textStart"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />

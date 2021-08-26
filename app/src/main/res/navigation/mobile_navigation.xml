@@ -13,4 +13,9 @@
         android:name="com.example.judaicapp.screens.Siddur"
         android:label="@string/menu_siddur"
         tools:layout="@layout/fragment_siddur" />
+    <fragment
+        android:id="@+id/limud_yomi"
+        android:name="com.example.judaicapp.LimudYomi"
+        android:label="@string/menu_limud_yomi"
+        tools:layout="@layout/fragment_limud_yomi" />
 </navigation>

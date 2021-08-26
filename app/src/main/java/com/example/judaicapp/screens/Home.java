@@ -17,7 +17,7 @@ import com.example.judaicapp.R;
 import com.example.judaicapp.screens.Siddurim.AshkenazSiddur;
 import com.example.judaicapp.screens.Siddurim.EdotSiddur;
 import com.example.judaicapp.screens.Siddurim.SefardSiddur;
-
+import com.example.judaicapp.screens.others.JlemCompass.CompassActivity;
 
 
 public class Home extends Fragment {
@@ -175,6 +175,14 @@ public class Home extends Fragment {
         edot.setOnClickListener(v -> {
             Intent goToEdot = new Intent(v.getContext(), EdotSiddur.class);
             startActivity(goToEdot);
+        });
+
+        compass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToCompass = new Intent(v.getContext(), CompassActivity.class);
+                startActivity(goToCompass);
+            }
         });
 
 
