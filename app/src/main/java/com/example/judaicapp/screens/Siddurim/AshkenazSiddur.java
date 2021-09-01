@@ -1,16 +1,27 @@
 package com.example.judaicapp.screens.Siddurim;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.example.judaicapp.R;
 
-public class AshkenazSiddur extends AppCompatActivity {
+
+public class AshkenazSiddur extends Fragment {
+
+
+    public AshkenazSiddur() {
+    }
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ashkenaz_siddur);
+
     }
+
 }
