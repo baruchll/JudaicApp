@@ -15,7 +15,12 @@
         tools:layout="@layout/fragment_siddur" />
     <fragment
         android:id="@+id/limud_yomi"
-        android:name="com.example.judaicapp.LimudYomi"
+        android:name="com.example.judaicapp.screens.LimudYomi"
         android:label="@string/menu_limud_yomi"
         tools:layout="@layout/fragment_limud_yomi" />
+    <fragment
+        android:id="@+id/compassActivity2"
+        android:name="com.example.judaicapp.screens.others.JlemCompass.CompassActivity"
+        android:label="activity_compass"
+        tools:layout="@layout/activity_compass" />
 </navigation>

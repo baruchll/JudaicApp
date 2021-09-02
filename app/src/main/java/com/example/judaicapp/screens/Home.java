@@ -180,8 +180,8 @@ public class Home extends Fragment {
         compass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goToCompass = new Intent(v.getContext(), CompassActivity.class);
-                startActivity(goToCompass);
+                getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment,new CompassActivity()).commit();
+
             }
         });
 

@@ -1,5 +1,6 @@
 package com.example.judaicapp.screens.others.JlemCompass;
 
+import static android.content.Context.MODE_PRIVATE;
 import static android.view.View.INVISIBLE;
 
 import android.Manifest;
@@ -13,9 +14,11 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
@@ -29,12 +32,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
 import com.example.judaicapp.R;
 
 import java.util.Locale;
 
-public class CompassActivity extends AppCompatActivity {
+public class CompassActivity extends Fragment {
     private static final String TAG = CompassActivity.class.getSimpleName();
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private final int REQUEST_LOCATION_PERMISSION = 99;
@@ -49,31 +54,30 @@ public class CompassActivity extends AppCompatActivity {
     GPSTracker gps;
     private final int RC_Permission = 1221;
 
+    @Nullable
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_compass);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        setUserChanges(getIntent());
+        View view= inflater.inflate(R.layout.activity_compass, container, false);
+
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        setUserChanges(getActivity().getIntent());
 
         checkLocationPermission();
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(ContextCompat.getDrawable(this, R.drawable.ic_arrow_back));
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
         /////////////////////////////////////////////////
-        prefs = getSharedPreferences("", MODE_PRIVATE);
-        gps = new GPSTracker(this);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        prefs = getActivity().getSharedPreferences("", MODE_PRIVATE);
+        gps = new GPSTracker(this.getContext());
+        getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         //////////////////////////////////////////
-        jlemIndicator = findViewById(R.id.jlem_indicator);
-        imageDial = findViewById(R.id.dial);
-        tvAngle = findViewById(R.id.angle);
-        tvYourLocation = findViewById(R.id.your_location);
+        jlemIndicator = view.findViewById(R.id.jlem_indicator);
+        imageDial = view.findViewById(R.id.dial);
+        tvAngle = view.findViewById(R.id.angle);
+        tvYourLocation = view.findViewById(R.id.your_location);
 
         //////////////////////////////////////////
         jlemIndicator.setVisibility(INVISIBLE);
@@ -82,29 +86,26 @@ public class CompassActivity extends AppCompatActivity {
         setupCompass();
     }
 
-
-
-
     public boolean checkLocationPermission() {
-        if (ContextCompat.checkSelfPermission(this,
+        if (ContextCompat.checkSelfPermission(getActivity(),
                 android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
 
             // Should we show an explanation?
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+            if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
                     android.Manifest.permission.ACCESS_FINE_LOCATION)) {
 
                 // Show an explanation to the user *asynchronously* -- don't block
                 // this thread waiting for the user's response! After the user
                 // sees the explanation, try again to request the permission.
-                new AlertDialog.Builder(this)
+                new AlertDialog.Builder(getContext())
                         .setTitle(R.string.title_location_permission)
                         .setMessage(R.string.text_location_permission)
                         .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //Prompt the user once explanation has been shown
-                                ActivityCompat.requestPermissions(CompassActivity.this,
+                                ActivityCompat.requestPermissions(getActivity(),
                                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                                         MY_PERMISSIONS_REQUEST_LOCATION);
                             }
@@ -115,7 +116,7 @@ public class CompassActivity extends AppCompatActivity {
 
             } else {
                 // No explanation needed, we can request the permission.
-                ActivityCompat.requestPermissions(this,
+                ActivityCompat.requestPermissions(getActivity(),
                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                         MY_PERMISSIONS_REQUEST_LOCATION);
             }
@@ -130,18 +131,18 @@ public class CompassActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onStart() {
+    public void onStart() {
         super.onStart();
         Log.d(TAG, "start compass");
         if (compass != null) {
-            compass.start(this);
+            compass.start(getActivity());
         }
 
     }
 
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         if (compass != null) {
             compass.stop();
@@ -149,16 +150,16 @@ public class CompassActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
 
         if (compass != null) {
-            compass.start(this);
+            compass.start(getActivity());
         }
     }
 
     @Override
-    protected void onStop() {
+    public void onStop() {
         super.onStop();
         Log.d(TAG, "stop compass");
         if (compass != null) {
@@ -170,70 +171,68 @@ public class CompassActivity extends AppCompatActivity {
         }
     }
 
-
-
     private void setUserChanges(Intent intent) {
         try {
             // Toolbar Title
-            ((Toolbar) findViewById(R.id.toolbar)).setTitle(
+            ((Toolbar)getView(). findViewById(R.id.toolbar)).setTitle(
                     (intent.getExtras() != null &&
                             intent.getExtras().containsKey(Constants.TOOLBAR_TITLE)) ?
                             intent.getExtras().getString(Constants.TOOLBAR_TITLE) : getString(R.string.app_name));
 
             // Toolbar Title Color
-            ((Toolbar) findViewById(R.id.toolbar)).setTitleTextColor(
+            ((Toolbar) getView().findViewById(R.id.toolbar)).setTitleTextColor(
                     (intent.getExtras() != null &&
                             intent.getExtras().containsKey(Constants.TOOLBAR_TITLE_COLOR)) ?
                             Color.parseColor(intent.getExtras().getString(Constants.TOOLBAR_TITLE_COLOR)) :
                             Color.parseColor("#" + Integer.toHexString(
-                                    ContextCompat.getColor(this, android.R.color.white))));
+                                    ContextCompat.getColor(getActivity(), android.R.color.white))));
 
             // Toolbar Background Color
-            findViewById(R.id.toolbar).setBackgroundColor(
+            getView().findViewById(R.id.toolbar).setBackgroundColor(
                     (intent.getExtras() != null &&
                             intent.getExtras().containsKey(Constants.TOOLBAR_BG_COLOR)) ?
                             Color.parseColor(intent.getExtras().getString(Constants.TOOLBAR_BG_COLOR)) :
                             Color.parseColor("#" + Integer.toHexString(
-                                    ContextCompat.getColor(this, R.color.blue))));
+                                    ContextCompat.getColor(getActivity(), R.color.blue))));
 
 
 
             // Root Background Color
-            findViewById(R.id.root).setBackgroundColor(
+            getView().findViewById(R.id.root).setBackgroundColor(
                     (intent.getExtras() != null &&
                             intent.getExtras().containsKey(Constants.COMPASS_BG_COLOR)) ?
                             Color.parseColor(intent.getExtras().getString(Constants.COMPASS_BG_COLOR)) :
                             Color.parseColor("#" + Integer.toHexString(
-                                    ContextCompat.getColor(this, R.color.blue))));
+                                    ContextCompat.getColor(getActivity(), R.color.blue))));
 
             // jlem Degrees Text Color
-            ((TextView) findViewById(R.id.angle)).setTextColor(
+            ((TextView) getView().findViewById(R.id.angle)).setTextColor(
                     (intent.getExtras() != null &&
                             intent.getExtras().containsKey(Constants.ANGLE_TEXT_COLOR)) ?
                             Color.parseColor(intent.getExtras().getString(Constants.ANGLE_TEXT_COLOR)) :
                             Color.parseColor("#" + Integer.toHexString(
-                                    ContextCompat.getColor(this, android.R.color.white))));
+                                    ContextCompat.getColor(getActivity(), android.R.color.white))));
 
             // Dial
-            ((ImageView) findViewById(R.id.dial)).setImageResource(
+            ((ImageView) getView().findViewById(R.id.dial)).setImageResource(
                     (intent.getExtras() != null &&
                             intent.getExtras().containsKey(Constants.DRAWABLE_DIAL)) ?
                             intent.getExtras().getInt(Constants.DRAWABLE_DIAL) : R.drawable.dial);
 
             // Jlem Indicator
-            ((ImageView) findViewById(R.id.jlem_indicator)).setImageResource(
+            ((ImageView) getView().findViewById(R.id.jlem_indicator)).setImageResource(
                     (intent.getExtras() != null &&
                             intent.getExtras().containsKey(Constants.DRAWABLE_jlem)) ?
                             intent.getExtras().getInt(Constants.DRAWABLE_jlem) : R.drawable.jlem);
 
             // Footer Image
-            findViewById(R.id.footer_image).setVisibility(
+            getView().findViewById(R.id.footer_image).setVisibility(
                     (intent.getExtras() != null &&
                             intent.getExtras().containsKey(Constants.FOOTER_IMAGE_VISIBLE)) ?
                             intent.getExtras().getInt(Constants.FOOTER_IMAGE_VISIBLE) : View.VISIBLE);
 
             // Your Location TextView
-            findViewById(R.id.your_location).setVisibility(
+            getView().findViewById(R.id.your_location).setVisibility(
                     (intent.getExtras() != null &&
                             intent.getExtras().containsKey(Constants.LOCATION_TEXT_VISIBLE)) ?
                             intent.getExtras().getInt(Constants.LOCATION_TEXT_VISIBLE) : View.VISIBLE);
@@ -251,7 +250,7 @@ public class CompassActivity extends AppCompatActivity {
             tvAngle.setText(getResources().getString(R.string.msg_permission_not_granted_yet));
             tvYourLocation.setText(getResources().getString(R.string.msg_permission_not_granted_yet));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                ActivityCompat.requestPermissions(this,
+                ActivityCompat.requestPermissions(getActivity(),
                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
                                 Manifest.permission.ACCESS_COARSE_LOCATION},
                         RC_Permission);
@@ -260,7 +259,7 @@ public class CompassActivity extends AppCompatActivity {
             }
         }
 
-        compass = new Compass(this);
+        compass = new Compass(getContext());
         Compass.CompassListener cl = new Compass.CompassListener() {
 
             @Override
@@ -370,8 +369,8 @@ public class CompassActivity extends AppCompatActivity {
 
                 fetch_GPS();
             } else {
-                Toast.makeText(getApplicationContext(), getResources().getString(R.string.toast_permission_required), Toast.LENGTH_LONG).show();
-                finish();
+                Toast.makeText(getContext(), getResources().getString(R.string.toast_permission_required), Toast.LENGTH_LONG).show();
+
             }
         }
 
@@ -406,11 +405,7 @@ public class CompassActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
 
-        return true;
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -422,7 +417,7 @@ public class CompassActivity extends AppCompatActivity {
 
     public void fetch_GPS() {
         double result;
-        gps = new GPSTracker(this);
+        gps = new GPSTracker(getActivity());
         if (gps.canGetLocation()) {
             double myLat = gps.getLatitude();
             double myLng = gps.getLongitude();

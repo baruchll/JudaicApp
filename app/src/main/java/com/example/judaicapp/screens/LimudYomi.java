@@ -1,4 +1,4 @@
-package com.example.judaicapp;
+package com.example.judaicapp.screens;
 
 import android.os.Bundle;
 

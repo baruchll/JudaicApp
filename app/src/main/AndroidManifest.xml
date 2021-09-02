@@ -11,9 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JudaicApp" >
-        <activity
-            android:name=".screens.others.JlemCompass.CompassActivity"
-            android:exported="true" />
+
         <activity
             android:name=".screens.Siddurim.EdotSiddur"
             android:exported="true" />
