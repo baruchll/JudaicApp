@@ -12,12 +12,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.judaicapp.R;
 import com.example.judaicapp.screens.Siddurim.AshkenazSiddur;
 import com.example.judaicapp.screens.Siddurim.EdotSiddur;
 import com.example.judaicapp.screens.Siddurim.SefardSiddur;
 import com.example.judaicapp.screens.others.JlemCompass.CompassActivity;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Objects;
+import java.util.concurrent.Executor;
 
 
 public class Home extends Fragment {
@@ -26,6 +40,8 @@ public class Home extends Fragment {
     Button ashkenaz, sefard, edot;
     Button daf_yomi, mishna_yomi, shtayim_mikrah, tehillim, shiurim;
     Button rav_chat, compass, calender, tefilllin, zmanai_hayom;
+    TextView halacha_yomit;
+    String halacha_yomit_arr[];
 
 
     @Override
@@ -37,10 +53,24 @@ public class Home extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        halachayomit();
         init();
         close();
-
     }
+
+    private void halachayomit() {
+        halacha_yomit = requireView().findViewById(R.id.halacha_yomit);
+        Calendar cal = Calendar.getInstance();
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        halacha_yomit_arr = getResources().getStringArray(R.array.halacha_yomit);
+        for (int i = 1; i < 31; i++) {
+            if (i == day){
+                halacha_yomit.setText(halacha_yomit_arr[i]);
+            }
+
+        }
+    }
+
 
     private void close() {
         ashkenaz.setVisibility(View.GONE);
