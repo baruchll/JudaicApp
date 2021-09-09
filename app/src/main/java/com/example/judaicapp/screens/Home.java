@@ -13,25 +13,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.judaicapp.R;
 import com.example.judaicapp.screens.Siddurim.AshkenazSiddur;
 import com.example.judaicapp.screens.Siddurim.EdotSiddur;
 import com.example.judaicapp.screens.Siddurim.SefardSiddur;
-import com.example.judaicapp.screens.others.JlemCompass.CompassActivity;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.example.judaicapp.screens.others.JlemCompass.CompassFragment;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Objects;
-import java.util.concurrent.Executor;
 
 
 public class Home extends Fragment {
@@ -55,7 +44,7 @@ public class Home extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         halachayomit();
         init();
-        close();
+        initclose();
     }
 
     private void halachayomit() {
@@ -72,7 +61,7 @@ public class Home extends Fragment {
     }
 
 
-    private void close() {
+    private void initclose() {
         ashkenaz.setVisibility(View.GONE);
         sefard.setVisibility(View.GONE);
         edot.setVisibility(View.GONE);
@@ -133,7 +122,7 @@ public class Home extends Fragment {
         siddur.setOnClickListener(v -> {
 
             if (ashkenaz.getVisibility() == View.GONE) {
-                close();
+                initclose();
                 siddur.setLayoutParams(param24);
                 limud.setLayoutParams(param24);
                 others.setLayoutParams(param24);
@@ -142,7 +131,7 @@ public class Home extends Fragment {
                 edot.setVisibility(View.VISIBLE);
             }
             else {
-                close();
+                initclose();
                 siddur.setLayoutParams(param48);
                 limud.setLayoutParams(param48);
                 others.setLayoutParams(param48);
@@ -152,7 +141,7 @@ public class Home extends Fragment {
         limud.setOnClickListener(v -> {
 
             if (daf_yomi.getVisibility() == View.GONE) {
-                close();
+                initclose();
                 limud.setLayoutParams(param18);
                 siddur.setLayoutParams(param18);
                 others.setLayoutParams(param18);
@@ -163,7 +152,7 @@ public class Home extends Fragment {
                 shiurim.setVisibility(View.VISIBLE);
             }
             else {
-                close();
+                initclose();
                 siddur.setLayoutParams(param48);
                 limud.setLayoutParams(param48);
                 others.setLayoutParams(param48);
@@ -173,7 +162,7 @@ public class Home extends Fragment {
         others.setOnClickListener(v -> {
 
             if (tefilllin.getVisibility() == View.GONE) {
-                close();
+                initclose();
                 others.setLayoutParams(param18);
                 siddur.setLayoutParams(param18);
                 limud.setLayoutParams(param18);
@@ -184,7 +173,7 @@ public class Home extends Fragment {
                 zmanai_hayom.setVisibility(View.VISIBLE);
             }
             else {
-                close();
+                initclose();
                 siddur.setLayoutParams(param48);
                 limud.setLayoutParams(param48);
                 others.setLayoutParams(param48);
@@ -210,7 +199,7 @@ public class Home extends Fragment {
         compass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment,new CompassActivity()).commit();
+                getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment,new CompassFragment()).commit();
 
             }
         });

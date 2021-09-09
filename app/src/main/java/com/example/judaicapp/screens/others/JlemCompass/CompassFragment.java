@@ -15,7 +15,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,18 +28,16 @@ import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 
 import com.example.judaicapp.R;
 
 import java.util.Locale;
 
-public class CompassActivity extends Fragment {
-    private static final String TAG = CompassActivity.class.getSimpleName();
+public class CompassFragment extends Fragment {
+    private static final String TAG = CompassFragment.class.getSimpleName();
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private final int REQUEST_LOCATION_PERMISSION = 99;
     private Compass compass;
@@ -58,7 +55,7 @@ public class CompassActivity extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view= inflater.inflate(R.layout.activity_compass, container, false);
+        View view= inflater.inflate(R.layout.fragment_compass, container, false);
 
         return view;
     }
