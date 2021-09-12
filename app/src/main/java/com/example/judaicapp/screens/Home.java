@@ -15,10 +15,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.judaicapp.R;
-import com.example.judaicapp.screens.Siddurim.AshkenazSiddur;
+import com.example.judaicapp.screens.Siddurim.ashkenaz.AshkenazSiddur;
 import com.example.judaicapp.screens.Siddurim.EdotSiddur;
 import com.example.judaicapp.screens.Siddurim.SefardSiddur;
 import com.example.judaicapp.screens.others.JlemCompass.CompassFragment;
+import com.example.judaicapp.screens.others.Zmanim.Zmanim;
+import com.example.judaicapp.screens.others.rav_chat.ChatLogin;
 
 import java.util.Calendar;
 
@@ -30,7 +32,7 @@ public class Home extends Fragment {
     Button daf_yomi, mishna_yomi, shtayim_mikrah, tehillim, shiurim;
     Button rav_chat, compass, calender, tefilllin, zmanai_hayom;
     TextView halacha_yomit;
-    String halacha_yomit_arr[];
+    String[] halacha_yomit_arr;
 
 
     @Override
@@ -201,6 +203,20 @@ public class Home extends Fragment {
             public void onClick(View v) {
                 getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment,new CompassFragment()).commit();
 
+            }
+        });
+        rav_chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToRavChat = new Intent(v.getContext(), ChatLogin.class);
+                startActivity(goToRavChat);
+            }
+        });
+        zmanai_hayom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //צריך לעבור מכאן לפרגמנט
+                getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Zmanim()).commit();
             }
         });
 

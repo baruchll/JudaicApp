@@ -19,7 +19,7 @@
         android:label="@string/menu_limud_yomi"
         tools:layout="@layout/fragment_limud_yomi" />
     <fragment
-        android:id="@+id/compassActivity"
+        android:id="@+id/compassFragment"
         android:name="com.example.judaicapp.screens.others.JlemCompass.CompassFragment"
         android:label="activity_compass"
         tools:layout="@layout/fragment_compass" />
@@ -28,4 +28,13 @@
         android:name="com.example.judaicapp.screens.ShabbosScreen"
         android:label="activity_shabbos_screen"
         tools:layout="@layout/activity_shabbos_screen" />
+    <fragment
+        android:id="@+id/chat"
+        android:name="com.example.judaicapp.screens.others.rav_chat.chat_screens.Chat"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" />
+    <fragment
+        android:id="@+id/Zmanin"
+        android:name="com.example.judaicapp.screens.others.Zmanim.Zmanim"
+        tools:layout="@layout/fragment_zmanim" />
 </navigation>
