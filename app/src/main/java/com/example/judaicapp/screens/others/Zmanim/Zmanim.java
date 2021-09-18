@@ -2,6 +2,8 @@ package com.example.judaicapp.screens.others.Zmanim;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -40,9 +42,8 @@ public class Zmanim extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         zmanimList = requireView().findViewById(R.id.zmanim_list);
 
         ArrayList<String> categories = new ArrayList<>();
@@ -66,6 +67,13 @@ public class Zmanim extends Fragment {
         ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, categories);
 
         zmanimList.setAdapter(arrayAdapter);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_zmanim, container, false);
     }
 
