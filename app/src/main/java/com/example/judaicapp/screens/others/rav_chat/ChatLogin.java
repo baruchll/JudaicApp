@@ -12,6 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -35,33 +37,38 @@ public class ChatLogin extends Fragment {
     private SharedPreferences sharedPreferences;
     private Button login;
 
-    private View init(LayoutInflater inflater,ViewGroup viewGroup) {
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return init(inflater,container);
+    }
 
-        View view=   inflater.inflate(R.layout.activity_chat_login, viewGroup, false);
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initComponents();
+    }
+    private View init(LayoutInflater inflater,ViewGroup viewGroup) {
+        View view=   inflater.inflate(R.layout.splash_screen, viewGroup, false);
 
 
         sharedPreferences = view.getContext().getSharedPreferences("userData", MODE_PRIVATE);
-
-
-        if (sharedPreferences.getString("phone", "").length() > 0) {
-            navToChat();
-        } else {
-            return inflater.inflate(R.layout.activity_chat_login, viewGroup, false);
+        if (sharedPreferences.getString("phone", "").length() == 0) {
+            view=   inflater.inflate(R.layout.activity_chat_login, viewGroup, false);
         }
-        return inflater.inflate(R.layout.splash_screen, viewGroup, false);
+
+        return  view;
 
     }
-    private void goToNextActivity() {
-        //זה לא עובר לעבור לפרגמנט
-        navToChat();
-    }
+
     public void navToChat(){
-        db.collection("user").document(sharedPreferences.getString("phone", "")).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+        db.collection("users").document(sharedPreferences.getString("phone", "")).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 try {
                     ChatUtils.user = documentSnapshot.toObject(User.class);
                     Toast.makeText(getContext(), "success", Toast.LENGTH_LONG).show();
+
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.chat_layout_fragment,new Chat()).commit();
                 }catch (Exception e){
 
@@ -73,57 +80,57 @@ public class ChatLogin extends Fragment {
 
     private void initComponents(){
 
+        if (sharedPreferences.getString("phone", "").length() > 0) {
+            ProgressBar progressBar=getView().findViewById(R.id.progressBar);
+            progressBar.setVisibility(View.GONE);
+            navToChat();
+        } else {
+            try {
+                initAutoComplete();
+                phone = getView().findViewById(R.id.phone_number);
+                name = getView().findViewById(R.id.name);
+                password = getView().findViewById(R.id.password);
+                login =getView().findViewById(R.id.login_button);
+                login.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        LinearLayout linearLayout=getView().findViewById(R.id.linearLayout);
+                        linearLayout.setVisibility(View.GONE);
+                        User user = new User(name.getText().toString(),
+                                password.getText().toString(),
+                                phone.getText().toString(),
+                                gender.getText().toString());
+                        db.
+                                collection("users").
+                                document(phone.getText().toString()).
+                                set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                sharedPreferences.edit().putString("phone", phone.getText().toString()).apply();
+                                ChatUtils.user = user;
+                                LinearLayout linearLayout=getView().findViewById(R.id.linearLayout);
+                                linearLayout.setVisibility(View.GONE);
+                                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.chat_layout_fragment,new ChatLogin()).commit();
 
 
+                            }
+                        });
 
-        try {
-            initAutoComplete();
-            phone = getView().findViewById(R.id.phone_number);
-            name = getView().findViewById(R.id.name);
-            password = getView().findViewById(R.id.password);
-            login =getView().findViewById(R.id.login_button);
-            login.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    User user = new User(name.getText().toString(),
-                            password.getText().toString(),
-                            phone.getText().toString(),
-                            gender.getText().toString());
-                    db.
-                            collection("users").
-                            document(phone.getText().toString()).
-                            set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            sharedPreferences.edit().putString("phone", phone.getText().toString()).apply();
-                            ChatUtils.user = user;
-                            goToNextActivity();
+                    }
+                });
+            }catch (Exception e){
 
-                        }
-                    });
-
-                }
-            });
-        }catch (Exception e){
-
+            }
         }
 
+
+
+
     }
 
 
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        return init(inflater,container);
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        initComponents();
-    }
 
     private void initAutoComplete() {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
