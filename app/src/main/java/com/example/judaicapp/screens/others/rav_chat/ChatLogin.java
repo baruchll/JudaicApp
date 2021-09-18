@@ -42,6 +42,7 @@ public class ChatLogin extends Fragment {
 
         sharedPreferences = view.getContext().getSharedPreferences("userData", MODE_PRIVATE);
 
+
         if (sharedPreferences.getString("phone", "").length() > 0) {
             navToChat();
         } else {
