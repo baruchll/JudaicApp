@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "369701685794",
+    "project_id": "judaicapp-62d9f",
+    "storage_bucket": "judaicapp-62d9f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369701685794:android:060a188d38a7565348987b",
+        "android_client_info": {
+          "package_name": "com.example.judaicapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369701685794-nlipoje5mrmss1dtb3lejjnc8bbscp6i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXsS--098f2SjpahKqab1mndYK1g_E2DA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369701685794-nlipoje5mrmss1dtb3lejjnc8bbscp6i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
