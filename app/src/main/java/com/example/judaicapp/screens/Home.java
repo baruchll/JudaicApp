@@ -208,8 +208,8 @@ public class Home extends Fragment {
         rav_chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goToRavChat = new Intent(v.getContext(), ChatLogin.class);
-                startActivity(goToRavChat);
+                getParentFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,new ChatLogin()).commit();
+
             }
         });
         zmanai_hayom.setOnClickListener(new View.OnClickListener() {
