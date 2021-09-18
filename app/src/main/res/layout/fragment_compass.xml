@@ -16,21 +16,25 @@
         android:layout_marginTop="3dp">
 
         <ImageView
-            android:id="@+id/dial"
-            android:layout_width="@dimen/dial"
-            android:layout_height="@dimen/dial"
-            android:layout_centerInParent="true"
-            android:contentDescription="@string/compass_dial"
-            android:src="@drawable/dial" />
-
-        <ImageView
             android:id="@+id/jlem_indicator"
             android:layout_width="@dimen/jlem"
             android:layout_height="@dimen/jlem"
             android:layout_centerInParent="true"
             android:contentDescription="@string/compass_hands"
-            android:scaleType="fitXY"
-            android:src="@drawable/jlem" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/jlem"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/dial"
+            android:layout_width="@dimen/dial"
+            android:layout_height="@dimen/dial"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/compass_dial"
+            android:src="@drawable/dial"
+            android:visibility="visible" />
+
+
     </RelativeLayout>
 
 

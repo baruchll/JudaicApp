@@ -44,7 +44,7 @@ public class Zmanim extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        zmanimList = requireView().findViewById(R.id.zmanim_list);
+        zmanimList = getView().findViewById(R.id.zmanim_list);
 
         ArrayList<String> categories = new ArrayList<>();
         Format time = new SimpleDateFormat("HH:mm:ss");
@@ -68,6 +68,7 @@ public class Zmanim extends Fragment {
 
         zmanimList.setAdapter(arrayAdapter);
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
