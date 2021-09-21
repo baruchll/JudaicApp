@@ -19,7 +19,6 @@
         <activity
             android:name=".screens.Siddurim.SefardSiddur"
             android:exported="true" />
-        <activity android:name=".screens.ShabbosScreen" />
         <activity
             android:name=".HomeScreen"
             android:label="@string/title_activity_home_screen"
@@ -29,6 +28,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".screens.ShabbosScreen">
+
         </activity>
 
 

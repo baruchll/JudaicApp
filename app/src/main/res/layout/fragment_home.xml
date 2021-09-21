@@ -24,10 +24,10 @@
         android:id="@+id/textView4"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#153DD1"
+        android:background="@color/one"
         android:text="@string/daily_halacha_header"
         android:textAlignment="center"
-        android:textColor="#B388FF"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
@@ -39,7 +39,7 @@
         android:id="@+id/halacha_yomit"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#153DD1"
+        android:background="@color/one"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,11 +69,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="48"
-                android:backgroundTint="#2434B1"
+                android:backgroundTint="@color/two"
                 android:fadingEdge="none"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/siddur"
+                android:textColor="@color/black"
                 app:cornerRadius="0dip" />
 
             <Button
@@ -81,11 +82,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="24"
-                android:backgroundTint="#2434B1"
+                android:backgroundTint="@color/two"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/ashkenaz_siddur"
                 android:textAlignment="textStart"
+                android:textColor="@color/black"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -94,11 +96,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="24"
-                android:backgroundTint="#2434B1"
+                android:backgroundTint="@color/two"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/sefard_siddur"
                 android:textAlignment="textStart"
+                android:textColor="@color/black"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -107,11 +110,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="24"
-                android:backgroundTint="#2434B1"
+                android:backgroundTint="@color/two"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/edut_hamizrach_siddur"
                 android:textAlignment="textStart"
+                android:textColor="@color/black"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -120,10 +124,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="48"
-                android:backgroundTint="#342C91"
+                android:backgroundTint="@color/three"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/limud_yomi"
+                android:textColor="@color/black"
                 app:cornerRadius="0dip" />
 
             <Button
@@ -131,11 +136,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="18"
-                android:backgroundTint="#342C91"
+                android:backgroundTint="@color/three"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/daf_yomi"
                 android:textAlignment="textStart"
+                android:textColor="@color/black"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -144,11 +150,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="18"
-                android:backgroundTint="#342C91"
+                android:backgroundTint="@color/three"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/mishna_yomi"
                 android:textAlignment="textStart"
+                android:textColor="@color/black"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -157,11 +164,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="18"
-                android:backgroundTint="#342C91"
+                android:backgroundTint="@color/three"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/shtayim_mikrah"
                 android:textAlignment="textStart"
+                android:textColor="@color/black"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -170,11 +178,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="18"
-                android:backgroundTint="#342C91"
+                android:backgroundTint="@color/three"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/tehillim"
                 android:textAlignment="textStart"
+                android:textColor="@color/black"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -183,11 +192,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="18"
-                android:backgroundTint="#342C91"
+                android:backgroundTint="@color/three"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/recorded_shiurim"
                 android:textAlignment="textStart"
+                android:textColor="@color/black"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -196,10 +206,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="48"
-                android:backgroundTint="#432371"
+                android:backgroundTint="@color/four"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/other_functions"
+                android:textColor="@color/black"
                 app:cornerRadius="0dip" />
 
             <Button
@@ -207,11 +218,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="18"
-                android:backgroundTint="#432371"
+                android:backgroundTint="@color/four"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/chat_with_rav"
                 android:textAlignment="textStart"
+                android:textColor="@color/black"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -220,11 +232,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="18"
-                android:backgroundTint="#432371"
+                android:backgroundTint="@color/four"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/jerusalem_compass"
                 android:textAlignment="textStart"
+                android:textColor="@color/black"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -233,11 +246,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="18"
-                android:backgroundTint="#432371"
+                android:backgroundTint="@color/four"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/jewish_calender"
                 android:textAlignment="textStart"
+                android:textColor="@color/black"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -246,24 +260,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="18"
-                android:backgroundTint="#432371"
+                android:backgroundTint="@color/four"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/tefillin_guide"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
                 android:visibility="gone"
-                app:cornerRadius="0dp"
-                android:textAlignment="textStart" />
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/zmanai_hayom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="18"
-                android:backgroundTint="#432371"
+                android:backgroundTint="@color/four"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/daily_prayer_times"
                 android:textAlignment="textStart"
+                android:textColor="@color/black"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
         </LinearLayout>

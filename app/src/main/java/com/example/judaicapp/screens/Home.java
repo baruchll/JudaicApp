@@ -50,7 +50,7 @@ public class Home extends Fragment {
     }
 
     private void halachayomit() {
-        halacha_yomit = requireView().findViewById(R.id.halacha_yomit);
+        halacha_yomit = getView().findViewById(R.id.halacha_yomit);
         Calendar cal = Calendar.getInstance();
         int day = cal.get(Calendar.DAY_OF_MONTH);
         halacha_yomit_arr = getResources().getStringArray(R.array.halacha_yomit);
@@ -99,22 +99,22 @@ public class Home extends Fragment {
                 18.0f
         );
 
-        siddur = requireView().findViewById(R.id.siddur_btn);
-        limud = requireView().findViewById(R.id.limud_yomi_btn);
-        others = requireView().findViewById(R.id.other_functions_btn);
-        ashkenaz = requireView().findViewById(R.id.ashkenaz);
-        sefard = requireView().findViewById(R.id.sefard);
-        edot = requireView().findViewById(R.id.edut);
-        rav_chat = requireView().findViewById(R.id.rav_chat);
-        calender = requireView().findViewById(R.id.jewish_calender);
-        compass = requireView().findViewById(R.id.compass);
-        tefilllin = requireView().findViewById(R.id.tefillin_guide);
-        zmanai_hayom = requireView().findViewById(R.id.zmanai_hayom);
-        daf_yomi = requireView().findViewById(R.id.daf_yomi);
-        mishna_yomi = requireView().findViewById(R.id.mishna_yomi);
-        tehillim = requireView().findViewById(R.id.tehillim);
-        shiurim = requireView().findViewById(R.id.recorded_shiurim);
-        shtayim_mikrah = requireView().findViewById(R.id.shtayim_mikra);
+        siddur = getView().findViewById(R.id.siddur_btn);
+        limud = getView().findViewById(R.id.limud_yomi_btn);
+        others = getView().findViewById(R.id.other_functions_btn);
+        ashkenaz = getView().findViewById(R.id.ashkenaz);
+        sefard = getView().findViewById(R.id.sefard);
+        edot = getView().findViewById(R.id.edut);
+        rav_chat = getView().findViewById(R.id.rav_chat);
+        calender = getView().findViewById(R.id.jewish_calender);
+        compass = getView().findViewById(R.id.compass);
+        tefilllin = getView().findViewById(R.id.tefillin_guide);
+        zmanai_hayom = getView().findViewById(R.id.zmanai_hayom);
+        daf_yomi = getView().findViewById(R.id.daf_yomi);
+        mishna_yomi = getView().findViewById(R.id.mishna_yomi);
+        tehillim = getView().findViewById(R.id.tehillim);
+        shiurim = getView().findViewById(R.id.recorded_shiurim);
+        shtayim_mikrah = getView().findViewById(R.id.shtayim_mikra);
 
 
         siddur.setLayoutParams(param48);
