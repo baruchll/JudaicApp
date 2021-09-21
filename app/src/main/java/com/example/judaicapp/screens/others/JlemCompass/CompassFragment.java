@@ -77,8 +77,7 @@ public class CompassFragment extends Fragment {
         tvYourLocation = view.findViewById(R.id.your_location);
 
         //////////////////////////////////////////
-        jlemIndicator.setVisibility(INVISIBLE);
-        jlemIndicator.setVisibility(View.GONE);
+        jlemIndicator.setVisibility(View.VISIBLE);
 
         setupCompass();
     }
