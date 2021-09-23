@@ -37,4 +37,9 @@
         android:id="@+id/Zmanin"
         android:name="com.example.judaicapp.screens.others.Zmanim.Zmanim"
         tools:layout="@layout/fragment_zmanim" />
+    <fragment
+        android:id="@+id/ashkenazFragment"
+        android:name="com.example.judaicapp.screens.Siddurim.Ashkenaz"
+        android:label="fragment_ashkenaz"
+        tools:layout="@layout/fragment_ashkenaz" />
 </navigation>

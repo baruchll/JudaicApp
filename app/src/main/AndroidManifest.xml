@@ -16,6 +16,7 @@
         <activity
             android:name=".screens.Siddurim.EdotSiddur"
             android:exported="true" />
+
         <activity
             android:name=".screens.Siddurim.SefardSiddur"
             android:exported="true" />

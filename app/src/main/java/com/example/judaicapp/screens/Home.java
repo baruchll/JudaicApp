@@ -1,6 +1,7 @@
 package com.example.judaicapp.screens;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.judaicapp.R;
+import com.example.judaicapp.screens.Siddurim.Ashkenaz;
 import com.example.judaicapp.screens.Siddurim.ashkenaz.AshkenazSiddur;
 import com.example.judaicapp.screens.Siddurim.EdotSiddur;
 import com.example.judaicapp.screens.Siddurim.SefardSiddur;
@@ -34,6 +36,11 @@ public class Home extends Fragment {
     TextView halacha_yomit;
     String[] halacha_yomit_arr;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        shabbos();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,6 +54,17 @@ public class Home extends Fragment {
         halachayomit();
         init();
         initclose();
+
+    }
+
+    private void shabbos() {
+        Calendar cal = Calendar.getInstance();
+        int shabbos = cal.get(Calendar.DAY_OF_WEEK);
+        if (shabbos == Calendar.SATURDAY){
+            Intent intent = new Intent(this.getContext(), ShabbosScreen.class);
+            startActivity(intent);
+
+        }
     }
 
     private void halachayomit() {
@@ -57,6 +75,7 @@ public class Home extends Fragment {
         for (int i = 1; i < 31; i++) {
             if (i == day){
                 halacha_yomit.setText(halacha_yomit_arr[i]);
+                halacha_yomit.setTextColor(Color.parseColor("#FFFFFF"));
             }
 
         }
@@ -131,8 +150,7 @@ public class Home extends Fragment {
                 ashkenaz.setVisibility(View.VISIBLE);
                 sefard.setVisibility(View.VISIBLE);
                 edot.setVisibility(View.VISIBLE);
-            }
-            else {
+            } else {
                 initclose();
                 siddur.setLayoutParams(param48);
                 limud.setLayoutParams(param48);
@@ -152,8 +170,7 @@ public class Home extends Fragment {
                 shtayim_mikrah.setVisibility(View.VISIBLE);
                 tehillim.setVisibility(View.VISIBLE);
                 shiurim.setVisibility(View.VISIBLE);
-            }
-            else {
+            } else {
                 initclose();
                 siddur.setLayoutParams(param48);
                 limud.setLayoutParams(param48);
@@ -173,18 +190,16 @@ public class Home extends Fragment {
                 compass.setVisibility(View.VISIBLE);
                 tefilllin.setVisibility(View.VISIBLE);
                 zmanai_hayom.setVisibility(View.VISIBLE);
-            }
-            else {
+            } else {
                 initclose();
                 siddur.setLayoutParams(param48);
                 limud.setLayoutParams(param48);
                 others.setLayoutParams(param48);
             }
-    });
+        });
 
         ashkenaz.setOnClickListener(v -> {
-            Intent goToAshkenaz = new Intent(v.getContext(), AshkenazSiddur.class);
-            startActivity(goToAshkenaz);
+            getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Ashkenaz()).commit();
         });
 
         sefard.setOnClickListener(v -> {
@@ -198,29 +213,34 @@ public class Home extends Fragment {
             startActivity(goToEdot);
         });
 
+
+
         compass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment,new CompassFragment()).commit();
+                getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new CompassFragment()).commit();
 
             }
         });
         rav_chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getParentFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,new ChatLogin()).commit();
+                getParentFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new ChatLogin()).commit();
 
             }
         });
         zmanai_hayom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //צריך לעבור מכאן לפרגמנט
                 getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Zmanim()).commit();
             }
         });
 
 
+
+
     }
+
+
 
 }
