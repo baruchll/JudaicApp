@@ -123,9 +123,6 @@ public class CompassFragment extends Fragment {
     }
 
 
-
-
-
     @Override
     public void onStart() {
         super.onStart();

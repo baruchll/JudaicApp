@@ -41,7 +41,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="הזן סיסמה"
-            android:inputType="textPersonName|textPassword" />
+            android:inputType="textPersonName|textPassword"
+            android:minHeight="48dp" />
 
         <EditText
             android:id="@+id/phone_number"
@@ -49,13 +50,15 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="מספר טלפון"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
 
         <AutoCompleteTextView
             android:id="@+id/gender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="בחר מגדר" />
+            android:hint="בחר מגדר"
+            android:minHeight="48dp" />
 
         <Button
             android:id="@+id/login_button"
