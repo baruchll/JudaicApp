@@ -16,7 +16,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.judaicapp.R;
-import com.example.judaicapp.screens.Siddurim.Ashkenaz;
 import com.example.judaicapp.screens.Siddurim.ashkenaz.AshkenazSiddur;
 import com.example.judaicapp.screens.Siddurim.EdotSiddur;
 import com.example.judaicapp.screens.Siddurim.SefardSiddur;

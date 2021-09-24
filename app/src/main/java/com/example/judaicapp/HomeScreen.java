@@ -1,9 +1,19 @@
 package com.example.judaicapp;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
+import android.widget.Toast;
 
+import com.example.judaicapp.screens.BanScreen;
+import com.example.judaicapp.screens.others.rav_chat.ChatUtils;
+import com.example.judaicapp.screens.others.rav_chat.chat_screens.Chat;
+import com.example.judaicapp.screens.others.rav_chat.objects.User;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -14,9 +24,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class HomeScreen extends AppCompatActivity {
-
+    private SharedPreferences sharedPreferences;
     private AppBarConfiguration mAppBarConfiguration;
-
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,5 +58,25 @@ public class HomeScreen extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void loadUser(){
+        sharedPreferences=getSharedPreferences("userData",MODE_PRIVATE);
+        db.collection("users").document(sharedPreferences.getString("phone", "")).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                try {
+                    User user=documentSnapshot.toObject(User.class);
+                    if(user!=null&&user.getTotalStrike()>=3){
+                        startActivity(new Intent(getApplicationContext(),BanScreen.class));
+                        finish();
+                    }
+
+                }catch (Exception e){
+
+                }
+
+            }
+        });
     }
 }

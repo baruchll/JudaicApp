@@ -2,6 +2,8 @@ package com.example.judaicapp.screens.others.rav_chat.chat_screens;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import static com.example.judaicapp.screens.others.rav_chat.ChatUtils.banWords;
+
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,6 +31,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 
@@ -65,19 +69,51 @@ public class Chat extends Fragment {
     private void sendMessage() {
         ImageButton imageButton = requireView().findViewById(R.id.send_message);
         EditText editText = requireView().findViewById(R.id.message_to_send);
-        imageButton.setOnClickListener(new View.OnClickListener() {
+        boolean isValidWords=true;
+        for (String banWord : banWords) {
+            if (banWord.contains(editText.getText().toString())) {
+                isValidWords = false;
+                break;
+            }
+        }
+        if(isValidWords){
+            imageButton.setOnClickListener(new View.OnClickListener() {
 
 
 
-            @Override
-            public void onClick(View v) {
-                db.
-                        collection("chats")
-                        .document(""+new Date().getTime()).
-                        set(new ChatConversation(ChatUtils.user.getName(),new Date().toGMTString(),editText.getText().toString(),""));
+                @Override
+                public void onClick(View v) {
+                    db.
+                            collection("chats")
+                            .document(""+new Date().getTime()).
+                            set(new ChatConversation(ChatUtils.user.getName(),new Date().toGMTString(),editText.getText().toString(),""));
+
+                }
+            });
+        }else{
+            Toast.makeText(getContext(),"אין להשתמש במילים פוגעניות, נא ערוך את הודעתך אחרת תיחסם",Toast.LENGTH_LONG).show();
+            db.
+                    collection("users")
+                    .document(ChatUtils.user.getPhone()).
+                    update("strikes",ChatUtils.totalStrike++);
+            if(ChatUtils.totalStrike>=3){
+                Toast.makeText(getContext(),"משתמש זה נחסם, לפתיחה יש ליצור קשר עם צוות התמיכה",Toast.LENGTH_LONG).show();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(4000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        System.exit(0);
+                    }
+                }).start();
 
             }
-        });
+        }
+
+
     }
 
     private void getChatsFromServer() {

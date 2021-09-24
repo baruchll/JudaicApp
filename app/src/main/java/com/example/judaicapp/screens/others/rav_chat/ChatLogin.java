@@ -21,6 +21,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.airbnb.lottie.utils.Utils;
 import com.example.judaicapp.R;
 import com.example.judaicapp.screens.others.rav_chat.chat_screens.Chat;
 import com.example.judaicapp.screens.others.rav_chat.objects.User;
@@ -29,6 +30,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.zip.Inflater;
+
+import io.grpc.okhttp.internal.Util;
 
 public class ChatLogin extends Fragment {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -67,6 +70,7 @@ public class ChatLogin extends Fragment {
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 try {
                     ChatUtils.user = documentSnapshot.toObject(User.class);
+                    ChatUtils.totalStrike=ChatUtils.user.getTotalStrike();
                     Toast.makeText(getContext(), "success", Toast.LENGTH_LONG).show();
 
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.chat_layout_fragment,new Chat()).commit();
@@ -99,7 +103,7 @@ public class ChatLogin extends Fragment {
                         User user = new User(name.getText().toString(),
                                 password.getText().toString(),
                                 phone.getText().toString(),
-                                gender.getText().toString());
+                                gender.getText().toString(),0);
                         db.
                                 collection("users").
                                 document(phone.getText().toString()).

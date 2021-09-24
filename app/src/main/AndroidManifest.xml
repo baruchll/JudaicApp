@@ -3,7 +3,7 @@
     package="com.example.judaicapp">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -12,11 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JudaicApp">
-
+        <activity
+            android:name=".screens.BanScreen"
+            android:exported="true" />
         <activity
             android:name=".screens.Siddurim.EdotSiddur"
             android:exported="true" />
-
         <activity
             android:name=".screens.Siddurim.SefardSiddur"
             android:exported="true" />
@@ -30,11 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".screens.ShabbosScreen">
-
-        </activity>
-
-
+        <activity android:name=".screens.ShabbosScreen"></activity>
     </application>
 
 </manifest>
