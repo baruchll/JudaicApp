@@ -23,6 +23,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import io.grpc.okhttp.internal.Util;
+
 public class HomeScreen extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private AppBarConfiguration mAppBarConfiguration;
@@ -44,6 +46,7 @@ public class HomeScreen extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        this.loadUser();
     }
 
     @Override
@@ -67,6 +70,8 @@ public class HomeScreen extends AppCompatActivity {
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 try {
                     User user=documentSnapshot.toObject(User.class);
+                    ChatUtils.user=user;
+                    Toast.makeText(getApplicationContext(),"ser.getTotalStrike()"+user.getTotalStrike(),Toast.LENGTH_LONG).show();
                     if(user!=null&&user.getTotalStrike()>=3){
                         startActivity(new Intent(getApplicationContext(),BanScreen.class));
                         finish();

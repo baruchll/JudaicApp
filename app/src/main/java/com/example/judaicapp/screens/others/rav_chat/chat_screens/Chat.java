@@ -4,6 +4,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 import static com.example.judaicapp.screens.others.rav_chat.ChatUtils.banWords;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.judaicapp.R;
+import com.example.judaicapp.screens.BanScreen;
 import com.example.judaicapp.screens.others.rav_chat.ChatUtils;
 import com.example.judaicapp.screens.others.rav_chat.RecyclerChat;
 import com.example.judaicapp.screens.others.rav_chat.objects.ChatConversation;
@@ -44,7 +46,6 @@ public class Chat extends Fragment {
     private EditText textOfUser;
 
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,55 +64,52 @@ public class Chat extends Fragment {
         lottieAnimationView = requireView().findViewById(R.id.animationView);
         getChatsFromServer();
         sendMessage();
-        sharedPreferences = this.requireActivity().getSharedPreferences("userData",MODE_PRIVATE);
+        sharedPreferences = this.requireActivity().getSharedPreferences("userData", MODE_PRIVATE);
     }
 
     private void sendMessage() {
         ImageButton imageButton = requireView().findViewById(R.id.send_message);
         EditText editText = requireView().findViewById(R.id.message_to_send);
-        boolean isValidWords=true;
-        for (String banWord : banWords) {
-            if (banWord.contains(editText.getText().toString())) {
-                isValidWords = false;
-                break;
-            }
-        }
-        if(isValidWords){
-            imageButton.setOnClickListener(new View.OnClickListener() {
 
+        imageButton.setOnClickListener(new View.OnClickListener() {
 
-
-                @Override
-                public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
+                boolean isValidWords = true;
+                for (String banWord : banWords) {
+                    if (editText.getText().toString().contains(banWord)) {
+                        isValidWords = false;
+                        break;
+                    }
+                }
+                if (isValidWords) {
                     db.
                             collection("chats")
-                            .document(""+new Date().getTime()).
-                            set(new ChatConversation(ChatUtils.user.getName(),new Date().toGMTString(),editText.getText().toString(),""));
+                            .document("" + new Date().getTime()).
+                            set(new ChatConversation(ChatUtils.user.getName(), new Date().toGMTString(), editText.getText().toString(), ""));
+
+                } else {
+                    if (ChatUtils.user.getTotalStrike() >= 3) {
+                        Toast.makeText(getContext(), "משתמש זה נחסם, לפתיחה יש ליצור קשר עם צוות התמיכה", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getContext(), BanScreen.class));
+                    } else {
+                        ChatUtils.user.setTotalStrike(ChatUtils.user.getTotalStrike() + 1);
+                        db
+                                .collection("users")
+                                .document(ChatUtils.user.getPhone())
+                                .update("totalStrike", ChatUtils.user.getTotalStrike()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(getContext(), "אין להשתמש במילים פוגעניות, נא ערוך את הודעתך אחרת תיחסם", Toast.LENGTH_LONG).show();
+
+                            }
+                        });
+                    }
+
 
                 }
-            });
-        }else{
-            Toast.makeText(getContext(),"אין להשתמש במילים פוגעניות, נא ערוך את הודעתך אחרת תיחסם",Toast.LENGTH_LONG).show();
-            db.
-                    collection("users")
-                    .document(ChatUtils.user.getPhone()).
-                    update("strikes",ChatUtils.totalStrike++);
-            if(ChatUtils.totalStrike>=3){
-                Toast.makeText(getContext(),"משתמש זה נחסם, לפתיחה יש ליצור קשר עם צוות התמיכה",Toast.LENGTH_LONG).show();
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Thread.sleep(4000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        System.exit(0);
-                    }
-                }).start();
-
             }
-        }
+        });
 
 
     }
@@ -121,11 +119,11 @@ public class Chat extends Fragment {
         db.collection("chats").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                if(error==null){
-                    chats= (ArrayList<ChatConversation>) value.toObjects(ChatConversation.class);
-                    if(chats.size()>0){
+                if (error == null) {
+                    chats = (ArrayList<ChatConversation>) value.toObjects(ChatConversation.class);
+                    if (chats.size() > 0) {
                         lottieAnimationView.setVisibility(View.GONE);
-                    }else{
+                    } else {
                         lottieAnimationView.setVisibility(View.VISIBLE);
                     }
 
@@ -136,8 +134,8 @@ public class Chat extends Fragment {
         db.collection("chats").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                chats= (ArrayList<ChatConversation>) queryDocumentSnapshots.toObjects(ChatConversation.class);
-                if(chats.size()>0){
+                chats = (ArrayList<ChatConversation>) queryDocumentSnapshots.toObjects(ChatConversation.class);
+                if (chats.size() > 0) {
                     lottieAnimationView.setVisibility(View.GONE);
                 }
 
