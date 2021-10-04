@@ -42,4 +42,9 @@
         android:name="com.example.judaicapp.screens.Siddurim.Ashkenaz"
         android:label="fragment_ashkenaz"
         tools:layout="@layout/fragment_ashkenaz" />
+    <fragment
+        android:id="@+id/tefillinVideo"
+        android:name="com.example.judaicapp.screens.others.tefillin.TefillinVideo"
+        android:label="fragment_tefillin_video"
+        tools:layout="@layout/fragment_tefillin_video" />
 </navigation>

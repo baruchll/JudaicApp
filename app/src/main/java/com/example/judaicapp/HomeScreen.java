@@ -6,9 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.widget.Toast;
 
-import com.example.judaicapp.screens.BanScreen;
+import com.example.judaicapp.screens.others.rav_chat.BanScreen;
 import com.example.judaicapp.screens.others.rav_chat.ChatUtils;
-import com.example.judaicapp.screens.others.rav_chat.chat_screens.Chat;
 import com.example.judaicapp.screens.others.rav_chat.objects.User;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
@@ -22,8 +21,6 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
-import io.grpc.okhttp.internal.Util;
 
 public class HomeScreen extends AppCompatActivity {
     private SharedPreferences sharedPreferences;

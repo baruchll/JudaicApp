@@ -1,4 +1,4 @@
-package com.example.judaicapp.screens;
+package com.example.judaicapp.screens.others.rav_chat;
 
 import androidx.appcompat.app.AppCompatActivity;
 

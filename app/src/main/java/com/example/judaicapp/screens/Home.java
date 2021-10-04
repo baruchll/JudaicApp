@@ -16,12 +16,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.judaicapp.R;
-import com.example.judaicapp.screens.Siddurim.ashkenaz.AshkenazSiddur;
+import com.example.judaicapp.screens.Siddurim.Ashkenaz;
 import com.example.judaicapp.screens.Siddurim.EdotSiddur;
 import com.example.judaicapp.screens.Siddurim.SefardSiddur;
 import com.example.judaicapp.screens.others.JlemCompass.CompassFragment;
 import com.example.judaicapp.screens.others.Zmanim.Zmanim;
 import com.example.judaicapp.screens.others.rav_chat.ChatLogin;
+import com.example.judaicapp.screens.others.tefillin.TefillinVideo;
 
 import java.util.Calendar;
 
@@ -197,9 +198,7 @@ public class Home extends Fragment {
             }
         });
 
-        ashkenaz.setOnClickListener(v -> {
-            getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Ashkenaz()).commit();
-        });
+        ashkenaz.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Ashkenaz()).commit());
 
         sefard.setOnClickListener(v -> {
             Intent goToSefard = new Intent(v.getContext(), SefardSiddur.class);
@@ -214,26 +213,10 @@ public class Home extends Fragment {
 
 
 
-        compass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new CompassFragment()).commit();
-
-            }
-        });
-        rav_chat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getParentFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new ChatLogin()).commit();
-
-            }
-        });
-        zmanai_hayom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Zmanim()).commit();
-            }
-        });
+        compass.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new CompassFragment()).commit());
+        rav_chat.setOnClickListener(v -> getParentFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new ChatLogin()).commit());
+        zmanai_hayom.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Zmanim()).commit());
+        tefilllin.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("hi").replace(R.id.nav_host_fragment, new TefillinVideo()).commit());
 
 
 

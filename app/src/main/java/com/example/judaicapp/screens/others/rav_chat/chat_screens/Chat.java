@@ -22,7 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.judaicapp.R;
-import com.example.judaicapp.screens.BanScreen;
+import com.example.judaicapp.screens.others.rav_chat.BanScreen;
 import com.example.judaicapp.screens.others.rav_chat.ChatUtils;
 import com.example.judaicapp.screens.others.rav_chat.RecyclerChat;
 import com.example.judaicapp.screens.others.rav_chat.objects.ChatConversation;
@@ -33,7 +33,6 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 
 

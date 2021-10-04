@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JudaicApp">
         <activity
-            android:name=".screens.BanScreen"
+            android:name=".screens.others.rav_chat.BanScreen"
             android:exported="true" />
         <activity
             android:name=".screens.Siddurim.EdotSiddur"
@@ -24,14 +24,16 @@
         <activity
             android:name=".HomeScreen"
             android:label="@string/title_activity_home_screen"
-            android:theme="@style/Theme.JudaicApp.NoActionBar">
+            android:theme="@style/Theme.JudaicApp.NoActionBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".screens.ShabbosScreen"></activity>
+        <activity android:name=".screens.ShabbosScreen"
+            android:exported="true"/>
     </application>
 
 </manifest>
