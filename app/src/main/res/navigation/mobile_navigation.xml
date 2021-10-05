@@ -47,4 +47,14 @@
         android:name="com.example.judaicapp.screens.others.tefillin.TefillinVideo"
         android:label="fragment_tefillin_video"
         tools:layout="@layout/fragment_tefillin_video" />
+    <fragment
+        android:id="@+id/recordedShiurim"
+        android:name="com.example.judaicapp.screens.limud.Shiurim.RecordedShiurim"
+        android:label="fragment_recorded_shiurim"
+        tools:layout="@layout/fragment_recorded_shiurim" />
+    <fragment
+        android:id="@+id/theDaf"
+        android:name="com.example.judaicapp.screens.limud.dafYomi.TheDaf"
+        android:label="fragment_the_daf"
+        tools:layout="@layout/fragment_the_daf" />
 </navigation>

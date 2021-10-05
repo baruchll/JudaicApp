@@ -50,6 +50,8 @@ dependencies {
     implementation "com.airbnb.android:lottie:$lottieVersion"
     implementation group: 'com.kosherjava', name: 'zmanim', version: '2.2.0'
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+
 
 
 }

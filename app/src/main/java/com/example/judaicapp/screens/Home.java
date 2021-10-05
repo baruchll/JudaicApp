@@ -19,6 +19,8 @@ import com.example.judaicapp.R;
 import com.example.judaicapp.screens.Siddurim.Ashkenaz;
 import com.example.judaicapp.screens.Siddurim.EdotSiddur;
 import com.example.judaicapp.screens.Siddurim.SefardSiddur;
+import com.example.judaicapp.screens.limud.Shiurim.RecordedShiurim;
+import com.example.judaicapp.screens.limud.dafYomi.TheDaf;
 import com.example.judaicapp.screens.others.JlemCompass.CompassFragment;
 import com.example.judaicapp.screens.others.Zmanim.Zmanim;
 import com.example.judaicapp.screens.others.rav_chat.ChatLogin;
@@ -218,6 +220,8 @@ public class Home extends Fragment {
         zmanai_hayom.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Zmanim()).commit());
         tefilllin.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("hi").replace(R.id.nav_host_fragment, new TefillinVideo()).commit());
 
+        shiurim.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("hi").replace(R.id.nav_host_fragment, new RecordedShiurim()).commit());
+        daf_yomi.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("hi").replace(R.id.nav_host_fragment, new TheDaf()).commit());
 
 
 
