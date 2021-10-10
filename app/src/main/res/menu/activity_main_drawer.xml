@@ -17,7 +17,7 @@
             android:icon="@drawable/ic_halacha_yomit"
             android:title="@string/menu_limud_yomi" />
         <item
-            android:id="@+id/others"
+            android:id="@+id/others2"
 
             android:icon="@drawable/ic_more_options"
             android:title="@string/menu_others" />

@@ -57,4 +57,34 @@
         android:name="com.example.judaicapp.screens.limud.dafYomi.TheDaf"
         android:label="fragment_the_daf"
         tools:layout="@layout/fragment_the_daf" />
+    <fragment
+        android:id="@+id/mishnahYomi"
+        android:name="com.example.judaicapp.screens.limud.mishnaYomi.MishnahYomi"
+        android:label="fragment_mishnah_yomi"
+        tools:layout="@layout/fragment_mishnah_yomi" />
+    <fragment
+        android:id="@+id/tehillim2"
+        android:name="com.example.judaicapp.screens.limud.tehillim.Tehillim"
+        android:label="fragment_tehillim"
+        tools:layout="@layout/fragment_tehillim" />
+    <fragment
+        android:id="@+id/shtayimMikrah"
+        android:name="com.example.judaicapp.screens.limud.shtayim_mikrah.ShtayimMikrah"
+        android:label="fragment_shtayim_mikrah"
+        tools:layout="@layout/fragment_shtayim_mikrah" />
+    <activity
+        android:id="@+id/edotSiddur"
+        android:name="com.example.judaicapp.screens.Siddurim.EdotSiddur"
+        android:label="activity_edot_siddur"
+        tools:layout="@layout/activity_edot_siddur" />
+    <activity
+        android:id="@+id/sefardSiddur"
+        android:name="com.example.judaicapp.screens.Siddurim.SefardSiddur"
+        android:label="activity_sefard_siddur"
+        tools:layout="@layout/activity_sefard_siddur" />
+    <fragment
+        android:id="@+id/others2"
+        android:name="com.example.judaicapp.screens.Others"
+        android:label="@string/menu_others"
+        tools:layout="@layout/fragment_others" />
 </navigation>

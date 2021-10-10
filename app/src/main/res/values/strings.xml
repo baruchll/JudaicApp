@@ -17,7 +17,7 @@
     <string name="siddur">סידור</string>
     <string name="ashkenaz_siddur">אשכנז</string>
     <string name="sefard_siddur">ספרד</string>
-    <string name="edut_hamizrach_siddur">עדות המזרח</string>
+    <string name="edot_hamizrach_siddur">עדות המזרח</string>
     <string name="limud_yomi">לימוד יומי</string>
     <string name="daf_yomi">דף יומי</string>
     <string name="mishna_yomi">משנה יומית</string>
@@ -61,8 +61,9 @@
     <string name="dialog_title" translatable="false">Alert</string>
     <string name="footer_image">Footer Image</string>
     <string name="title_location_permission">allow us to steal ur location</string>
-    <string name="text_location_permission"></string>
+    <string name="text_location_permission" />
     <string name="ok" />
     <string name="pause">Pause</string>
     <string name="play">Play</string>
+    <string name="tefilat">תפילת הדרך</string>
 </resources>

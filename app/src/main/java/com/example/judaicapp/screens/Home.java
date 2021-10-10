@@ -18,9 +18,11 @@ import android.widget.TextView;
 import com.example.judaicapp.R;
 import com.example.judaicapp.screens.Siddurim.Ashkenaz;
 import com.example.judaicapp.screens.Siddurim.EdotSiddur;
-import com.example.judaicapp.screens.Siddurim.SefardSiddur;
 import com.example.judaicapp.screens.limud.Shiurim.RecordedShiurim;
 import com.example.judaicapp.screens.limud.dafYomi.TheDaf;
+import com.example.judaicapp.screens.limud.mishnaYomi.MishnahYomi;
+import com.example.judaicapp.screens.limud.shtayim_mikrah.ShtayimMikrah;
+import com.example.judaicapp.screens.limud.tehillim.Tehillim;
 import com.example.judaicapp.screens.others.JlemCompass.CompassFragment;
 import com.example.judaicapp.screens.others.Zmanim.Zmanim;
 import com.example.judaicapp.screens.others.rav_chat.ChatLogin;
@@ -202,10 +204,10 @@ public class Home extends Fragment {
 
         ashkenaz.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Ashkenaz()).commit());
 
-        sefard.setOnClickListener(v -> {
-            Intent goToSefard = new Intent(v.getContext(), SefardSiddur.class);
-            startActivity(goToSefard);
-        });
+//        sefard.setOnClickListener(v -> {
+//            Intent goToSefard = new Intent(v.getContext(), SefardSiddur.class);
+//            startActivity(goToSefard);
+//        });
 
 
         edot.setOnClickListener(v -> {
@@ -222,6 +224,9 @@ public class Home extends Fragment {
 
         shiurim.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("hi").replace(R.id.nav_host_fragment, new RecordedShiurim()).commit());
         daf_yomi.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("hi").replace(R.id.nav_host_fragment, new TheDaf()).commit());
+        mishna_yomi.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("hi").replace(R.id.nav_host_fragment, new MishnahYomi()).commit());
+        tehillim.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("hi").replace(R.id.nav_host_fragment, new Tehillim()).commit());
+        shtayim_mikrah.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("hi").replace(R.id.nav_host_fragment, new ShtayimMikrah()).commit());
 
 
 
