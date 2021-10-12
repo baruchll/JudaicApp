@@ -91,9 +91,7 @@ public class CompassFragment extends Fragment {
             if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
                     android.Manifest.permission.ACCESS_FINE_LOCATION)) {
 
-                // Show an explanation to the user *asynchronously* -- don't block
-                // this thread waiting for the user's response! After the user
-                // sees the explanation, try again to request the permission.
+
                 new AlertDialog.Builder(getContext())
                         .setTitle(R.string.title_location_permission)
                         .setMessage(R.string.text_location_permission)
