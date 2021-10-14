@@ -19,9 +19,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.sql.Time;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.TimeZone;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -71,13 +74,17 @@ public class TheDaf extends Fragment {
         pdfUrl.put(279, "https://firebasestorage.googleapis.com/v0/b/judaicapp-62d9f.appspot.com/o/daf_yomi%2Fbaitzah36.pdf?alt=media&token=4e3b4f30-9acd-4c6c-bffd-663bd79deeee");
         pdfUrl.put(280, "https://firebasestorage.googleapis.com/v0/b/judaicapp-62d9f.appspot.com/o/daf_yomi%2Fbaitzah37.pdf?alt=media&token=9ece742f-360d-44ae-aaa6-760a731ecc63");
         pdfUrl.put(281, "https://firebasestorage.googleapis.com/v0/b/judaicapp-62d9f.appspot.com/o/daf_yomi%2Fbaitzah38.pdf?alt=media&token=3d3a428a-6fe1-4f94-9907-59f1261b835e");
-        pdfUrl.put(282, "https://firebasestorage.googleapis.com/v0/b/judaicapp-62d9f.appspot.com/o/daf_yomi%2Fbaitzah39.pdf?alt=media&token=d2ee171d-64e2-4e79-aa0b-7fd16ddab87b");
+        pdfUrl.put(287, "https://firebasestorage.googleapis.com/v0/b/judaicapp-62d9f.appspot.com/o/daf_yomi%2Fbaitzah39.pdf?alt=media&token=d2ee171d-64e2-4e79-aa0b-7fd16ddab87b");
         pdfUrl.put(6, "https://firebasestorage.googleapis.com/v0/b/judaicapp-62d9f.appspot.com/o/daf_yomi%2Fbaitzah40.pdf?alt=media&token=a74a1437-c6b7-470d-be0a-4b0be2bbeea5");
         pdfView = requireView().findViewById(R.id.pdfview);
-        Integer dayOfYear = Calendar.DAY_OF_YEAR;
+        Date date=new Date();
+        Calendar localCalendar = Calendar.getInstance(TimeZone.getDefault());
+        localCalendar.set(date.getYear(), date.getMonth(),date.getDate());
+        int CurrentDayOfYear = localCalendar.get(Calendar.DAY_OF_YEAR);
+
         for (int i = 0; i < pdfUrl.size(); i++) {
-            if (pdfUrl.containsKey(dayOfYear)) {
-                new RetrievePdffromUrl().execute(pdfUrl.get(dayOfYear));
+            if (pdfUrl.containsKey(CurrentDayOfYear)) {
+                new RetrievePdffromUrl().execute(pdfUrl.get(CurrentDayOfYear));
                 break;
             }
 
