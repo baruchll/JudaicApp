@@ -112,6 +112,7 @@ public class Zmanim extends Fragment {
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
+
         Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         longitude = location.getLongitude();
         latitude = location.getLatitude();
