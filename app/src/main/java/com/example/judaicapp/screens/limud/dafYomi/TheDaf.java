@@ -82,6 +82,8 @@ public class TheDaf extends Fragment {
         localCalendar.set(date.getYear(), date.getMonth(),date.getDate());
         int CurrentDayOfYear = localCalendar.get(Calendar.DAY_OF_YEAR);
 
+
+
         for (int i = 0; i < pdfUrl.size(); i++) {
             if (pdfUrl.containsKey(CurrentDayOfYear)) {
                 new RetrievePdffromUrl().execute(pdfUrl.get(CurrentDayOfYear));
@@ -93,6 +95,10 @@ public class TheDaf extends Fragment {
 
 
 
+    }
+
+    boolean isWithinRange(Date testDate) {
+        return testDate.after(new Date()) && testDate.before(new Date());
     }
 
     static class RetrievePdffromUrl extends AsyncTask<String, Void, InputStream> {
