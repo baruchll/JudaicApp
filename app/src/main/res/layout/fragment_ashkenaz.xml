@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screens.Siddurim.Ashkenaz">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="6">
+
+        <Button
+            android:id="@+id/daf_yomi_side_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/white"
+            android:text="שחרית"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/mishna_yomi_side_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/white"
+            android:text="מנחה"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/shtayim_mikrah_side_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/white"
+            android:text="ערבית"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/tehillim_side_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/white"
+            android:text="ברכת המזון"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/shiurim_side_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/white"
+            android:text="ברכה אחרונה"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
