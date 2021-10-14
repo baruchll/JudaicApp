@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.judaicapp.R;
 import com.example.judaicapp.screens.Siddurim.Ashkenaz;
+import com.example.judaicapp.screens.Siddurim.TefilasHaderech;
 
 
 public class Siddur extends Fragment {
@@ -50,6 +51,7 @@ public class Siddur extends Fragment {
         ashkenaz.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Ashkenaz()).commit());
 //        sefard.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new SefardSiddur()).commit());
 //        ashkenaz.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Ashkenaz()).commit());
+        haderech.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("hi").replace(R.id.nav_host_fragment, new TefilasHaderech()).commit());
 
 
     }

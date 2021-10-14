@@ -87,4 +87,9 @@
         android:name="com.example.judaicapp.screens.Others"
         android:label="@string/menu_others"
         tools:layout="@layout/fragment_others" />
+    <fragment
+        android:id="@+id/tefilasHaderech"
+        android:name="com.example.judaicapp.screens.Siddurim.TefilasHaderech"
+        android:label="fragment_tefilas_haderech"
+        tools:layout="@layout/fragment_tefilas_haderech" />
 </navigation>

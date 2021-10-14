@@ -62,6 +62,7 @@ public class HomeScreen extends AppCompatActivity {
 
     public void loadUser(){
         sharedPreferences=getSharedPreferences("userData",MODE_PRIVATE);
+        if(!sharedPreferences.getString("phone","").isEmpty())
         db.collection("users").document(sharedPreferences.getString("phone", "")).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {

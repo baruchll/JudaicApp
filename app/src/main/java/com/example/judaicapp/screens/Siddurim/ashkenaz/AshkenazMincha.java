@@ -22,7 +22,7 @@ import java.util.concurrent.Executor;
 
 
 public class AshkenazMincha extends Fragment {
-    TextView a_m_ashrei, a_m_shmona_esrei_1,a_m_ayt_1,a_m_shmona_esrei_2,a_m_morid_hatal,a_m_mashiv_harauch,
+    private TextView a_m_ashrei, a_m_shmona_esrei_1,a_m_ayt_1,a_m_shmona_esrei_2,a_m_morid_hatal,a_m_mashiv_harauch,
             a_m_shmona_esrei_3,a_m_ayt_2,a_m_shmona_esrei_4,a_m_hakel_hakadosh,a_m_hamelech_hakadosh,
             a_m_shmona_esrei_5,a_m_veten_beracha,a_m_tal_umatar,a_m_shmona_esrei_6,a_m_melech_ohev,
             a_m_hamelech_hamishpat,a_m_shmona_esrei_7,a_m_tisha_baav,a_m_shmona_esrei_8,a_m_fast_day,
