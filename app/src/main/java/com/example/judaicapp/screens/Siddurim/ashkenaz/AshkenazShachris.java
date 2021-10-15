@@ -19,7 +19,10 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Objects;
+import java.util.TimeZone;
 import java.util.concurrent.Executor;
 
 public class AshkenazShachris extends Fragment {
@@ -54,6 +57,11 @@ public class AshkenazShachris extends Fragment {
             a_s_ch_mussaf_chanukah, a_s_ch_mussaf_rosh_chodesh_3, a_s_end_of_davening_1, a_s_shir_shel_yom_sunday, a_s_shir_shel_yom_monday, a_s_shir_shel_yom_tuesday,
             a_s_shir_shel_yom_wednesday, a_s_shir_shel_yom_thursday, a_s_shir_shel_yom_friday, a_s_borchi_nafshi, a_s_ledovid, a_s_end_of_davening_2, a_s_tefilot_nosafot;
 
+    Date date=new Date();
+    Calendar localCalendar = Calendar.getInstance(TimeZone.getDefault());
+
+    int dayOfWeek = localCalendar.get(Calendar.DAY_OF_WEEK);
+
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
@@ -79,6 +87,7 @@ public class AshkenazShachris extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         shachrisInit();
+        localCalendar.set(date.getYear(), date.getMonth(),date.getDate());
     }
 
     private void shachrisInit() {
@@ -199,6 +208,12 @@ public class AshkenazShachris extends Fragment {
         a_s_ch_mussaf_shalosh_regalim_sukkos_chol_hamoed_4 = getView().findViewById(R.id.a_s_ch_mussaf_shalosh_regalim_sukkos_chol_hamoed_4);
         a_s_ch_mussaf_shalosh_regalim_sukkos_chol_hamoed_5 = getView().findViewById(R.id.a_s_ch_mussaf_shalosh_regalim_sukkos_chol_hamoed_5);
         a_s_ch_mussaf_shalosh_regalim_4 = getView().findViewById(R.id.a_s_ch_mussaf_shalosh_regalim_4);
+        a_s_mussaf_rosh_chodesh_1 = getView().findViewById(R.id.a_s_mussaf_rosh_chodesh_1);
+        a_s_morid_hatal_mussaf = getView().findViewById(R.id.a_s_morid_hatal_mussaf);
+        a_s_mashiv_harauch_mussaf = getView().findViewById(R.id.a_s_mashiv_haruach_mussaf);
+        a_s_mussaf_rosh_chodesh_2 = getView().findViewById(R.id.a_s_mussaf_rosh_chodesh_2);
+        a_s_mussaf_chanukah = getView().findViewById(R.id.a_s_mussaf_chanukah);
+        a_s_mussaf_rosh_chodesh_3 = getView().findViewById(R.id.a_s_mussaf_rosh_chodesh_3);
         a_s_ch_mussaf_rosh_chodesh_1 = getView().findViewById(R.id.a_s_ch_mussaf_rosh_chodesh_1);
         a_s_morid_hatal_mussaf = getView().findViewById(R.id.a_s_morid_hatal_mussaf);
         a_s_mashiv_harauch_mussaf = getView().findViewById(R.id.a_s_mashiv_haruach_mussaf);
@@ -225,7 +240,9 @@ public class AshkenazShachris extends Fragment {
 
 
         DocumentReference docref = db.collection("ashkenaz").document("shachris");
-        docref.addSnapshotListener((Executor) this, (value, error) ->{
+        docref.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 if (error != null){
                     return;
                 }
@@ -233,7 +250,7 @@ public class AshkenazShachris extends Fragment {
                 a_s_hachana.setText(Html.fromHtml(Objects.requireNonNull(value.getString("hachana")).replaceAll("_b", "<br/>")));
                 a_s_korbanos.setText(Html.fromHtml(Objects.requireNonNull(value.getString("korbanos")).replaceAll("_b", "<br/>")));
                 a_s_korbanos_2.setText(Html.fromHtml(Objects.requireNonNull(value.getString("korbanos_2")).replaceAll("_b", "<br/>")));
-                a_s_puskei_dezimra.setText(Html.fromHtml(Objects.requireNonNull(value.getString("puskei_dezimra")).replaceAll("_b", "<br/>")));
+                a_s_puskei_dezimra.setText(Html.fromHtml(Objects.requireNonNull(value.getString("psukei_dezimra")).replaceAll("_b", "<br/>")));
                 a_s_ashrei.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ashrei")).replaceAll("_b", "<br/>")));
                 a_s_shirat_hayam.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shirat_hayam")).replaceAll("_b", "<br/>")));
                 a_s_yishtabach.setText(Html.fromHtml(Objects.requireNonNull(value.getString("yishtabach")).replaceAll("_b", "<br/>")));
@@ -255,9 +272,198 @@ public class AshkenazShachris extends Fragment {
                 a_s_melech_ohev.setText(Html.fromHtml(Objects.requireNonNull(value.getString("melech_ohev")).replaceAll("_b", "<br/>")));
                 a_s_hamelech_hamishpat.setText(Html.fromHtml(Objects.requireNonNull(value.getString("hamelech_hamishpat")).replaceAll("_b", "<br/>")));
                 a_s_shmona_esrei_7.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shmona_esrei_7")).replaceAll("_b", "<br/>")));
-
-
+                a_s_rosh_chodesh.setText(Html.fromHtml(Objects.requireNonNull(value.getString("rosh_chodesh")).replaceAll("_b", "<br/>")));
+                a_s_pesach.setText(Html.fromHtml(Objects.requireNonNull(value.getString("pesach")).replaceAll("_b", "<br/>")));
+                a_s_sukkos.setText(Html.fromHtml(Objects.requireNonNull(value.getString("sukkos")).replaceAll("_b", "<br/>")));
+                a_s_shmona_esrei_8.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shmona_esrei_8")).replaceAll("_b", "<br/>")));
+                a_s_chanukah.setText(Html.fromHtml(Objects.requireNonNull(value.getString("chanukah")).replaceAll("_b", "<br/>")));
+                a_s_purim.setText(Html.fromHtml(Objects.requireNonNull(value.getString("purim")).replaceAll("_b", "<br/>")));
+                a_s_shmona_esrei_9.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shmona_esrei_9")).replaceAll("_b", "<br/>")));
+                a_s_asseret_yami_teshuva_3.setText(Html.fromHtml(Objects.requireNonNull(value.getString("asseret_yami_teshuva_3")).replaceAll("_b", "<br/>")));
+                a_s_shmona_esrei_10.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shmona_esrei_10")).replaceAll("_b", "<br/>")));
+                a_s_asseret_yami_teshuva_4.setText(Html.fromHtml(Objects.requireNonNull(value.getString("asseret_yami_teshuva_4")).replaceAll("_b", "<br/>")));
+                a_s_shmona_esrei_11.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shmona_esrei_11")).replaceAll("_b", "<br/>")));
+                a_s_asseret_yami_teshuva_end.setText(Html.fromHtml(Objects.requireNonNull(value.getString("asseret_yami_teshuva_end")).replaceAll("_b", "<br/>")));
+                a_s_shmona_esrei_end.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shmona_esrei_end")).replaceAll("_b", "<br/>")));
+                a_s_chazarat_hashatz_1.setText(Html.fromHtml(Objects.requireNonNull(value.getString("chazarat_hashatz_1")).replaceAll("_b", "<br/>")));
+                a_s_ch_ayt_1.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_ayt_1")).replaceAll("_b", "<br/>")));
+                a_s_chazarat_hashatz_2.setText(Html.fromHtml(Objects.requireNonNull(value.getString("chazarat_hashatz_2")).replaceAll("_b", "<br/>")));
+                a_s_ch_morid_hatal.setText(Html.fromHtml(Objects.requireNonNull(value.getString("chazarat_hashatz_2")).replaceAll("_b", "<br/>")));
+                a_s_ch_mashiv_harauch.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mashiv_harauch")).replaceAll("_b", "<br/>")));
+                a_s_chazarat_hashatz_3.setText(Html.fromHtml(Objects.requireNonNull(value.getString("chazarat_hashatz_3")).replaceAll("_b", "<br/>")));
+                a_s_ch_ayt_2.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_ayt_2")).replaceAll("_b", "<br/>")));
+                a_s_chazarat_hashatz_4.setText(Html.fromHtml(Objects.requireNonNull(value.getString("chazarat_hashatz_4")).replaceAll("_b", "<br/>")));
+                a_s_ch_hakel_hakadosh.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_hakel_hakadosh")).replaceAll("_b", "<br/>")));
+                a_s_ch_hamelech_hakadosh.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_hamelech_hakadosh")).replaceAll("_b", "<br/>")));
+                a_s_chazarat_hashatz_5.setText(Html.fromHtml(Objects.requireNonNull(value.getString("chazarat_hashatz_5")).replaceAll("_b", "<br/>")));
+                a_s_ch_fast_day.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_fast_day")).replaceAll("_b", "<br/>")));
+                a_s_chazarat_hashatz_6.setText(Html.fromHtml(Objects.requireNonNull(value.getString("chazarat_hashatz_6")).replaceAll("_b", "<br/>")));
+                a_s_ch_veten_beracha.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_veten_beracha")).replaceAll("_b", "<br/>")));
+                a_s_ch_tal_umatar.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_tal_umatar")).replaceAll("_b", "<br/>")));
+                a_s_chazarat_hashatz_7.setText(Html.fromHtml(Objects.requireNonNull(value.getString("chazarat_hashatz_7")).replaceAll("_b", "<br/>")));
+                a_s_ch_melech_ohev.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_melech_ohev")).replaceAll("_b", "<br/>")));
+                a_s_ch_hamelech_hamishpat.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_hamelech_hamishpat")).replaceAll("_b", "<br/>")));
+                a_s_chazarat_hashatz_8.setText(Html.fromHtml(Objects.requireNonNull(value.getString("chazarat_hashatz_8")).replaceAll("_b", "<br/>")));
+                a_s_ch_rosh_chodesh.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_rosh_chodesh")).replaceAll("_b", "<br/>")));
+                a_s_ch_pesach.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_pesach")).replaceAll("_b", "<br/>")));
+                a_s_ch_sukkos.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_sukkos")).replaceAll("_b", "<br/>")));
+                a_s_chazarat_hashatz_9.setText(Html.fromHtml(Objects.requireNonNull(value.getString("chazarat_hashatz_9")).replaceAll("_b", "<br/>")));
+                a_s_ch_chanukah.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_chanukah")).replaceAll("_b", "<br/>")));
+                a_s_ch_purim.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_purim")).replaceAll("_b", "<br/>")));
+                a_s_chazarat_hashatz_10.setText(Html.fromHtml(Objects.requireNonNull(value.getString("chazarat_hashatz_10")).replaceAll("_b", "<br/>")));
+                a_s_ch_ayt_3.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_ayt_3")).replaceAll("_b", "<br/>")));
+                a_s_chazarat_hashatz_11.setText(Html.fromHtml(Objects.requireNonNull(value.getString("chazarat_hashatz_11")).replaceAll("_b", "<br/>")));
+                a_s_ch_ayt_4.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_ayt_4")).replaceAll("_b", "<br/>")));
+                a_s_chazarat_hashatz_12.setText(Html.fromHtml(Objects.requireNonNull(value.getString("chazarat_hashatz_12")).replaceAll("_b", "<br/>")));
+                a_s_netilas_lulav.setText(Html.fromHtml(Objects.requireNonNull(value.getString("netilas_lulav")).replaceAll("_b", "<br/>")));
+                a_s_full_hallel.setText(Html.fromHtml(Objects.requireNonNull(value.getString("full_hallel")).replaceAll("_b", "<br/>")));
+                a_s_half_hallel.setText(Html.fromHtml(Objects.requireNonNull(value.getString("half_hallel")).replaceAll("_b", "<br/>")));
+                a_s_kaddish_after_hallel.setText(Html.fromHtml(Objects.requireNonNull(value.getString("kaddish_after_hallel")).replaceAll("_b", "<br/>")));
+                a_s_kaddish_after_hallel_chanukah.setText(Html.fromHtml(Objects.requireNonNull(value.getString("kaddish_after_hallel_chanukah")).replaceAll("_b", "<br/>")));
+                a_s_tachanun_1.setText(Html.fromHtml(Objects.requireNonNull(value.getString("tachanun_1")).replaceAll("_b", "<br/>")));
+                a_s_avinu_malkainu_fast_day.setText(Html.fromHtml(Objects.requireNonNull(value.getString("avinu_malkainu_fast_day")).replaceAll("_b", "<br/>")));
+                a_s_avinu_malkainu_ayt.setText(Html.fromHtml(Objects.requireNonNull(value.getString("avinu_malkainu_ayt")).replaceAll("_b", "<br/>")));
+                a_s_tachanun_for_mon_and_thurs.setText(Html.fromHtml(Objects.requireNonNull(value.getString("tachanun_for_mon_and_thurs")).replaceAll("_b", "<br/>")));
+                a_s_tachanun_2.setText(Html.fromHtml(Objects.requireNonNull(value.getString("tachanun_2")).replaceAll("_b", "<br/>")));
+                a_s_kriat_hatorah.setText(Html.fromHtml(Objects.requireNonNull(value.getString("kriat_hatorah")).replaceAll("_b", "<br/>")));
+                a_s_kriat_hatorah_mon_and_thurs.setText(Html.fromHtml(Objects.requireNonNull(value.getString("kriat_hatorah_mon_and_thurs")).replaceAll("_b", "<br/>")));
+                a_s_hachnasat_sefer_torah.setText(Html.fromHtml(Objects.requireNonNull(value.getString("hachnasat_sefer_torah")).replaceAll("_b", "<br/>")));
+                a_s_ashrei_2.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ashrei_2")).replaceAll("_b", "<br/>")));
+                a_s_lamnatzeach.setText(Html.fromHtml(Objects.requireNonNull(value.getString("lamnatzeach")).replaceAll("_b", "<br/>")));
+                a_s_uva_letzion.setText(Html.fromHtml(Objects.requireNonNull(value.getString("uva_letzion")).replaceAll("_b", "<br/>")));
+                a_s_mussaf_shalosh_regalim_1.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mussaf_shalosh_regalim_1")).replaceAll("_b", "<br/>")));
+                a_s_mussaf_shalosh_regalim_morid_hatal.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mussaf_shalosh_regalim_morid_hatal")).replaceAll("_b", "<br/>")));
+                a_s_mussaf_shalosh_regalim_mashiv_harauch.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mussaf_shalosh_regalim_mashiv_harauch")).replaceAll("_b", "<br/>")));
+                a_s_mussaf_shalosh_regalim_2.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mussaf_shalosh_regalim_2")).replaceAll("_b", "<br/>")));
+                a_s_mussaf_shalosh_regalim_pesach_1.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mussaf_shalosh_regalim_2")).replaceAll("_b", "<br/>")));
+                a_s_mussaf_shalosh_regalim_sukkos_1.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mussaf_shalosh_regalim_sukkos_1")).replaceAll("_b", "<br/>")));
+                a_s_mussaf_shalosh_regalim_3.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mussaf_shalosh_regalim_3")).replaceAll("_b", "<br/>")));
+                a_s_mussaf_shalosh_regalim_pesach_2.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mussaf_shalosh_regalim_pesach_2")).replaceAll("_b", "<br/>")));
+                a_s_mussaf_shalosh_regalim_sukkos_2.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mussaf_shalosh_regalim_sukkos_2")).replaceAll("_b", "<br/>")));
+                a_s_mussaf_shalosh_regalim_pesach_end.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mussaf_shalosh_regalim_pesach_end")).replaceAll("_b", "<br/>")));
+                a_s_mussaf_shalosh_regalim_sukkos_chol_hamoed_1.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mussaf_shalosh_regalim_sukkos_chol_hamoed_1")).replaceAll("_b", "<br/>")));
+                a_s_mussaf_shalosh_regalim_sukkos_chol_hamoed_2.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mussaf_shalosh_regalim_sukkos_chol_hamoed_2")).replaceAll("_b", "<br/>")));
+                a_s_mussaf_shalosh_regalim_sukkos_chol_hamoed_3.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mussaf_shalosh_regalim_sukkos_chol_hamoed_3")).replaceAll("_b", "<br/>")));
+                a_s_mussaf_shalosh_regalim_sukkos_chol_hamoed_4.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mussaf_shalosh_regalim_sukkos_chol_hamoed_4")).replaceAll("_b", "<br/>")));
+                a_s_mussaf_shalosh_regalim_sukkos_chol_hamoed_5.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mussaf_shalosh_regalim_sukkos_chol_hamoed_5")).replaceAll("_b", "<br/>")));
+                a_s_mussaf_shalosh_regalim_sukkos_chol_hamoed_hoshana_raba.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mussaf_shalosh_regalim_sukkos_chol_hamoed_hoshana_raba")).replaceAll("_b", "<br/>")));
+                a_s_mussaf_shalosh_regalim_4.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mussaf_shalosh_regalim_4")).replaceAll("_b", "<br/>")));
+                a_s_ch_mussaf_shalosh_regalim_1.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mussaf_shalosh_regalim_1")).replaceAll("_b", "<br/>")));
+                a_s_ch_mussaf_shalosh_regalim_morid_hatal.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mussaf_shalosh_regalim_morid_hatal")).replaceAll("_b", "<br/>")));
+                a_s_ch_mussaf_shalosh_regalim_mashiv_harauch.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mussaf_shalosh_regalim_mashiv_harauch")).replaceAll("_b", "<br/>")));
+                a_s_ch_mussaf_shalosh_regalim_2.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mussaf_shalosh_regalim_2")).replaceAll("_b", "<br/>")));
+                a_s_ch_mussaf_shalosh_regalim_pesach_1.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mussaf_shalosh_regalim_pesach_1")).replaceAll("_b", "<br/>")));
+                a_s_ch_mussaf_shalosh_regalim_sukkos_1.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mussaf_shalosh_regalim_sukkos_1")).replaceAll("_b", "<br/>")));
+                a_s_ch_mussaf_shalosh_regalim_3.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mussaf_shalosh_regalim_3")).replaceAll("_b", "<br/>")));
+                a_s_ch_mussaf_shalosh_regalim_pesach_2.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mussaf_shalosh_regalim_pesach_2")).replaceAll("_b", "<br/>")));
+                a_s_ch_mussaf_shalosh_regalim_sukkos_2.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mussaf_shalosh_regalim_sukkos_2")).replaceAll("_b", "<br/>")));
+                a_s_ch_mussaf_shalosh_regalim_pesach_end.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mussaf_shalosh_regalim_pesach_end")).replaceAll("_b", "<br/>")));
+                a_s_ch_mussaf_shalosh_regalim_sukkos_chol_hamoed_1.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mussaf_shalosh_regalim_sukkos_chol_hamoed_1")).replaceAll("_b", "<br/>")));
+                a_s_ch_mussaf_shalosh_regalim_sukkos_chol_hamoed_2.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mussaf_shalosh_regalim_sukkos_chol_hamoed_2")).replaceAll("_b", "<br/>")));
+                a_s_ch_mussaf_shalosh_regalim_sukkos_chol_hamoed_3.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mussaf_shalosh_regalim_sukkos_chol_hamoed_3")).replaceAll("_b", "<br/>")));
+                a_s_ch_mussaf_shalosh_regalim_sukkos_chol_hamoed_4.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mussaf_shalosh_regalim_sukkos_chol_hamoed_4")).replaceAll("_b", "<br/>")));
+                a_s_ch_mussaf_shalosh_regalim_sukkos_chol_hamoed_5.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mussaf_shalosh_regalim_sukkos_chol_hamoed_5")).replaceAll("_b", "<br/>")));
+                a_s_ch_mussaf_shalosh_regalim_4.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mussaf_shalosh_regalim_4")).replaceAll("_b", "<br/>")));
+                a_s_mussaf_rosh_chodesh_1.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mussaf_rosh_chodesh_1")).replaceAll("_b", "<br/>")));
+                a_s_morid_hatal_mussaf.setText(Html.fromHtml(Objects.requireNonNull(value.getString("morid_hatal_mussaf")).replaceAll("_b", "<br/>")));
+                a_s_mashiv_harauch_mussaf.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mashiv_harauch_mussaf")).replaceAll("_b", "<br/>")));
+                a_s_mussaf_rosh_chodesh_2.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mussaf_rosh_chodesh_2")).replaceAll("_b", "<br/>")));
+                a_s_mussaf_chanukah.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mussaf_chanukah")).replaceAll("_b", "<br/>")));
+                a_s_mussaf_rosh_chodesh_3.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mussaf_rosh_chodesh_3")).replaceAll("_b", "<br/>")));
+                a_s_ch_mussaf_rosh_chodesh_1.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mussaf_rosh_chodesh_1")).replaceAll("_b", "<br/>")));
+                a_s_ch_morid_hatal_mussaf.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_morid_hatal_mussaf")).replaceAll("_b", "<br/>")));
+                a_s_ch_mashiv_harauch_mussaf.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mashiv_harauch_mussaf")).replaceAll("_b", "<br/>")));
+                a_s_ch_mussaf_rosh_chodesh_2.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mussaf_rosh_chodesh_2")).replaceAll("_b", "<br/>")));
+                a_s_ch_mussaf_chanukah.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mussaf_chanukah")).replaceAll("_b", "<br/>")));
+                a_s_ch_mussaf_rosh_chodesh_3.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ch_mussaf_rosh_chodesh_3")).replaceAll("_b", "<br/>")));
+                a_s_end_of_davening_1.setText(Html.fromHtml(Objects.requireNonNull(value.getString("end_of_davening_1")).replaceAll("_b", "<br/>")));
+                a_s_shir_shel_yom_sunday.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shir_shel_yom_sunday")).replaceAll("_b", "<br/>")));
+                a_s_shir_shel_yom_monday.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shir_shel_yom_monday")).replaceAll("_b", "<br/>")));
+                a_s_shir_shel_yom_tuesday.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shir_shel_yom_tuesday")).replaceAll("_b", "<br/>")));
+                a_s_shir_shel_yom_wednesday.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shir_shel_yom_wednesday")).replaceAll("_b", "<br/>")));
+                a_s_shir_shel_yom_thursday.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shir_shel_yom_thursday")).replaceAll("_b", "<br/>")));
+                a_s_shir_shel_yom_friday.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shir_shel_yom_friday")).replaceAll("_b", "<br/>")));
+                a_s_borchi_nafshi.setText(Html.fromHtml(Objects.requireNonNull(value.getString("borchi_nafshi")).replaceAll("_b", "<br/>")));
+                a_s_ledovid.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ledovid")).replaceAll("_b", "<br/>")));
+                a_s_end_of_davening_2.setText(Html.fromHtml(Objects.requireNonNull(value.getString("end_of_davening_2")).replaceAll("_b", "<br/>")));
+                a_s_tefilot_nosafot.setText(Html.fromHtml(Objects.requireNonNull(value.getString("tefilot_nosafot")).replaceAll("_b", "<br/>")));
+            }
 
         });
+
+
+
+            if (dayOfWeek == 1){
+                a_s_shir_shel_yom_sunday.setVisibility(View.VISIBLE);
+                a_s_shir_shel_yom_monday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_tuesday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_wednesday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_thursday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_friday.setVisibility(View.GONE);
+                monThurs();
+            }
+            else if (dayOfWeek == 2){
+                a_s_shir_shel_yom_sunday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_monday.setVisibility(View.VISIBLE);
+                a_s_shir_shel_yom_tuesday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_wednesday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_thursday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_friday.setVisibility(View.GONE);
+                monThurs();
+            }
+            else if (dayOfWeek == 3){
+                a_s_shir_shel_yom_sunday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_monday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_tuesday.setVisibility(View.VISIBLE);
+                a_s_shir_shel_yom_wednesday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_thursday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_friday.setVisibility(View.GONE);
+                monThurs();
+            }
+            else if (dayOfWeek == 4){
+                a_s_shir_shel_yom_sunday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_monday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_tuesday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_wednesday.setVisibility(View.VISIBLE);
+                a_s_shir_shel_yom_thursday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_friday.setVisibility(View.GONE);
+                monThurs();
+            }
+            else if (dayOfWeek == 5){
+                a_s_shir_shel_yom_sunday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_monday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_tuesday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_wednesday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_thursday.setVisibility(View.VISIBLE);
+                a_s_shir_shel_yom_friday.setVisibility(View.GONE);
+                monThurs();
+            }
+            else if (dayOfWeek == 6){
+                a_s_shir_shel_yom_sunday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_monday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_tuesday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_wednesday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_thursday.setVisibility(View.GONE);
+                a_s_shir_shel_yom_friday.setVisibility(View.VISIBLE);
+                monThurs();
+            }
+
+
+        }
+
+    public void monThurs(){
+        if (dayOfWeek == 2 || dayOfWeek == 5) {
+            a_s_hachnasat_sefer_torah.setVisibility(View.VISIBLE);
+            a_s_kriat_hatorah_mon_and_thurs.setVisibility(View.VISIBLE);
+            a_s_kriat_hatorah.setVisibility(View.VISIBLE);
+            a_s_tachanun_for_mon_and_thurs.setVisibility(View.VISIBLE);
+        }
+        else {
+            a_s_hachnasat_sefer_torah.setVisibility(View.GONE);
+            a_s_kriat_hatorah_mon_and_thurs.setVisibility(View.GONE);
+            a_s_kriat_hatorah.setVisibility(View.GONE);
+            a_s_tachanun_for_mon_and_thurs.setVisibility(View.GONE);
+        }
     }
+
 }
