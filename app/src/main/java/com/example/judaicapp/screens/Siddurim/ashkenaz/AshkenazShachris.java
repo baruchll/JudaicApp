@@ -6,12 +6,21 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.judaicapp.R;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+
+import java.util.Objects;
+import java.util.concurrent.Executor;
 
 public class AshkenazShachris extends Fragment {
     private TextView a_s_hachana, a_s_korbanos, a_s_korbanos_2, a_s_puskei_dezimra, a_s_ashrei,
@@ -44,6 +53,8 @@ public class AshkenazShachris extends Fragment {
             a_s_mussaf_chanukah, a_s_mussaf_rosh_chodesh_3, a_s_ch_mussaf_rosh_chodesh_1, a_s_ch_morid_hatal_mussaf, a_s_ch_mashiv_harauch_mussaf, a_s_ch_mussaf_rosh_chodesh_2,
             a_s_ch_mussaf_chanukah, a_s_ch_mussaf_rosh_chodesh_3, a_s_end_of_davening_1, a_s_shir_shel_yom_sunday, a_s_shir_shel_yom_monday, a_s_shir_shel_yom_tuesday,
             a_s_shir_shel_yom_wednesday, a_s_shir_shel_yom_thursday, a_s_shir_shel_yom_friday, a_s_borchi_nafshi, a_s_ledovid, a_s_end_of_davening_2, a_s_tefilot_nosafot;
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
 
@@ -211,5 +222,42 @@ public class AshkenazShachris extends Fragment {
         a_s_ledovid = getView().findViewById(R.id.a_s_ledovid);
         a_s_end_of_davening_2 = getView().findViewById(R.id.a_s_end_of_davening_2);
         a_s_tefilot_nosafot = getView().findViewById(R.id.a_s_tefilot_nosafot);
+
+
+        DocumentReference docref = db.collection("ashkenaz").document("shachris");
+        docref.addSnapshotListener((Executor) this, (value, error) ->{
+                if (error != null){
+                    return;
+                }
+                assert value != null;
+                a_s_hachana.setText(Html.fromHtml(Objects.requireNonNull(value.getString("hachana")).replaceAll("_b", "<br/>")));
+                a_s_korbanos.setText(Html.fromHtml(Objects.requireNonNull(value.getString("korbanos")).replaceAll("_b", "<br/>")));
+                a_s_korbanos_2.setText(Html.fromHtml(Objects.requireNonNull(value.getString("korbanos_2")).replaceAll("_b", "<br/>")));
+                a_s_puskei_dezimra.setText(Html.fromHtml(Objects.requireNonNull(value.getString("puskei_dezimra")).replaceAll("_b", "<br/>")));
+                a_s_ashrei.setText(Html.fromHtml(Objects.requireNonNull(value.getString("ashrei")).replaceAll("_b", "<br/>")));
+                a_s_shirat_hayam.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shirat_hayam")).replaceAll("_b", "<br/>")));
+                a_s_yishtabach.setText(Html.fromHtml(Objects.requireNonNull(value.getString("yishtabach")).replaceAll("_b", "<br/>")));
+                a_s_shema.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shema")).replaceAll("_b", "<br/>")));
+                a_s_shmona_esrei_1.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shmona_esrei_1")).replaceAll("_b", "<br/>")));
+                a_s_asseret_yami_teshuva_1.setText(Html.fromHtml(Objects.requireNonNull(value.getString("asseret_yami_teshuva_1")).replaceAll("_b", "<br/>")));
+                a_s_shmona_esrei_2.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shmona_esrei_2")).replaceAll("_b", "<br/>")));
+                a_s_morid_hatal.setText(Html.fromHtml(Objects.requireNonNull(value.getString("morid_hatal")).replaceAll("_b", "<br/>")));
+                a_s_mashiv_harauch.setText(Html.fromHtml(Objects.requireNonNull(value.getString("mashiv_harauch")).replaceAll("_b", "<br/>")));
+                a_s_shmona_esrei_3.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shmona_esrei_3")).replaceAll("_b", "<br/>")));
+                a_s_asseret_yami_teshuva_2.setText(Html.fromHtml(Objects.requireNonNull(value.getString("asseret_yami_teshuva_2")).replaceAll("_b", "<br/>")));
+                a_s_shmona_esrei_4.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shmona_esrei_4")).replaceAll("_b", "<br/>")));
+                a_s_hakel_hakadosh.setText(Html.fromHtml(Objects.requireNonNull(value.getString("hakel_hakadosh")).replaceAll("_b", "<br/>")));
+                a_s_hamelech_hakadosh.setText(Html.fromHtml(Objects.requireNonNull(value.getString("hamelech_hakadosh")).replaceAll("_b", "<br/>")));
+                a_s_shmona_esrei_5.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shmona_esrei_5")).replaceAll("_b", "<br/>")));
+                a_s_veten_beracha.setText(Html.fromHtml(Objects.requireNonNull(value.getString("veten_beracha")).replaceAll("_b", "<br/>")));
+                a_s_tal_umatar.setText(Html.fromHtml(Objects.requireNonNull(value.getString("tal_umatar")).replaceAll("_b", "<br/>")));
+                a_s_shmona_esrei_6.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shmona_esrei_6")).replaceAll("_b", "<br/>")));
+                a_s_melech_ohev.setText(Html.fromHtml(Objects.requireNonNull(value.getString("melech_ohev")).replaceAll("_b", "<br/>")));
+                a_s_hamelech_hamishpat.setText(Html.fromHtml(Objects.requireNonNull(value.getString("hamelech_hamishpat")).replaceAll("_b", "<br/>")));
+                a_s_shmona_esrei_7.setText(Html.fromHtml(Objects.requireNonNull(value.getString("shmona_esrei_7")).replaceAll("_b", "<br/>")));
+
+
+
+        });
     }
 }

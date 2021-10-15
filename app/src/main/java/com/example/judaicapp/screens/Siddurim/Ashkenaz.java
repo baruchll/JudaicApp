@@ -9,11 +9,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.judaicapp.R;
+import com.example.judaicapp.screens.Siddurim.ashkenaz.AshkenazMincha;
+import com.example.judaicapp.screens.Siddurim.ashkenaz.AshkenazShachris;
 
 
 public class Ashkenaz extends Fragment {
+    Button shachris, mincha;
 
 
 
@@ -30,5 +34,10 @@ public class Ashkenaz extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        shachris = getView().findViewById(R.id.ashkenaz_shachris);
+        mincha = getView().findViewById(R.id.ashkenaz_mincha);
+
+        shachris.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new AshkenazShachris()).commit());
+        mincha.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new AshkenazMincha()).commit());
     }
 }

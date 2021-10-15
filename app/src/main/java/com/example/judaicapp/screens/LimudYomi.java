@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.judaicapp.R;
-import com.example.judaicapp.screens.Siddurim.Ashkenaz;
 import com.example.judaicapp.screens.limud.Shiurim.RecordedShiurim;
 import com.example.judaicapp.screens.limud.dafYomi.TheDaf;
 import com.example.judaicapp.screens.limud.mishnaYomi.MishnahYomi;
@@ -44,9 +43,9 @@ public class LimudYomi extends Fragment {
     }
 
     private void LimudStuff() {
-        daf_yomi_side = getView().findViewById(R.id.daf_yomi_side_menu);
-        mishna_side = getView().findViewById(R.id.mishna_yomi_side_menu);
-        mikrah_side = getView().findViewById(R.id.shtayim_mikrah_side_menu);
+        daf_yomi_side = getView().findViewById(R.id.ashkenaz_shachris);
+        mishna_side = getView().findViewById(R.id.ashkenaz_mincha);
+        mikrah_side = getView().findViewById(R.id.ashkenaz_maariv);
         tehillim_side = getView().findViewById(R.id.tehillim_side_menu);
         shiurim_side = getView().findViewById(R.id.shiurim_side_menu);
 

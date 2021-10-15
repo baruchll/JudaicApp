@@ -92,4 +92,13 @@
         android:name="com.example.judaicapp.screens.Siddurim.TefilasHaderech"
         android:label="fragment_tefilas_haderech"
         tools:layout="@layout/fragment_tefilas_haderech" />
+    <fragment
+        android:id="@+id/ashkenazShachris"
+        android:name="com.example.judaicapp.screens.Siddurim.ashkenaz.AshkenazShachris"
+        android:label="fragment_ashkenaz_shachris"
+        tools:layout="@layout/fragment_ashkenaz_shachris" />
+    <fragment
+        android:id="@+id/ashkenazMincha"
+        android:name="com.example.judaicapp.screens.Siddurim.ashkenaz.AshkenazMincha"
+        android:label="AshkenazMincha" />
 </navigation>

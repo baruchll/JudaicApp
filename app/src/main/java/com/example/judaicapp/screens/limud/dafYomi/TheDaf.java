@@ -96,10 +96,13 @@ public class TheDaf extends Fragment {
 
 
     }
-
+    //for the siddur not here
     boolean isWithinRange(Date testDate) {
         return testDate.after(new Date()) && testDate.before(new Date());
     }
+
+
+
 
     static class RetrievePdffromUrl extends AsyncTask<String, Void, InputStream> {
 

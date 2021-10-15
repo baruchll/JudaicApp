@@ -14,7 +14,7 @@
         android:weightSum="6">
 
         <Button
-            android:id="@+id/daf_yomi_side_menu"
+            android:id="@+id/ashkenaz_shachris"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -23,7 +23,7 @@
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/mishna_yomi_side_menu"
+            android:id="@+id/ashkenaz_mincha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -32,7 +32,7 @@
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/shtayim_mikrah_side_menu"
+            android:id="@+id/ashkenaz_maariv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
