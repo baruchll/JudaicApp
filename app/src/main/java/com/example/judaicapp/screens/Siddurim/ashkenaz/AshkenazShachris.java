@@ -1,17 +1,17 @@
 package com.example.judaicapp.screens.Siddurim.ashkenaz;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.example.judaicapp.Hollidays;
 import com.example.judaicapp.R;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -19,13 +19,15 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Objects;
 import java.util.TimeZone;
-import java.util.concurrent.Executor;
 
 public class AshkenazShachris extends Fragment {
+    ArrayList<GregorianCalendar> rosh_chodesh = new ArrayList<>();
     private TextView a_s_hachana, a_s_korbanos, a_s_korbanos_2, a_s_puskei_dezimra, a_s_ashrei,
             a_s_shirat_hayam, a_s_yishtabach, a_s_shema, a_s_shmona_esrei_1, a_s_asseret_yami_teshuva_1,
             a_s_shmona_esrei_2, a_s_morid_hatal, a_s_mashiv_harauch, a_s_shmona_esrei_3, a_s_asseret_yami_teshuva_2,
@@ -58,7 +60,7 @@ public class AshkenazShachris extends Fragment {
             a_s_shir_shel_yom_wednesday, a_s_shir_shel_yom_thursday, a_s_shir_shel_yom_friday, a_s_borchi_nafshi, a_s_ledovid, a_s_end_of_davening_2, a_s_tefilot_nosafot;
 
     Date date=new Date();
-    Calendar localCalendar = Calendar.getInstance(TimeZone.getDefault());
+    GregorianCalendar localCalendar = (GregorianCalendar) Calendar.getInstance(TimeZone.getDefault());
 
     int dayOfWeek = localCalendar.get(Calendar.DAY_OF_WEEK);
 
@@ -88,6 +90,56 @@ public class AshkenazShachris extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         shachrisInit();
         localCalendar.set(date.getYear(), date.getMonth(),date.getDate());
+        talUmatarBracha();
+        roshChodesh();
+    }
+
+
+
+//    private void holiday() {
+//        a_s_half_hallel.setVisibility(View.VISIBLE);
+//        a_s_kaddish_after_hallel.setVisibility(View.VISIBLE);
+//        a_s_tachanun_for_mon_and_thurs.setVisibility(View.GONE);
+//        a_s_tachanun_1.setVisibility(View.GONE);
+//        a_s_tachanun_2.setVisibility(View.GONE);
+//        a_s_kriat_hatorah.setVisibility(View.VISIBLE);
+//        a_s_hachnasat_sefer_torah.setVisibility(View.VISIBLE);
+//
+//    }
+
+    private void roshChodesh() {
+        rosh_chodesh.add(new GregorianCalendar(2021, 10 , 17));
+        if (localCalendar.equals(rosh_chodesh.get(0))){
+            a_s_hachana.setVisibility(View.GONE);
+        }
+
+
+
+
+
+//            holiday();
+//            a_s_rosh_chodesh.setVisibility(View.VISIBLE);
+//            a_s_ch_rosh_chodesh.setVisibility(View.VISIBLE);
+//            a_s_mussaf_rosh_chodesh_1.setVisibility(View.VISIBLE);
+//            a_s_mussaf_rosh_chodesh_2.setVisibility(View.VISIBLE);
+//            a_s_mussaf_rosh_chodesh_3.setVisibility(View.VISIBLE);
+//            a_s_ch_mussaf_rosh_chodesh_1.setVisibility(View.VISIBLE);
+//            a_s_ch_mussaf_rosh_chodesh_2.setVisibility(View.VISIBLE);
+//            a_s_ch_mussaf_rosh_chodesh_3.setVisibility(View.VISIBLE);
+        }
+
+
+
+
+
+
+
+
+    private void talUmatarBracha() {
+
+
+
+
     }
 
     private void shachrisInit() {
@@ -465,5 +517,6 @@ public class AshkenazShachris extends Fragment {
             a_s_tachanun_for_mon_and_thurs.setVisibility(View.GONE);
         }
     }
+
 
 }
