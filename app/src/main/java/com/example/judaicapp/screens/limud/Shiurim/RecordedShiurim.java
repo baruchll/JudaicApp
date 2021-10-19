@@ -136,6 +136,7 @@ public class RecordedShiurim extends Fragment implements MediaPlayer.OnPreparedL
                         try {
                             // Download url of file
                             final String url = uri.toString();
+
                             mMediaplayer.setDataSource(url);
                             // wait for media player to get prepared
                             mMediaplayer.setOnPreparedListener(RecordedShiurim.this);

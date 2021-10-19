@@ -16,7 +16,7 @@ import com.example.judaicapp.screens.limud.Shiurim.RecordedShiurim;
 import com.example.judaicapp.screens.limud.dafYomi.TheDaf;
 import com.example.judaicapp.screens.limud.mishnaYomi.MishnahYomi;
 import com.example.judaicapp.screens.limud.shtayim_mikrah.ShtayimMikrah;
-import com.example.judaicapp.screens.limud.tehillim.Tehillim;
+import com.example.judaicapp.screens.limud.tehillim.TehillimYomi;
 
 
 public class LimudYomi extends Fragment {
@@ -52,7 +52,7 @@ public class LimudYomi extends Fragment {
         daf_yomi_side.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new TheDaf()).commit());
         mishna_side.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new MishnahYomi()).commit());
         mikrah_side.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new ShtayimMikrah()).commit());
-        tehillim_side.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Tehillim()).commit());
+        tehillim_side.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new TehillimYomi()).commit());
         shiurim_side.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new RecordedShiurim()).commit());
 
     }

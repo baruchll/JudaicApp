@@ -11,166 +11,167 @@ public class Hollidays {
 
 
 
-    ArrayList<GregorianCalendar> rosh_chodesh = new ArrayList<>();
-    ArrayList<GregorianCalendar> purim = new ArrayList<>();
-    ArrayList<GregorianCalendar> shushan_purim = new ArrayList<>();
-    ArrayList<GregorianCalendar> pesach = new ArrayList<>();
-    ArrayList<GregorianCalendar> sukkos = new ArrayList<>();
-    ArrayList<GregorianCalendar> chanukah = new ArrayList<>();
-    ArrayList<GregorianCalendar> tisha_baav = new ArrayList<>();
-    ArrayList<GregorianCalendar> tzom_gedalya = new ArrayList<>();
-    ArrayList<GregorianCalendar> asara_betevet = new ArrayList<>();
-    ArrayList<GregorianCalendar> taanis_ester = new ArrayList<>();
-    ArrayList<GregorianCalendar> shivaAsar_betammuz = new ArrayList<>();
+    public static ArrayList<GregorianCalendar> rosh_chodesh = new ArrayList<>();
+    public static ArrayList<GregorianCalendar> purim = new ArrayList<>();
+    public static ArrayList<GregorianCalendar> shushan_purim = new ArrayList<>();
+    public static ArrayList<GregorianCalendar> pesach = new ArrayList<>();
+    public static ArrayList<GregorianCalendar> sukkos = new ArrayList<>();
+    public static ArrayList<GregorianCalendar> chanukah = new ArrayList<>();
+    public static ArrayList<GregorianCalendar> tisha_baav = new ArrayList<>();
+    public static ArrayList<GregorianCalendar> tzom_gedalya = new ArrayList<>();
+    public static ArrayList<GregorianCalendar> asara_betevet = new ArrayList<>();
+    public static ArrayList<GregorianCalendar> taanis_ester = new ArrayList<>();
+    public static ArrayList<GregorianCalendar> shivaAsar_betammuz = new ArrayList<>();
 
 
 
     public Hollidays(){
 
 
-        rosh_chodesh.add(new GregorianCalendar(2021, 10, 6));
-        rosh_chodesh.add(new GregorianCalendar(2021, 10, 7));
+        rosh_chodesh.add(new GregorianCalendar(2021, 9, 18));
+        rosh_chodesh.add(new GregorianCalendar(2021, 9, 6));
+        rosh_chodesh.add(new GregorianCalendar(2021, 9, 7));
+        rosh_chodesh.add(new GregorianCalendar(2021, 10, 5));
+        rosh_chodesh.add(new GregorianCalendar(2021, 11, 4));
         rosh_chodesh.add(new GregorianCalendar(2021, 11, 5));
-        rosh_chodesh.add(new GregorianCalendar(2021, 12, 4));
-        rosh_chodesh.add(new GregorianCalendar(2021, 12, 5));
-        rosh_chodesh.add(new GregorianCalendar(2022, 1, 3));
-        rosh_chodesh.add(new GregorianCalendar(2022, 2, 1));
-        rosh_chodesh.add(new GregorianCalendar(2022, 2, 2));
-        rosh_chodesh.add(new GregorianCalendar(2022, 3, 3));
-        rosh_chodesh.add(new GregorianCalendar(2022, 3, 4));
+        rosh_chodesh.add(new GregorianCalendar(2022, 0, 3));
+        rosh_chodesh.add(new GregorianCalendar(2022, 1, 1));
+        rosh_chodesh.add(new GregorianCalendar(2022, 1, 2));
+        rosh_chodesh.add(new GregorianCalendar(2022, 2, 3));
+        rosh_chodesh.add(new GregorianCalendar(2022, 2, 4));
+        rosh_chodesh.add(new GregorianCalendar(2022, 3, 2));
+        rosh_chodesh.add(new GregorianCalendar(2022, 4, 1));
         rosh_chodesh.add(new GregorianCalendar(2022, 4, 2));
-        rosh_chodesh.add(new GregorianCalendar(2022, 5, 1));
-        rosh_chodesh.add(new GregorianCalendar(2022, 5, 2));
-        rosh_chodesh.add(new GregorianCalendar(2022, 5, 31));
+        rosh_chodesh.add(new GregorianCalendar(2022, 4, 31));
+        rosh_chodesh.add(new GregorianCalendar(2022, 5, 29));
+        rosh_chodesh.add(new GregorianCalendar(2022, 5, 30));
         rosh_chodesh.add(new GregorianCalendar(2022, 6, 29));
-        rosh_chodesh.add(new GregorianCalendar(2022, 6, 30));
-        rosh_chodesh.add(new GregorianCalendar(2022, 7, 29));
-        rosh_chodesh.add(new GregorianCalendar(2022, 8, 27));
-        rosh_chodesh.add(new GregorianCalendar(2022, 8, 28));
+        rosh_chodesh.add(new GregorianCalendar(2022, 7, 27));
+        rosh_chodesh.add(new GregorianCalendar(2022, 7, 28));
+        rosh_chodesh.add(new GregorianCalendar(2022, 8, 26));
+        rosh_chodesh.add(new GregorianCalendar(2022, 9, 25));
         rosh_chodesh.add(new GregorianCalendar(2022, 9, 26));
+        rosh_chodesh.add(new GregorianCalendar(2022, 10, 24));
         rosh_chodesh.add(new GregorianCalendar(2022, 10, 25));
-        rosh_chodesh.add(new GregorianCalendar(2022, 10, 26));
         rosh_chodesh.add(new GregorianCalendar(2022, 11, 24));
         rosh_chodesh.add(new GregorianCalendar(2022, 11, 25));
-        rosh_chodesh.add(new GregorianCalendar(2022, 12, 24));
-        rosh_chodesh.add(new GregorianCalendar(2022, 12, 25));
-        rosh_chodesh.add(new GregorianCalendar(2023, 1, 23));
-        rosh_chodesh.add(new GregorianCalendar(2021, 10, 16));
+        rosh_chodesh.add(new GregorianCalendar(2023, 0, 23));
+        rosh_chodesh.add(new GregorianCalendar(2021, 1, 16));
 
 
-        purim.add(new GregorianCalendar(2021,2,26));
-        purim.add(new GregorianCalendar(2021, 2, 26));
-        purim.add(new GregorianCalendar(2022, 3, 17));
-        purim.add(new GregorianCalendar(2023, 3, 7));
-        purim.add(new GregorianCalendar(2021, 9, 19));
+        purim.add(new GregorianCalendar(2021,1,26));
+        purim.add(new GregorianCalendar(2021, 1, 26));
+        purim.add(new GregorianCalendar(2022, 2, 17));
+        purim.add(new GregorianCalendar(2023, 2, 7));
 
 
-        shushan_purim.add(new GregorianCalendar(2021, 2, 27));
-        shushan_purim.add(new GregorianCalendar(2022, 3, 18));
-        shushan_purim.add(new GregorianCalendar(2023, 3, 8));
+        shushan_purim.add(new GregorianCalendar(2021, 1, 27));
+        shushan_purim.add(new GregorianCalendar(2022, 2, 18));
+        shushan_purim.add(new GregorianCalendar(2023, 2, 8));
 
 
-        pesach.add(new GregorianCalendar(2021, 3, 28));
-        pesach.add(new GregorianCalendar(2021, 3, 29));
-        pesach.add(new GregorianCalendar(2021, 3, 30));
-        pesach.add(new GregorianCalendar(2021, 3, 31));
-        pesach.add(new GregorianCalendar(2021, 4, 1));
-        pesach.add(new GregorianCalendar(2021, 4, 2));
-        pesach.add(new GregorianCalendar(2021, 4, 3));
+        pesach.add(new GregorianCalendar(2021, 2, 28));
+        pesach.add(new GregorianCalendar(2021, 2, 29));
+        pesach.add(new GregorianCalendar(2021, 2, 30));
+        pesach.add(new GregorianCalendar(2021, 2, 31));
+        pesach.add(new GregorianCalendar(2021, 3, 1));
+        pesach.add(new GregorianCalendar(2021, 3, 2));
+        pesach.add(new GregorianCalendar(2021, 3, 3));
 
-        pesach.add(new GregorianCalendar(2022, 4, 16));
-        pesach.add(new GregorianCalendar(2022, 4, 17));
-        pesach.add(new GregorianCalendar(2022, 4, 18));
-        pesach.add(new GregorianCalendar(2022, 4, 19));
-        pesach.add(new GregorianCalendar(2022, 4, 20));
-        pesach.add(new GregorianCalendar(2022, 4, 21));
-        pesach.add(new GregorianCalendar(2022, 4, 22));
+        pesach.add(new GregorianCalendar(2022, 3, 16));
+        pesach.add(new GregorianCalendar(2022, 3, 17));
+        pesach.add(new GregorianCalendar(2022, 3, 18));
+        pesach.add(new GregorianCalendar(2022, 3, 19));
+        pesach.add(new GregorianCalendar(2022, 3, 20));
+        pesach.add(new GregorianCalendar(2022, 3, 21));
+        pesach.add(new GregorianCalendar(2022, 3, 22));
 
-        pesach.add(new GregorianCalendar(2023, 4, 6));
-        pesach.add(new GregorianCalendar(2023, 4, 7));
-        pesach.add(new GregorianCalendar(2023, 4, 8));
-        pesach.add(new GregorianCalendar(2023, 4, 9));
-        pesach.add(new GregorianCalendar(2023, 4, 10));
-        pesach.add(new GregorianCalendar(2023, 4, 11));
-        pesach.add(new GregorianCalendar(2023, 4, 12));
-
-
-        sukkos.add(new GregorianCalendar(2021, 9, 21));
-        sukkos.add(new GregorianCalendar(2021, 9, 22));
-        sukkos.add(new GregorianCalendar(2021, 9, 23));
-        sukkos.add(new GregorianCalendar(2021, 9, 24));
-        sukkos.add(new GregorianCalendar(2021, 9, 25));
-        sukkos.add(new GregorianCalendar(2021, 9, 26));
-        sukkos.add(new GregorianCalendar(2021, 9, 27));
-
-        sukkos.add(new GregorianCalendar(2022, 9, 10));
-        sukkos.add(new GregorianCalendar(2022, 9, 11));
-        sukkos.add(new GregorianCalendar(2022, 9, 12));
-        sukkos.add(new GregorianCalendar(2022, 9, 13));
-        sukkos.add(new GregorianCalendar(2022, 9, 14));
-        sukkos.add(new GregorianCalendar(2022, 9, 15));
-        sukkos.add(new GregorianCalendar(2022, 9, 16));
-
-        sukkos.add(new GregorianCalendar(2023, 9, 30));
-        sukkos.add(new GregorianCalendar(2023, 10, 1));
-        sukkos.add(new GregorianCalendar(2023, 10, 2));
-        sukkos.add(new GregorianCalendar(2023, 10, 3));
-        sukkos.add(new GregorianCalendar(2023, 10, 4));
-        sukkos.add(new GregorianCalendar(2023, 10, 5));
-        sukkos.add(new GregorianCalendar(2023, 10, 6));
+        pesach.add(new GregorianCalendar(2023, 3, 6));
+        pesach.add(new GregorianCalendar(2023, 3, 7));
+        pesach.add(new GregorianCalendar(2023, 3, 8));
+        pesach.add(new GregorianCalendar(2023, 3, 9));
+        pesach.add(new GregorianCalendar(2023, 3, 10));
+        pesach.add(new GregorianCalendar(2023, 3, 11));
+        pesach.add(new GregorianCalendar(2023, 3, 12));
 
 
-        chanukah.add(new GregorianCalendar(2021, 11,29));
-        chanukah.add(new GregorianCalendar(2021, 11,30));
-        chanukah.add(new GregorianCalendar(2021, 11,31));
-        chanukah.add(new GregorianCalendar(2021, 12,1));
-        chanukah.add(new GregorianCalendar(2021, 12,2));
-        chanukah.add(new GregorianCalendar(2021, 12,3));
-        chanukah.add(new GregorianCalendar(2021, 12,4));
-        chanukah.add(new GregorianCalendar(2021, 12,5));
+        sukkos.add(new GregorianCalendar(2021, 8, 21));
+        sukkos.add(new GregorianCalendar(2021, 8, 22));
+        sukkos.add(new GregorianCalendar(2021, 8, 23));
+        sukkos.add(new GregorianCalendar(2021, 8, 24));
+        sukkos.add(new GregorianCalendar(2021, 8, 25));
+        sukkos.add(new GregorianCalendar(2021, 8, 26));
+        sukkos.add(new GregorianCalendar(2021, 8, 27));
 
-        chanukah.add(new GregorianCalendar(2022, 12,19));
-        chanukah.add(new GregorianCalendar(2022, 12,20));
-        chanukah.add(new GregorianCalendar(2022, 12,21));
-        chanukah.add(new GregorianCalendar(2022, 12,22));
-        chanukah.add(new GregorianCalendar(2022, 12,23));
-        chanukah.add(new GregorianCalendar(2022, 12,24));
-        chanukah.add(new GregorianCalendar(2022, 12,25));
-        chanukah.add(new GregorianCalendar(2022, 12,26));
+        sukkos.add(new GregorianCalendar(2022, 8, 10));
+        sukkos.add(new GregorianCalendar(2022, 8, 11));
+        sukkos.add(new GregorianCalendar(2022, 8, 12));
+        sukkos.add(new GregorianCalendar(2022, 8, 13));
+        sukkos.add(new GregorianCalendar(2022, 8, 14));
+        sukkos.add(new GregorianCalendar(2022, 8, 15));
+        sukkos.add(new GregorianCalendar(2022, 8, 16));
 
-        chanukah.add(new GregorianCalendar(2023, 12,8));
-        chanukah.add(new GregorianCalendar(2023, 12,9));
-        chanukah.add(new GregorianCalendar(2023, 12,10));
-        chanukah.add(new GregorianCalendar(2023, 12,11));
-        chanukah.add(new GregorianCalendar(2023, 12,12));
-        chanukah.add(new GregorianCalendar(2023, 12,13));
-        chanukah.add(new GregorianCalendar(2023, 12,14));
-        chanukah.add(new GregorianCalendar(2023, 12,15));
+        sukkos.add(new GregorianCalendar(2023, 8, 30));
+        sukkos.add(new GregorianCalendar(2023, 9, 1));
+        sukkos.add(new GregorianCalendar(2023, 9, 2));
+        sukkos.add(new GregorianCalendar(2023, 9, 3));
+        sukkos.add(new GregorianCalendar(2023, 9, 4));
+        sukkos.add(new GregorianCalendar(2023, 9, 5));
+        sukkos.add(new GregorianCalendar(2023, 9, 6));
 
 
-        tisha_baav.add(new GregorianCalendar(2022, 8, 7));
-        tisha_baav.add(new GregorianCalendar(2023, 7, 27));
-        tisha_baav.add(new GregorianCalendar(2024, 8, 13));
+        chanukah.add(new GregorianCalendar(2021, 9, 18));
+        chanukah.add(new GregorianCalendar(2021, 10,29));
+        chanukah.add(new GregorianCalendar(2021, 10,30));
+        chanukah.add(new GregorianCalendar(2021, 10,31));
+        chanukah.add(new GregorianCalendar(2021, 11,1));
+        chanukah.add(new GregorianCalendar(2021, 11,2));
+        chanukah.add(new GregorianCalendar(2021, 11,3));
+        chanukah.add(new GregorianCalendar(2021, 11,4));
+        chanukah.add(new GregorianCalendar(2021, 11,5));
+
+        chanukah.add(new GregorianCalendar(2022, 11,19));
+        chanukah.add(new GregorianCalendar(2022, 11,20));
+        chanukah.add(new GregorianCalendar(2022, 11,21));
+        chanukah.add(new GregorianCalendar(2022, 11,22));
+        chanukah.add(new GregorianCalendar(2022, 11,23));
+        chanukah.add(new GregorianCalendar(2022, 11,24));
+        chanukah.add(new GregorianCalendar(2022, 11,25));
+        chanukah.add(new GregorianCalendar(2022, 11,26));
+
+        chanukah.add(new GregorianCalendar(2023, 11,8));
+        chanukah.add(new GregorianCalendar(2023, 11,9));
+        chanukah.add(new GregorianCalendar(2023, 11,10));
+        chanukah.add(new GregorianCalendar(2023, 11,11));
+        chanukah.add(new GregorianCalendar(2023, 11,12));
+        chanukah.add(new GregorianCalendar(2023, 11,13));
+        chanukah.add(new GregorianCalendar(2023, 11,14));
+        chanukah.add(new GregorianCalendar(2023, 11,15));
 
 
-        tzom_gedalya.add(new GregorianCalendar(2022, 9, 28));
-        tzom_gedalya.add(new GregorianCalendar(2023, 9, 18));
-        tzom_gedalya.add(new GregorianCalendar(2024, 10, 6));
+        tisha_baav.add(new GregorianCalendar(2022, 7, 7));
+        tisha_baav.add(new GregorianCalendar(2023, 6, 27));
+        tisha_baav.add(new GregorianCalendar(2024, 7, 13));
 
 
-        asara_betevet.add(new GregorianCalendar(2021, 12, 14));
-        asara_betevet.add(new GregorianCalendar(2023, 1, 3));
-        asara_betevet.add(new GregorianCalendar(2023, 12, 22));
+        tzom_gedalya.add(new GregorianCalendar(2022, 8, 28));
+        tzom_gedalya.add(new GregorianCalendar(2023, 8, 18));
+        tzom_gedalya.add(new GregorianCalendar(2024, 9, 6));
 
 
-        taanis_ester.add(new GregorianCalendar(2022, 3, 16));
-        taanis_ester.add(new GregorianCalendar(2023, 3, 6));
-        taanis_ester.add(new GregorianCalendar(2024, 3, 21));
+        asara_betevet.add(new GregorianCalendar(2021, 11, 14));
+        asara_betevet.add(new GregorianCalendar(2023, 0, 3));
+        asara_betevet.add(new GregorianCalendar(2023, 11, 22));
 
 
-        shivaAsar_betammuz.add(new GregorianCalendar(2022, 7, 17));
-        shivaAsar_betammuz.add(new GregorianCalendar(2023, 7, 6));
-        shivaAsar_betammuz.add(new GregorianCalendar(2024, 6, 23));
+        taanis_ester.add(new GregorianCalendar(2022, 2, 16));
+        taanis_ester.add(new GregorianCalendar(2023, 2, 6));
+        taanis_ester.add(new GregorianCalendar(2024, 2, 21));
+
+
+        shivaAsar_betammuz.add(new GregorianCalendar(2022, 6, 17));
+        shivaAsar_betammuz.add(new GregorianCalendar(2023, 6, 6));
+        shivaAsar_betammuz.add(new GregorianCalendar(2024, 5, 23));
 
 
     }

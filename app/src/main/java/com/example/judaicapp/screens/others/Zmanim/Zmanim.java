@@ -63,8 +63,8 @@ public class Zmanim extends Fragment {
             //                                          int[] grantResults)
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
-            ActivityResultLauncher<String[]> locationPermissionRequest =
-                    registerForActivityResult(new ActivityResultContracts
+            ActivityResultLauncher<String[]> locationPermissionRequest
+                    = registerForActivityResult(new ActivityResultContracts
                                     .RequestMultiplePermissions(), result -> {
                                 Boolean fineLocationGranted = null;
                                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
