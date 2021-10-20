@@ -141,10 +141,6 @@ public class Zmanim extends Fragment {
         boolean sunset = categories.add("שקיעה: " + time.format(czc.getSunset()));
         boolean threeStars = categories.add("לילה - צאת ג' כוכבים: " + time.format(czc.getTzaisGeonim8Point5Degrees()));
         boolean nightfall = categories.add("לילה - 72 דקות: " + time.format(czc.getTzais72Zmanis()));
-//        if (czc.getTzaisGeonim8Point5Degrees().before(new Date())){
-//            categories.add("tesst");
-//        }
-//        else categories.add("failed");
 
 
 
