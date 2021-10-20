@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 
@@ -38,9 +39,9 @@ public class Zmanim extends Fragment {
     double latitude = 0; //Western Wall, Israel
     double longitude = 0; //Western Wall, Israel
     double elevation = 800; //optional elevation
-    TimeZone timeZone = TimeZone.getTimeZone("Asia/Jerusalem");
-    GeoLocation location;
-    public ComplexZmanimCalendar czc;
+    public static TimeZone timeZone = TimeZone.getTimeZone("Asia/Jerusalem");
+    public static GeoLocation location;
+    public static ComplexZmanimCalendar czc;
 
 
     @Override
@@ -100,7 +101,7 @@ public class Zmanim extends Fragment {
     }
 
     public void initLocation() {
-        LocationManager lm = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
+
         if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -112,12 +113,23 @@ public class Zmanim extends Fragment {
             return;
         }
 
-        Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        longitude = location.getLongitude();
-        latitude = location.getLatitude();
-        timeZone = TimeZone.getTimeZone(TimezoneMapper.latLngToTimezoneString(latitude, longitude));
-        this.location = new GeoLocation(locationName, latitude, longitude, elevation, timeZone);
-        czc = new ComplexZmanimCalendar(this.location);
+
+            LocationManager lm = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
+
+            Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            if(location!=null){
+                longitude = location.getLongitude();
+                latitude = location.getLatitude();
+                Zmanim.timeZone = TimeZone.getTimeZone(TimezoneMapper.latLngToTimezoneString(latitude, longitude));
+                Zmanim.location = new GeoLocation(locationName, latitude, longitude, elevation, Zmanim.timeZone);
+                Zmanim.czc = new ComplexZmanimCalendar(Zmanim.location);
+                setItemsOnAdapter();
+
+            }
+
+
+
+
 
     }
 
@@ -126,25 +138,33 @@ public class Zmanim extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         zmanimList = getView().findViewById(R.id.zmanim_list);
         test();
+
+    }
+
+    private void setItemsOnAdapter() {
+
         ArrayList<String> categories = new ArrayList<>();
         Format time = new SimpleDateFormat("HH:mm:ss");
-        boolean dawn = categories.add("עלות השחר: " + time.format(czc.getAlosHashachar()));
-        boolean misheyakir = categories.add("תחילת זמן ציצית ותפילין: " + time.format(czc.getMisheyakir11Point5Degrees()));
-        boolean sunrise = categories.add("הנץ החמה: " + time.format(czc.getSunrise()));
-        boolean shemaMGA = categories.add("סוף זמן קריאת שמע מגן אברהם (72 דקות): " + time.format(czc.getSofZmanShmaMGA72Minutes()));
-        boolean shemaGra = categories.add("סוף זמן קריאת שמע גר\"א ובעל התניא: " + time.format(czc.getSofZmanShmaBaalHatanya()));
-        boolean tfilaMGA = categories.add("סוף זמן תפילה מגן אברהם (72 דקות): " + time.format(czc.getSofZmanTfilaMGA72Minutes()));
-        boolean tfilaGra = categories.add("סוף זמן תפילה גר\"א ובעל התניא: " + time.format(czc.getSofZmanTfilaBaalHatanya()));
-        boolean midday = categories.add("חצות היום: " + time.format(czc.getFixedLocalChatzos()));
-        boolean earlyMincha = categories.add("מנחה גדולה: " + time.format(czc.getMinchaGedolaBaalHatanya()));
-        boolean plagMincha = categories.add("פלג המנחה: " + time.format(czc.getPlagHamincha()));
-        boolean sunset = categories.add("שקיעה: " + time.format(czc.getSunset()));
-        boolean threeStars = categories.add("לילה - צאת ג' כוכבים: " + time.format(czc.getTzaisGeonim8Point5Degrees()));
-        boolean nightfall = categories.add("לילה - 72 דקות: " + time.format(czc.getTzais72Zmanis()));
+        if(Zmanim.czc!=null){
+             categories.add("עלות השחר: " + time.format(Zmanim.czc.getAlosHashachar()));
+            categories.add("תחילת זמן ציצית ותפילין: " + time.format(Zmanim.czc.getMisheyakir11Point5Degrees()));
+            categories.add("הנץ החמה: " + time.format(Zmanim.czc.getSunrise()));
+             categories.add("סוף זמן קריאת שמע מגן אברהם (72 דקות): " + time.format(Zmanim.czc.getSofZmanShmaMGA72Minutes()));
+            categories.add("סוף זמן קריאת שמע גר\"א ובעל התניא: " + time.format(Zmanim.czc.getSofZmanShmaBaalHatanya()));
+             categories.add("סוף זמן תפילה מגן אברהם (72 דקות): " + time.format(Zmanim.czc.getSofZmanTfilaMGA72Minutes()));
+             categories.add("סוף זמן תפילה גר\"א ובעל התניא: " + time.format(Zmanim.czc.getSofZmanTfilaBaalHatanya()));
+             categories.add("חצות היום: " + time.format(Zmanim.czc.getFixedLocalChatzos()));
+             categories.add("מנחה גדולה: " + time.format(Zmanim.czc.getMinchaGedolaBaalHatanya()));
+            categories.add("פלג המנחה: " + time.format(Zmanim.czc.getPlagHamincha()));
+             categories.add("שקיעה: " + time.format(Zmanim.czc.getSunset()));
+            categories.add("לילה - צאת ג' כוכבים: " + time.format(Zmanim.czc.getTzaisGeonim8Point5Degrees()));
+            categories.add("לילה - 72 דקות: " + time.format(Zmanim.czc.getTzais72Zmanis()));
+
+        }
 
 
 
-        ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, categories);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(getView().getContext(), android.R.layout.simple_list_item_1, categories);
 
         zmanimList.setAdapter(arrayAdapter);
     }
