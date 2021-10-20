@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JudaicApp" >
         <activity
-            android:name=".screens.Animation"
+            android:name=".screens.StartAnimation"
             android:exported="true"
             android:theme="@style/Theme.JudaicApp.NoActionBar">
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0c056d"
-    tools:context=".screens.Animation">
+    tools:context=".screens.StartAnimation">
 
     <ImageView
         android:id="@+id/animation"

@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/ashkenaz_shachris"
+            android:id="@+id/menu_daf_yomi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -26,7 +26,7 @@
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/ashkenaz_mincha"
+            android:id="@+id/menu_mishna"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -35,7 +35,7 @@
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/ashkenaz_maariv"
+            android:id="@+id/menu_mikrah"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -44,7 +44,7 @@
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/tehillim_side_menu"
+            android:id="@+id/menu_tehillim"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -53,7 +53,7 @@
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/shiurim_side_menu"
+            android:id="@+id/menu_shiurim"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"

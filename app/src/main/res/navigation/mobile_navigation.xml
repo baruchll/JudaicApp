@@ -98,9 +98,9 @@
         android:label="AshkenazMincha" />
     <activity
         android:id="@+id/animation2"
-        android:name="com.example.judaicapp.screens.Animation"
+        android:name="com.example.judaicapp.screens.StartAnimation"
         android:label="activity_animation"
-        tools:layout="@layout/activity_animation" />
+        tools:layout="@layout/activity_start_animation" />
     <fragment
         android:id="@+id/tehillimYomi"
         android:name="com.example.judaicapp.screens.limud.tehillim.TehillimYomi"

@@ -41,7 +41,7 @@ public class Zmanim extends Fragment {
     double elevation = 800; //optional elevation
     TimeZone timeZone = TimeZone.getTimeZone("Asia/Jerusalem");
     GeoLocation location2;
-    ComplexZmanimCalendar czc;
+    public static ComplexZmanimCalendar czc;
 
 
     @Override
@@ -141,6 +141,7 @@ public class Zmanim extends Fragment {
         boolean sunset = categories.add("שקיעה: " + time.format(czc.getSunset()));
         boolean threeStars = categories.add("לילה - צאת ג' כוכבים: " + time.format(czc.getTzaisGeonim8Point5Degrees()));
         boolean nightfall = categories.add("לילה - 72 דקות: " + time.format(czc.getTzais72Zmanis()));
+
 
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, categories);

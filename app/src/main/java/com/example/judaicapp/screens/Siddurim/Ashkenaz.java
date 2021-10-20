@@ -34,8 +34,8 @@ public class Ashkenaz extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        shachris = getView().findViewById(R.id.ashkenaz_shachris);
-        mincha = getView().findViewById(R.id.ashkenaz_mincha);
+        shachris = getView().findViewById(R.id.menu_rav_chat);
+        mincha = getView().findViewById(R.id.menu_jlem_compass);
 
         shachris.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new AshkenazShachris()).commit());
         mincha.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new AshkenazMincha()).commit());

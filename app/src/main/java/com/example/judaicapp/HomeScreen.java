@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.widget.Toast;
 
+import com.example.judaicapp.screens.others.Zmanim.Zmanim;
 import com.example.judaicapp.screens.others.rav_chat.BanScreen;
 import com.example.judaicapp.screens.others.rav_chat.ChatUtils;
 import com.example.judaicapp.screens.others.rav_chat.objects.User;
@@ -31,6 +32,7 @@ public class HomeScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
         new Hollidays();
+        new Zmanim();
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

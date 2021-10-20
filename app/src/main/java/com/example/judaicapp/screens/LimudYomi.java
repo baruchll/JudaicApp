@@ -43,11 +43,11 @@ public class LimudYomi extends Fragment {
     }
 
     private void LimudStuff() {
-        daf_yomi_side = getView().findViewById(R.id.ashkenaz_shachris);
-        mishna_side = getView().findViewById(R.id.ashkenaz_mincha);
-        mikrah_side = getView().findViewById(R.id.ashkenaz_maariv);
-        tehillim_side = getView().findViewById(R.id.tehillim_side_menu);
-        shiurim_side = getView().findViewById(R.id.shiurim_side_menu);
+        daf_yomi_side = getView().findViewById(R.id.menu_rav_chat);
+        mishna_side = getView().findViewById(R.id.menu_jlem_compass);
+        mikrah_side = getView().findViewById(R.id.menu_calendar);
+        tehillim_side = getView().findViewById(R.id.menu_tefillin);
+        shiurim_side = getView().findViewById(R.id.menu_brachos);
 
         daf_yomi_side.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new TheDaf()).commit());
         mishna_side.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new MishnahYomi()).commit());
