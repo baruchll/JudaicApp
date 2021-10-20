@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 
@@ -21,9 +20,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.judaicapp.TimezoneMapper;
 import com.kosherjava.zmanim.ComplexZmanimCalendar;
 import com.kosherjava.zmanim.util.GeoLocation;
-import com.kosherjava.zmanim.AstronomicalCalendar;
 
 import com.example.judaicapp.R;
 
@@ -40,8 +39,8 @@ public class Zmanim extends Fragment {
     double longitude = 0; //Western Wall, Israel
     double elevation = 800; //optional elevation
     TimeZone timeZone = TimeZone.getTimeZone("Asia/Jerusalem");
-    GeoLocation location2;
-    public static ComplexZmanimCalendar czc;
+    GeoLocation location;
+    public ComplexZmanimCalendar czc;
 
 
     @Override
@@ -116,8 +115,9 @@ public class Zmanim extends Fragment {
         Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         longitude = location.getLongitude();
         latitude = location.getLatitude();
-        location2 = new GeoLocation(locationName, latitude, longitude, elevation, timeZone);
-        czc = new ComplexZmanimCalendar(location2);
+        timeZone = TimeZone.getTimeZone(TimezoneMapper.latLngToTimezoneString(latitude, longitude));
+        this.location = new GeoLocation(locationName, latitude, longitude, elevation, timeZone);
+        czc = new ComplexZmanimCalendar(this.location);
 
     }
 
@@ -141,6 +141,10 @@ public class Zmanim extends Fragment {
         boolean sunset = categories.add("שקיעה: " + time.format(czc.getSunset()));
         boolean threeStars = categories.add("לילה - צאת ג' כוכבים: " + time.format(czc.getTzaisGeonim8Point5Degrees()));
         boolean nightfall = categories.add("לילה - 72 דקות: " + time.format(czc.getTzais72Zmanis()));
+//        if (czc.getTzaisGeonim8Point5Degrees().before(new Date())){
+//            categories.add("tesst");
+//        }
+//        else categories.add("failed");
 
 
 

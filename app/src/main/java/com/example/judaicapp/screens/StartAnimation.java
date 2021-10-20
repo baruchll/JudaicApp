@@ -1,25 +1,41 @@
 package com.example.judaicapp.screens;
 
-import static com.example.judaicapp.screens.others.Zmanim.Zmanim.czc;
-
+import android.os.Build;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.judaicapp.R;
+import com.example.judaicapp.TimezoneMapper;
+import com.kosherjava.zmanim.ComplexZmanimCalendar;
+import com.kosherjava.zmanim.util.GeoLocation;
 
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.TimeZone;
 import java.util.Timer;
 import java.util.TimerTask;
 
+@RequiresApi(api = Build.VERSION_CODES.N)
 public class StartAnimation extends AppCompatActivity {
+    String locationName = "Jerusalem, Israel";
+    double latitude = 31.7767; //Western Wall, Israel
+    double longitude = 35.2345; //Western Wall, Israel
+    double elevation = 800; //optional elevation
+    Date currentTime = new Date();
+    TimeZone timeZone = TimeZone.getTimeZone(TimezoneMapper.latLngToTimezoneString(latitude, longitude));
+    GeoLocation location = new GeoLocation(locationName, latitude, longitude, elevation, timeZone);
+    ComplexZmanimCalendar czc = new ComplexZmanimCalendar(location);
+    Format dayOfWeek = new SimpleDateFormat("u");
+    String day = dayOfWeek.format(currentTime);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,24 +57,22 @@ public class StartAnimation extends AppCompatActivity {
         ImageView image = findViewById(R.id.animation);
         image.startAnimation(rotate());
 
-        Calendar cal = new GregorianCalendar();
-        int dayofweek = cal.get(Calendar.DAY_OF_WEEK);
-        cal.clear();
-        cal.set(Calendar.HOUR, Calendar.MINUTE, Calendar.SECOND);
-        Format time = new SimpleDateFormat("HH:mm:ss");
-
-        String lighting = time.format(czc.getCandleLighting());
-        String motzash = time.format(czc.getTzaisGeonim8Point5Degrees());
+        Date lighting = czc.getCandleLighting();
+        Date motzash = czc.getTzaisGeonim8Point5Degrees();
 
 
 
-//this is a timer that does the waits for the animation to finish and then is supposed to change the screen
+//this is a timer that waits for the animation to finish and then is supposed to change the screen
         Timer t = new Timer();
         t.schedule(new TimerTask() {
             @Override
             public void run() {
-                //this if is supposed to check if its shabbos and if it is it moves you to the shabbos screen
-                if (dayofweek == Calendar.FRIDAY && lighting.get()){
+                //this if is supposed to check if it's shabbos and if it is it moves you to the shabbos screen
+                if (day.equals("5") && currentTime.after(lighting)
+                        || day.equals("6")&&currentTime.before(motzash)){
+
+                }
+                else{
 
                 }
 
