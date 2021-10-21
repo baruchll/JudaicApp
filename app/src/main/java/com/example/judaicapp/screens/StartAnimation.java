@@ -1,5 +1,6 @@
 package com.example.judaicapp.screens;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.animation.Animation;
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.judaicapp.R;
 import com.example.judaicapp.TimezoneMapper;
+import com.example.judaicapp.screens.Siddurim.Ashkenaz;
 import com.kosherjava.zmanim.ComplexZmanimCalendar;
 import com.kosherjava.zmanim.util.GeoLocation;
 
@@ -66,12 +68,13 @@ public class StartAnimation extends AppCompatActivity {
             @Override
             public void run() {
                 //this if is supposed to check if it's shabbos and if it is it moves you to the shabbos screen
-                if (day.equals("5") && currentTime.after(lighting)
-                        || day.equals("6")&&currentTime.before(motzash)){
-
+                if (day.equals("5") && currentTime.after(lighting) || day.equals("6")&&currentTime.before(motzash)){
+                    Intent intent = new Intent(StartAnimation.this, ShabbosScreen.class);
+                    startActivity(intent);
+                    finish();
                 }
                 else{
-
+                    getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Ashkenaz()).commit();
                 }
 
             }
