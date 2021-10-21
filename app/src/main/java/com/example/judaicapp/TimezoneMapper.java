@@ -1,5 +1,3 @@
-/** The provided code is written by Tim Cooper:   tim@edval.com.au
- This code is available under the MIT licence:  https://opensource.org/licenses/MIT  */
 package com.example.judaicapp;
 
 public class TimezoneMapper {

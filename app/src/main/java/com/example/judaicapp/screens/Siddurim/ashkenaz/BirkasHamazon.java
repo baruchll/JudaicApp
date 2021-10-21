@@ -1,21 +1,32 @@
 package com.example.judaicapp.screens.Siddurim.ashkenaz;
 
+import static java.util.Objects.requireNonNull;
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.judaicapp.R;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+
+import java.util.Objects;
 
 
 public class BirkasHamazon extends Fragment {
-    TextView a_bh_bircas_hamazon_1, a_bh_purim, a_bh_chanukah, a_bh_bircas_hamazon_2, a_bh_rosh_chodesh_1, a_bh_pesach, a_bh_sukkkos_1, a_bh_bircas_hamazon_3,
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    TextView a_bh_bircas_hamazon_1, a_bh_purim, a_bh_chanukah, a_bh_bircas_hamazon_2, a_bh_rosh_chodesh_1, a_bh_pesach, a_bh_sukkos_1, a_bh_bircas_hamazon_3,
             a_bh_rosh_chodesh_2, a_bh_sukkos_2, a_bh_yom_tov, a_bh_migdol, a_bh_magdil;
 
 
@@ -36,6 +47,43 @@ public class BirkasHamazon extends Fragment {
     }
 
     private void hamazon() {
+        a_bh_bircas_hamazon_1 = getView().findViewById(R.id.a_bh_bircas_hamazon_1);
+        a_bh_purim = getView().findViewById(R.id.a_bh_purim);
+        a_bh_chanukah = getView().findViewById(R.id.a_bh_chanukah);
+        a_bh_bircas_hamazon_2 = getView().findViewById(R.id.a_bh_bircas_hamazon_2);
+        a_bh_rosh_chodesh_1 = getView().findViewById(R.id.a_bh_rosh_chodesh_1);
+        a_bh_pesach = getView().findViewById(R.id.a_bh_pesach);
+        a_bh_sukkos_1 = getView().findViewById(R.id.a_bh_sukkos_1);
+        a_bh_bircas_hamazon_3 = getView().findViewById(R.id.a_bh_bircas_hamazon_3);
+        a_bh_rosh_chodesh_2 = getView().findViewById(R.id.a_bh_rosh_chodesh_2);
+        a_bh_sukkos_2 = getView().findViewById(R.id.a_bh_sukkos_2);
+        a_bh_yom_tov = getView().findViewById(R.id.a_bh_yom_tov);
+        a_bh_migdol = getView().findViewById(R.id.a_bh_migdol);
+        a_bh_magdil = getView().findViewById(R.id.a_bh_magdil);
+
+        DocumentReference docref = db.collection("ashkenaz").document("birkas_hamazon");
+        docref.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                if (error != null) {
+                    return;
+                }
+                assert value != null;
+                a_bh_bircas_hamazon_1.setText(Html.fromHtml(requireNonNull(value.getString("bircas_hamazon_1")).replaceAll("_b", "<br/>")));
+                a_bh_purim.setText(Html.fromHtml(requireNonNull(value.getString("purim")).replaceAll("_b", "<br/>")));
+                a_bh_chanukah.setText(Html.fromHtml(requireNonNull(value.getString("chanukah")).replaceAll("_b", "<br/>")));
+                a_bh_bircas_hamazon_2.setText(Html.fromHtml(requireNonNull(value.getString("bircas_hamazon_2")).replaceAll("_b", "<br/>")));
+                a_bh_rosh_chodesh_1.setText(Html.fromHtml(requireNonNull(value.getString("rosh_chodesh_1")).replaceAll("_b", "<br/>")));
+                a_bh_pesach.setText(Html.fromHtml(requireNonNull(value.getString("pesach")).replaceAll("_b", "<br/>")));
+                a_bh_sukkos_1.setText(Html.fromHtml(requireNonNull(value.getString("sukkos_1")).replaceAll("_b", "<br/>")));
+                a_bh_bircas_hamazon_3.setText(Html.fromHtml(requireNonNull(value.getString("bircas_hamazon_3")).replaceAll("_b", "<br/>")));
+                a_bh_rosh_chodesh_2.setText(Html.fromHtml(requireNonNull(value.getString("rosh_chodesh_2")).replaceAll("_b", "<br/>")));
+                a_bh_sukkos_2.setText(Html.fromHtml(requireNonNull(value.getString("sukkos_2")).replaceAll("_b", "<br/>")));
+                a_bh_yom_tov.setText(Html.fromHtml(requireNonNull(value.getString("yom_tov")).replaceAll("_b", "<br/>")));
+                a_bh_migdol.setText(Html.fromHtml(requireNonNull(value.getString("migdol")).replaceAll("_b", "<br/>")));
+                a_bh_magdil.setText(Html.fromHtml(requireNonNull(value.getString("magdil")).replaceAll("_b", "<br/>")));
+            }
+        });
 
     }
 }

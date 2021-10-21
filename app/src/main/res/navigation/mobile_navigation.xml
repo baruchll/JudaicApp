@@ -111,4 +111,9 @@
         android:name="com.example.judaicapp.screens.Siddurim.ashkenaz.AshkenazMaariv"
         android:label="fragment_ashkenaz_maariv"
         tools:layout="@layout/fragment_ashkenaz_maariv" />
+    <fragment
+        android:id="@+id/brachos"
+        android:name="com.example.judaicapp.screens.Siddurim.ashkenaz.Brachos"
+        android:label="fragment_brachos"
+        tools:layout="@layout/fragment_brachos" />
 </navigation>

@@ -79,7 +79,6 @@ public class Home extends Fragment {
         for (int i = 0; i < 30; i++) {
             if (i == day){
                 halacha_yomit.setText(halacha_yomit_arr[i]);
-                halacha_yomit.setTextColor(Color.parseColor("#FFFFFF"));
             }
 
         }
@@ -203,17 +202,11 @@ public class Home extends Fragment {
         });
 
         ashkenaz.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Ashkenaz()).commit());
-
-//        sefard.setOnClickListener(v -> {
-//            Intent goToSefard = new Intent(v.getContext(), SefardSiddur.class);
-//            startActivity(goToSefard);
-//        });
+        sefard.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Ashkenaz()).commit());
+        edot.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Ashkenaz()).commit());
 
 
-        edot.setOnClickListener(v -> {
-            Intent goToEdot = new Intent(v.getContext(), EdotSiddur.class);
-            startActivity(goToEdot);
-        });
+
 
 
 
