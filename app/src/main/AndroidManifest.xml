@@ -16,7 +16,11 @@
             android:name=".screens.StartAnimation"
             android:exported="true"
             android:theme="@style/Theme.JudaicApp.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".screens.others.rav_chat.BanScreen"
@@ -29,11 +33,6 @@
             android:exported="true"
             android:label="@string/title_activity_home_screen"
             android:theme="@style/Theme.JudaicApp.NoActionBar" >
-            <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
         <activity
             android:name=".screens.ShabbosScreen"

@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.judaicapp.HomeScreen;
 import com.example.judaicapp.R;
 import com.example.judaicapp.TimezoneMapper;
 import com.example.judaicapp.screens.Siddurim.Ashkenaz;
@@ -74,7 +75,10 @@ public class StartAnimation extends AppCompatActivity {
                     finish();
                 }
                 else{
-                    getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Ashkenaz()).commit();
+                    Intent intent = new Intent(StartAnimation.this, HomeScreen.class);
+                    startActivity(intent);
+                    finish();
+                    //getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Ashkenaz()).commit();
                 }
 
             }
