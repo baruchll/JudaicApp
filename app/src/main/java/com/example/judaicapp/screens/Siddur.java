@@ -49,8 +49,8 @@ public class Siddur extends Fragment {
         haderech = getView().findViewById(R.id.TefilatHaderech);
 
         ashkenaz.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Ashkenaz()).commit());
-//        sefard.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new SefardSiddur()).commit());
-//        ashkenaz.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Ashkenaz()).commit());
+        sefard.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Ashkenaz()).commit());
+        edut.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Ashkenaz()).commit());
         haderech.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("hi").replace(R.id.nav_host_fragment, new TefilasHaderech()).commit());
 
 

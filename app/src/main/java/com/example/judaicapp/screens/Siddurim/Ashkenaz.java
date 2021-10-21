@@ -12,12 +12,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.judaicapp.R;
+import com.example.judaicapp.screens.Siddurim.ashkenaz.AshkenazMaariv;
 import com.example.judaicapp.screens.Siddurim.ashkenaz.AshkenazMincha;
 import com.example.judaicapp.screens.Siddurim.ashkenaz.AshkenazShachris;
 
 
 public class Ashkenaz extends Fragment {
-    Button shachris, mincha;
+    Button shachris, mincha, maariv;
 
 
 
@@ -34,10 +35,13 @@ public class Ashkenaz extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        shachris = getView().findViewById(R.id.menu_rav_chat);
-        mincha = getView().findViewById(R.id.menu_jlem_compass);
+        shachris = getView().findViewById(R.id.menu_shachris);
+        mincha = getView().findViewById(R.id.menu_mincha);
+        maariv = getView().findViewById(R.id.menu_maariv);
+
 
         shachris.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new AshkenazShachris()).commit());
         mincha.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new AshkenazMincha()).commit());
+        maariv.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new AshkenazMaariv()).commit());
     }
 }

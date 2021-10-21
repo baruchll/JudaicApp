@@ -6,8 +6,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Hollidays {
-    GregorianCalendar date = new GregorianCalendar();
-    Calendar calendar = new GregorianCalendar();
+
+    Calendar calendar = GregorianCalendar.getInstance();
 
 
 
@@ -22,13 +22,15 @@ public class Hollidays {
     public static ArrayList<GregorianCalendar> asara_betevet = new ArrayList<>();
     public static ArrayList<GregorianCalendar> taanis_ester = new ArrayList<>();
     public static ArrayList<GregorianCalendar> shivaAsar_betammuz = new ArrayList<>();
+    public static ArrayList<GregorianCalendar> omer_start = new ArrayList<>();
+    public static ArrayList<GregorianCalendar> omer_end = new ArrayList<>();
 
 
 
     public Hollidays(){
 
 
-        rosh_chodesh.add(new GregorianCalendar(2021, 9, 18));
+
         rosh_chodesh.add(new GregorianCalendar(2021, 9, 6));
         rosh_chodesh.add(new GregorianCalendar(2021, 9, 7));
         rosh_chodesh.add(new GregorianCalendar(2021, 10, 5));
@@ -173,23 +175,42 @@ public class Hollidays {
         shivaAsar_betammuz.add(new GregorianCalendar(2023, 6, 6));
         shivaAsar_betammuz.add(new GregorianCalendar(2024, 5, 23));
 
+        omer_start.add(new GregorianCalendar(2022, 9, 16));
+        omer_end.add(new GregorianCalendar(2022, 11, 3));
+
 
     }
 
-    public ArrayList<GregorianCalendar> getRosh_chodesh() {
-        return rosh_chodesh;
+    public static ArrayList<GregorianCalendar> getOmer_start() {
+        return omer_start;
     }
 
-    public void setRosh_chodesh(ArrayList<GregorianCalendar> rosh_chodesh) {
-        this.rosh_chodesh = rosh_chodesh;
+    public static void setOmer_start(ArrayList<GregorianCalendar> omer_start) {
+        Hollidays.omer_start = omer_start;
     }
+
+    public static ArrayList<GregorianCalendar> getOmer_end() {
+        return omer_end;
+    }
+
+    public static void setOmer_end(ArrayList<GregorianCalendar> omer_end) {
+        Hollidays.omer_end = omer_end;
+    }
+
+//    public ArrayList<GregorianCalendar> getRosh_chodesh() {
+//        return rosh_chodesh;
+//    }
+//
+//    public void setRosh_chodesh(ArrayList<GregorianCalendar> rosh_chodesh) {
+//        this.rosh_chodesh = rosh_chodesh;
+//    }
 
     public ArrayList<GregorianCalendar> getPurim() {
         return purim;
     }
 
     public void setPurim(ArrayList<GregorianCalendar> purim) {
-        this.purim = purim;
+        Hollidays.purim = purim;
     }
 
     public ArrayList<GregorianCalendar> getShushan_purim() {
@@ -197,7 +218,7 @@ public class Hollidays {
     }
 
     public void setShushan_purim(ArrayList<GregorianCalendar> shushan_purim) {
-        this.shushan_purim = shushan_purim;
+        Hollidays.shushan_purim = shushan_purim;
     }
 
     public ArrayList<GregorianCalendar> getPesach() {
@@ -205,7 +226,7 @@ public class Hollidays {
     }
 
     public void setPesach(ArrayList<GregorianCalendar> pesach) {
-        this.pesach = pesach;
+        Hollidays.pesach = pesach;
     }
 
     public ArrayList<GregorianCalendar> getSukkos() {
@@ -213,7 +234,7 @@ public class Hollidays {
     }
 
     public void setSukkos(ArrayList<GregorianCalendar> sukkos) {
-        this.sukkos = sukkos;
+        Hollidays.sukkos = sukkos;
     }
 
     public ArrayList<GregorianCalendar> getChanukah() {
@@ -221,7 +242,7 @@ public class Hollidays {
     }
 
     public void setChanukah(ArrayList<GregorianCalendar> chanukah) {
-        this.chanukah = chanukah;
+        Hollidays.chanukah = chanukah;
     }
 
     public ArrayList<GregorianCalendar> getTisha_baav() {
@@ -229,7 +250,7 @@ public class Hollidays {
     }
 
     public void setTisha_baav(ArrayList<GregorianCalendar> tisha_baav) {
-        this.tisha_baav = tisha_baav;
+        Hollidays.tisha_baav = tisha_baav;
     }
 
     public ArrayList<GregorianCalendar> getTzom_gedalya() {
@@ -237,7 +258,7 @@ public class Hollidays {
     }
 
     public void setTzom_gedalya(ArrayList<GregorianCalendar> tzom_gedalya) {
-        this.tzom_gedalya = tzom_gedalya;
+        Hollidays.tzom_gedalya = tzom_gedalya;
     }
 
     public ArrayList<GregorianCalendar> getAsara_betevet() {
@@ -245,7 +266,7 @@ public class Hollidays {
     }
 
     public void setAsara_betevet(ArrayList<GregorianCalendar> asara_betevet) {
-        this.asara_betevet = asara_betevet;
+        Hollidays.asara_betevet = asara_betevet;
     }
 
     public ArrayList<GregorianCalendar> getTaanis_ester() {
@@ -253,7 +274,7 @@ public class Hollidays {
     }
 
     public void setTaanis_ester(ArrayList<GregorianCalendar> taanis_ester) {
-        this.taanis_ester = taanis_ester;
+        Hollidays.taanis_ester = taanis_ester;
     }
 
     public ArrayList<GregorianCalendar> getShivaAsar_betammuz() {
@@ -261,6 +282,6 @@ public class Hollidays {
     }
 
     public void setShivaAsar_betammuz(ArrayList<GregorianCalendar> shivaAsar_betammuz) {
-        this.shivaAsar_betammuz = shivaAsar_betammuz;
+        Hollidays.shivaAsar_betammuz = shivaAsar_betammuz;
     }
 }

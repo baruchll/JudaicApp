@@ -17,9 +17,7 @@ import com.kosherjava.zmanim.util.GeoLocation;
 
 import java.text.Format;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.TimeZone;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -34,7 +32,7 @@ public class StartAnimation extends AppCompatActivity {
     TimeZone timeZone = TimeZone.getTimeZone(TimezoneMapper.latLngToTimezoneString(latitude, longitude));
     GeoLocation location = new GeoLocation(locationName, latitude, longitude, elevation, timeZone);
     ComplexZmanimCalendar czc = new ComplexZmanimCalendar(location);
-    Format dayOfWeek = new SimpleDateFormat("u");
+    Format dayOfWeek = new SimpleDateFormat("");
     String day = dayOfWeek.format(currentTime);
 
     @Override

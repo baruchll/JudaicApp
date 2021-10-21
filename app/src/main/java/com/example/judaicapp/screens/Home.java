@@ -76,7 +76,7 @@ public class Home extends Fragment {
         Calendar cal = Calendar.getInstance();
         int day = cal.get(Calendar.DAY_OF_MONTH);
         halacha_yomit_arr = getResources().getStringArray(R.array.halacha_yomit);
-        for (int i = 1; i < 31; i++) {
+        for (int i = 0; i < 30; i++) {
             if (i == day){
                 halacha_yomit.setText(halacha_yomit_arr[i]);
                 halacha_yomit.setTextColor(Color.parseColor("#FFFFFF"));

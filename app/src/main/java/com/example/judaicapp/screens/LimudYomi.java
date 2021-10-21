@@ -18,6 +18,8 @@ import com.example.judaicapp.screens.limud.mishnaYomi.MishnahYomi;
 import com.example.judaicapp.screens.limud.shtayim_mikrah.ShtayimMikrah;
 import com.example.judaicapp.screens.limud.tehillim.TehillimYomi;
 
+import java.util.Objects;
+
 
 public class LimudYomi extends Fragment {
     Button  daf_yomi_side, mishna_side, mikrah_side, tehillim_side, shiurim_side;
@@ -43,11 +45,11 @@ public class LimudYomi extends Fragment {
     }
 
     private void LimudStuff() {
-        daf_yomi_side = getView().findViewById(R.id.menu_rav_chat);
-        mishna_side = getView().findViewById(R.id.menu_jlem_compass);
-        mikrah_side = getView().findViewById(R.id.menu_calendar);
-        tehillim_side = getView().findViewById(R.id.menu_tefillin);
-        shiurim_side = getView().findViewById(R.id.menu_brachos);
+        daf_yomi_side = requireView().findViewById(R.id.menu_daf_yomi);
+        mishna_side = requireView().findViewById(R.id.menu_mishna);
+        mikrah_side = requireView().findViewById(R.id.menu_mikrah);
+        tehillim_side = requireView().findViewById(R.id.menu_tehillim);
+        shiurim_side = requireView().findViewById(R.id.menu_shiurim);
 
         daf_yomi_side.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new TheDaf()).commit());
         mishna_side.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new MishnahYomi()).commit());

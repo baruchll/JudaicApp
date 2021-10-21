@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.judaicapp.Hollidays;
 import com.example.judaicapp.R;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -21,8 +22,12 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 public class AshkenazMaariv extends Fragment {
 
+    Calendar currentDate = new GregorianCalendar();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     TextView a_ma_maariv_1, a_ma_shmona_esrei_1, a_ma_asseret_yami_teshuva_1, a_ma_shmona_esrei_2, a_ma_morid_hatal, a_ma_mashiv_harauch, a_ma_shmona_esrei_3,
             a_ma_asseret_yami_teshuva_2, a_ma_shmona_esrei_4, a_ma_hakel_hakadosh, a_ma_hamelech_hakadosh, a_ma_shmona_esrei_5, a_ma_veten_beracha, a_ma_tal_umatar,
@@ -30,6 +35,7 @@ public class AshkenazMaariv extends Fragment {
             a_ma_chanukah, a_ma_purim, a_ma_shmona_esrei_9, a_ma_asseret_yami_teshuva_3, a_ma_shmona_esrei_10, a_ma_asseret_yami_teshuva_4, a_ma_shmona_esrei_11,
             a_ma_asseret_yami_teshuva_end, a_ma_shmona_esrei_end, a_ma_sefiras_haomer_1, a_ma_sefiras_haomer_2, a_ma_sefiras_haomer_3, a_ma_maariv_2, a_ma_ledovid;
     String[] omerCount;
+
 
 
 
@@ -51,6 +57,8 @@ public class AshkenazMaariv extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        currentDate.clear();
+        currentDate.set(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DATE));
         maarivInit();
     }
 
@@ -92,7 +100,7 @@ public class AshkenazMaariv extends Fragment {
         a_ma_maariv_2 = getView().findViewById(R.id.a_ma_maariv_2);
         a_ma_ledovid = getView().findViewById(R.id.a_ma_ledovid);
 
-        DocumentReference docref = db.collection("ashkenaz").document("mincha");
+        DocumentReference docref = db.collection("ashkenaz").document("maariv");
         docref.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -102,7 +110,7 @@ public class AshkenazMaariv extends Fragment {
                 assert value != null;
                 a_ma_maariv_1.setText(Html.fromHtml(requireNonNull(value.getString("maariv_1")).replaceAll("_b", "<br/>")));
                 a_ma_shmona_esrei_1.setText(Html.fromHtml(requireNonNull(value.getString("shmona_esrei_1")).replaceAll("_b", "<br/>")));
-                a_ma_asseret_yami_teshuva_1.setText(Html.fromHtml(requireNonNull(value.getString("asseret_yami_teshuva_")).replaceAll("_b", "<br/>")));
+                a_ma_asseret_yami_teshuva_1.setText(Html.fromHtml(requireNonNull(value.getString("asseret_yami_teshuva_1")).replaceAll("_b", "<br/>")));
                 a_ma_shmona_esrei_2.setText(Html.fromHtml(requireNonNull(value.getString("shmona_esrei_2")).replaceAll("_b", "<br/>")));
                 a_ma_morid_hatal.setText(Html.fromHtml(requireNonNull(value.getString("morid_hatal")).replaceAll("_b", "<br/>")));
                 a_ma_mashiv_harauch.setText(Html.fromHtml(requireNonNull(value.getString("mashiv_harauch")).replaceAll("_b", "<br/>")));
@@ -137,11 +145,17 @@ public class AshkenazMaariv extends Fragment {
                 a_ma_ledovid.setText(Html.fromHtml(requireNonNull(value.getString("ledovid")).replaceAll("_b", "<br/>")));
             }
         });
+
+
         omerCount = getResources().getStringArray(R.array.a_ma_sefiras_haomer_2);
-        for (int i = 0; i < omerCount.length; i++) {
-            if (i == 1) //need to change 1 to omer time
-            a_ma_sefiras_haomer_2.setText(Html.fromHtml(omerCount[i].replaceAll("_b", "<br/>")));
+        for (int i = 0; currentDate.equals(Hollidays.omer_start.get(0).getTime()) || currentDate.after(Hollidays.omer_start.get(0).getTime()) && currentDate.before(Hollidays.omer_start.get(0).getTime()); i++){
+            a_ma_sefiras_haomer_2.setText(omerCount[i].replaceAll("_b", "<br/>"));
+            a_ma_sefiras_haomer_2.setVisibility(View.VISIBLE);
+            //a_ma_sefiras_haomer_2.setTextColor(Integer.parseInt("blue"));
         }
 
+
+
     }
+
 }

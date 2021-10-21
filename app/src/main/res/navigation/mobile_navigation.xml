@@ -106,4 +106,9 @@
         android:name="com.example.judaicapp.screens.limud.tehillim.TehillimYomi"
         android:label="fragment_tehillim_yomi"
         tools:layout="@layout/fragment_tehillim_yomi" />
+    <fragment
+        android:id="@+id/ashkenazMaariv"
+        android:name="com.example.judaicapp.screens.Siddurim.ashkenaz.AshkenazMaariv"
+        android:label="fragment_ashkenaz_maariv"
+        tools:layout="@layout/fragment_ashkenaz_maariv" />
 </navigation>

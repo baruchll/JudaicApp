@@ -21,45 +21,60 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/one"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
             android:text="@string/chat_with_rav"
-            android:textColor="@color/black" />
+            android:textColor="@color/blue"
+            app:cornerRadius="0dp" />
 
         <Button
             android:id="@+id/menu_jlem_compass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/two"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
             android:text="@string/jerusalem_compass"
-            android:textColor="@color/black" />
+            android:textColor="@color/blue"
+            app:cornerRadius="0dp" />
 
         <Button
             android:id="@+id/menu_calendar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/three"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
             android:text="@string/jewish_calender"
-            android:textColor="@color/black" />
+            android:textColor="@color/blue"
+            app:cornerRadius="0dp" />
 
         <Button
             android:id="@+id/menu_tefillin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/four"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
             android:text="@string/tefillin_guide"
-            android:textColor="@color/black" />
+            android:textColor="@color/blue"
+            app:cornerRadius="0dp" />
 
         <Button
             android:id="@+id/menu_zmanim"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/five"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
             android:text="@string/daily_prayer_times"
-            android:textColor="@color/black" />
+            android:textColor="@color/blue"
+            app:cornerRadius="0dp" />
 
     </LinearLayout>
 

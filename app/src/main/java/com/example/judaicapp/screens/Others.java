@@ -48,7 +48,7 @@ public class Others extends Fragment {
         compass = getView().findViewById(R.id.menu_jlem_compass);
         calendar = getView().findViewById(R.id.menu_calendar);
         tefillin = getView().findViewById(R.id.menu_tefillin);
-        zmanim = getView().findViewById(R.id.menu_brachos);
+        zmanim = getView().findViewById(R.id.menu_zmanim);
 
         compass.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new CompassFragment()).commit());
         chat.setOnClickListener(v -> getParentFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new ChatLogin()).commit());
