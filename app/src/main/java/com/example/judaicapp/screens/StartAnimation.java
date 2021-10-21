@@ -35,7 +35,7 @@ public class StartAnimation extends AppCompatActivity {
     TimeZone timeZone = TimeZone.getTimeZone(TimezoneMapper.latLngToTimezoneString(latitude, longitude));
     GeoLocation location = new GeoLocation(locationName, latitude, longitude, elevation, timeZone);
     ComplexZmanimCalendar czc = new ComplexZmanimCalendar(location);
-    Format dayOfWeek = new SimpleDateFormat("");
+    Format dayOfWeek = new SimpleDateFormat("u");
     String day = dayOfWeek.format(currentTime);
 
     @Override
@@ -69,7 +69,7 @@ public class StartAnimation extends AppCompatActivity {
             @Override
             public void run() {
                 //this if is supposed to check if it's shabbos and if it is it moves you to the shabbos screen
-                if (day.equals("5") && currentTime.after(lighting) || day.equals("6")&&currentTime.before(motzash)){
+                if (day.equals("4") && currentTime.after(lighting) || day.equals("6")&&currentTime.before(motzash)){
                     Intent intent = new Intent(StartAnimation.this, ShabbosScreen.class);
                     startActivity(intent);
                     finish();
