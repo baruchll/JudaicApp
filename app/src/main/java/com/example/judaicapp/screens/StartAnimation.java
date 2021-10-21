@@ -43,20 +43,20 @@ public class StartAnimation extends AppCompatActivity {
         setContentView(R.layout.activity_start_animation);
         super.onCreate(savedInstanceState);
         candle();
+
     }
 
-    private Animation rotate() {
+
+
+    private void candle() {
         RotateAnimation rotate = new RotateAnimation(0, 360, android.view.animation.Animation.RELATIVE_TO_SELF, 0.5f, android.view.animation.Animation.RELATIVE_TO_SELF, 0.5f);
         rotate.setDuration(3000);
         rotate.setInterpolator(new LinearInterpolator());
         rotate.setRepeatCount(2);
         rotate.setRepeatMode(android.view.animation.Animation.REVERSE);
-        return rotate;
-    }
-
-    private void candle() {
         ImageView image = findViewById(R.id.animation);
-        image.startAnimation(rotate());
+        image.setImageResource(R.drawable.logo);
+        image.startAnimation(rotate);
 
         Date lighting = czc.getCandleLighting();
         Date motzash = czc.getTzaisGeonim8Point5Degrees();
@@ -68,8 +68,9 @@ public class StartAnimation extends AppCompatActivity {
         t.schedule(new TimerTask() {
             @Override
             public void run() {
+
                 //this if is supposed to check if it's shabbos and if it is it moves you to the shabbos screen
-                if (day.equals("4") && currentTime.after(lighting) || day.equals("6")&&currentTime.before(motzash)){
+                if (day.equals("5") && currentTime.after(lighting) || day.equals("6")&&currentTime.before(motzash)){
                     Intent intent = new Intent(StartAnimation.this, ShabbosScreen.class);
                     startActivity(intent);
                     finish();
@@ -80,7 +81,7 @@ public class StartAnimation extends AppCompatActivity {
                     finish();
                     //getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Ashkenaz()).commit();
                 }
-
+ 
             }
         }, 6000);
     }
