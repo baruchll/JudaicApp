@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/maybe"
+    android:background="@color/three"
     tools:context=".screens.Siddurim.ashkenaz.BirkasHamazon">
 
     <ScrollView
