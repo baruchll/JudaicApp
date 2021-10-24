@@ -67,4 +67,9 @@
     <string name="play">Play</string>
     <string name="tefilat">תפילת הדרך</string>
     <string name="stuffs">\</string>
+    <string name="berashis">בראשית</string>
+    <string name="shemos">שמות</string>
+    <string name="vayikrah">ויקרא</string>
+    <string name="bamidbar">במדבר</string>
+    <string name="devarim">דברים</string>
 </resources>

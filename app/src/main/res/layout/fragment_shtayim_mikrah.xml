@@ -1,20 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".screens.limud.shtayim_mikrah.ShtayimMikrah">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/berashis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/one"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/berashis"
+            android:textColor="@color/maybe"
+            app:cornerRadius="0dp" />
+
+        <Button
+            android:id="@+id/shemos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/two"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/shemos"
+            android:textColor="@color/maybe"
+            app:cornerRadius="0dp"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/vayikrah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/three"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/vayikrah"
+            android:textColor="@color/maybe"
+            app:cornerRadius="0dp"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/bamidbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/four"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/bamidbar"
+            android:textColor="@color/maybe"
+            app:cornerRadius="0dp"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/devarim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/five"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/devarim"
+            android:textColor="@color/maybe"
+            app:cornerRadius="0dp"
+            tools:ignore="TextContrastCheck" />
+
+    </LinearLayout>
+
     <com.github.barteksc.pdfviewer.PDFView
-        android:id="@+id/pdfview"
+        android:id="@+id/mikrah_pdfview"
         android:layout_width="match_parent"
 
         android:layout_height="match_parent"
         android:background="@color/white"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+    </com.github.barteksc.pdfviewer.PDFView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

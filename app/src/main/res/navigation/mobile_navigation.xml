@@ -7,95 +7,92 @@
     <fragment
         android:id="@+id/home"
         android:name="com.example.judaicapp.screens.Home"
-        android:label="Home" />
+        android:label="מסך הבית" />
     <fragment
         android:id="@+id/siddur"
         android:name="com.example.judaicapp.screens.Siddur"
-        android:label="@string/menu_siddur"
+        android:label="סידור"
         tools:layout="@layout/fragment_siddur" />
     <fragment
         android:id="@+id/limud_yomi"
         android:name="com.example.judaicapp.screens.LimudYomi"
-        android:label="@string/menu_limud_yomi"
+        android:label="לימוד יומי"
         tools:layout="@layout/fragment_limud_yomi" />
     <fragment
         android:id="@+id/compassFragment"
         android:name="com.example.judaicapp.screens.others.JlemCompass.CompassFragment"
-        android:label="activity_compass"
+        android:label="מצפן ירושלים"
         tools:layout="@layout/fragment_compass" />
     <activity
         android:id="@+id/shabbosScreen"
         android:name="com.example.judaicapp.screens.ShabbosScreen"
-        android:label="activity_shabbos_screen"
+        android:label="מסך שבת"
         tools:layout="@layout/activity_shabbos_screen" />
     <fragment
         android:id="@+id/chat"
         android:name="com.example.judaicapp.screens.others.rav_chat.chat_screens.Chat"
-        android:label="fragment_chat"
+        android:label="שאלה לרב"
         tools:layout="@layout/fragment_chat" />
     <fragment
         android:id="@+id/Zmanin"
         android:name="com.example.judaicapp.screens.others.Zmanim.Zmanim"
+        android:label="זמני היום"
         tools:layout="@layout/fragment_zmanim" />
     <fragment
         android:id="@+id/ashkenazFragment"
         android:name="com.example.judaicapp.screens.Siddurim.Ashkenaz"
-        android:label="fragment_ashkenaz"
+        android:label="אשכנז"
         tools:layout="@layout/fragment_ashkenaz" />
     <fragment
         android:id="@+id/tefillinVideo"
         android:name="com.example.judaicapp.screens.others.tefillin.TefillinVideo"
-        android:label="fragment_tefillin_video"
+        android:label="מדריך להנחת תפילין"
         tools:layout="@layout/fragment_tefillin_video" />
     <fragment
         android:id="@+id/recordedShiurim"
         android:name="com.example.judaicapp.screens.limud.Shiurim.RecordedShiurim"
-        android:label="fragment_recorded_shiurim"
+        android:label="שיעורים מוקלטים"
         tools:layout="@layout/fragment_recorded_shiurim" />
     <fragment
         android:id="@+id/theDaf"
         android:name="com.example.judaicapp.screens.limud.dafYomi.TheDaf"
-        android:label="fragment_the_daf"
+        android:label="דף יומי"
         tools:layout="@layout/fragment_the_daf" />
     <fragment
         android:id="@+id/mishnahYomi"
         android:name="com.example.judaicapp.screens.limud.mishnaYomi.MishnahYomi"
-        android:label="fragment_mishnah_yomi"
+        android:label="משנה"
         tools:layout="@layout/fragment_mishnah_yomi" />
     <fragment
         android:id="@+id/shtayimMikrah"
         android:name="com.example.judaicapp.screens.limud.shtayim_mikrah.ShtayimMikrah"
-        android:label="fragment_shtayim_mikrah"
+        android:label="מקרא"
         tools:layout="@layout/fragment_shtayim_mikrah" />
     <activity
         android:id="@+id/edotSiddur"
         android:name="com.example.judaicapp.screens.Siddurim.EdotSiddur"
         android:label="activity_edot_siddur"
         tools:layout="@layout/activity_edot_siddur" />
-    <activity
-        android:id="@+id/sefardSiddur"
-        android:name="com.example.judaicapp.screens.Siddurim.SefardSiddur"
-        android:label="activity_sefard_siddur"
-        tools:layout="@layout/activity_sefard_siddur" />
+
     <fragment
         android:id="@+id/others2"
         android:name="com.example.judaicapp.screens.Others"
-        android:label="@string/menu_others"
+        android:label="פונקציות נוספות"
         tools:layout="@layout/fragment_others" />
     <fragment
         android:id="@+id/tefilasHaderech"
         android:name="com.example.judaicapp.screens.Siddurim.TefilasHaderech"
-        android:label="fragment_tefilas_haderech"
+        android:label="תפילת הדרך"
         tools:layout="@layout/fragment_tefilas_haderech" />
     <fragment
         android:id="@+id/ashkenazShachris"
         android:name="com.example.judaicapp.screens.Siddurim.ashkenaz.AshkenazShachris"
-        android:label="fragment_ashkenaz_shachris"
+        android:label="שחרית"
         tools:layout="@layout/fragment_ashkenaz_shachris" />
     <fragment
         android:id="@+id/ashkenazMincha"
         android:name="com.example.judaicapp.screens.Siddurim.ashkenaz.AshkenazMincha"
-        android:label="AshkenazMincha" />
+        android:label="מנחה" />
     <activity
         android:id="@+id/animation2"
         android:name="com.example.judaicapp.screens.StartAnimation"
@@ -104,16 +101,16 @@
     <fragment
         android:id="@+id/tehillimYomi"
         android:name="com.example.judaicapp.screens.limud.tehillim.TehillimYomi"
-        android:label="fragment_tehillim_yomi"
+        android:label="תהילים"
         tools:layout="@layout/fragment_tehillim_yomi" />
     <fragment
         android:id="@+id/ashkenazMaariv"
         android:name="com.example.judaicapp.screens.Siddurim.ashkenaz.AshkenazMaariv"
-        android:label="fragment_ashkenaz_maariv"
+        android:label="מעריב"
         tools:layout="@layout/fragment_ashkenaz_maariv" />
     <fragment
         android:id="@+id/brachos"
         android:name="com.example.judaicapp.screens.Siddurim.ashkenaz.Brachos"
-        android:label="fragment_brachos"
+        android:label="ברכות לפני אוכל"
         tools:layout="@layout/fragment_brachos" />
 </navigation>

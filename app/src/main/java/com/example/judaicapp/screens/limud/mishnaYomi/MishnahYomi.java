@@ -7,9 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.judaicapp.R;
 import com.github.barteksc.pdfviewer.PDFView;
@@ -27,7 +25,6 @@ import javax.net.ssl.HttpsURLConnection;
 public class MishnahYomi extends Fragment {
     static PDFView pdfView;
 
-    HashMap<Integer, String> pdfUrl;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -36,20 +33,6 @@ public class MishnahYomi extends Fragment {
     }
 
     private void storageInit2() {
-        pdfUrl = new HashMap<>();
-        //add mishna pdf inside hashmap with day of year as key and link as value
-        pdfView = requireView().findViewById(R.id.pdfview);
-        Integer dayOfYear = Calendar.DAY_OF_YEAR;
-        for (int i = 0; i < pdfUrl.size(); i++) {
-            if (pdfUrl.containsKey(dayOfYear)) {
-                new RetrievePdffromUrl().execute(pdfUrl.get(dayOfYear));
-                break;
-            }
-
-
-        }
-
-
 
     }
 

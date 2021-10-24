@@ -22,8 +22,10 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
+import java.text.ParseException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.concurrent.TimeUnit;
 
 public class AshkenazMaariv extends Fragment {
 
@@ -148,7 +150,11 @@ public class AshkenazMaariv extends Fragment {
 
 
         omerCount = getResources().getStringArray(R.array.a_ma_sefiras_haomer_2);
-        for (int i = 0; currentDate.equals(Hollidays.omer_start.get(0).getTime()) || currentDate.after(Hollidays.omer_start.get(0).getTime()) && currentDate.before(Hollidays.omer_start.get(0).getTime()); i++){
+
+
+        long diff = currentDate.getTimeInMillis() - Hollidays.omer_start.get(1).getTimeInMillis();
+        System.out.println ("Days: " + TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS));
+        for (int i = 0; (currentDate.equals(Hollidays.omer_start.get(1).getTime()) || Hollidays.omer_start.get(1).getTime().before(currentDate.getTime())) && currentDate.before(Hollidays.omer_start.get(1).getTime()); i++){
             a_ma_sefiras_haomer_2.setText(omerCount[i].replaceAll("_b", "<br/>"));
             a_ma_sefiras_haomer_2.setVisibility(View.VISIBLE);
             //a_ma_sefiras_haomer_2.setTextColor(Integer.parseInt("blue"));

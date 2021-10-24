@@ -176,7 +176,9 @@ public class Hollidays {
         shivaAsar_betammuz.add(new GregorianCalendar(2024, 5, 23));
 
         omer_start.add(new GregorianCalendar(2022, 9, 16));
-        omer_end.add(new GregorianCalendar(2022, 11, 3));
+        omer_start.add(new GregorianCalendar(2021, 9, 23));
+        omer_end.add(new GregorianCalendar(2022, 11, 23));
+        omer_end.add(new GregorianCalendar(2021, 11, 25));
 
 
     }
