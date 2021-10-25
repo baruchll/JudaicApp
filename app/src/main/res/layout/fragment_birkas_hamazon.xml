@@ -30,13 +30,15 @@
                 android:id="@+id/a_bh_purim"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/maybe" />
+                android:textColor="@color/maybe"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/a_bh_chanukah"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/maybe" />
+                android:textColor="@color/maybe"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/a_bh_bircas_hamazon_2"
@@ -48,19 +50,22 @@
                 android:id="@+id/a_bh_rosh_chodesh_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/maybe" />
+                android:textColor="@color/maybe"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/a_bh_pesach"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/maybe" />
+                android:textColor="@color/maybe"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/a_bh_sukkos_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/maybe" />
+                android:textColor="@color/maybe"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/a_bh_bircas_hamazon_3"
@@ -72,19 +77,22 @@
                 android:id="@+id/a_bh_rosh_chodesh_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/maybe" />
+                android:textColor="@color/maybe"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/a_bh_sukkos_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/maybe" />
+                android:textColor="@color/maybe"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/a_bh_yom_tov"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/maybe" />
+                android:textColor="@color/maybe"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/a_bh_migdol"
