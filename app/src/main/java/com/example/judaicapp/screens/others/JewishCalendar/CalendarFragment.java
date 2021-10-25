@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +40,7 @@ public class CalendarFragment extends Fragment implements CalendarAdapter.OnItem
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
     private LocalDate selectedDate;
+    private Button prev,next;
 
 
     @Override
@@ -52,9 +54,28 @@ public class CalendarFragment extends Fragment implements CalendarAdapter.OnItem
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initWidgets();
+        initButtons();
         selectedDate = LocalDate.now();
         setMonthView();
     }
+
+    private void initButtons() {
+        next=getView().findViewById(R.id.next) ;
+        prev=getView().findViewById(R.id.prev);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nextMonthAction();
+            }
+        });
+        prev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                previousMonthAction();
+            }
+        });
+    }
+
     private void initWidgets()
     {
         calendarRecyclerView = getView().findViewById(R.id.calendarRecyclerView);
@@ -102,13 +123,13 @@ public class CalendarFragment extends Fragment implements CalendarAdapter.OnItem
         return date.format(formatter);
     }
 
-    public void previousMonthAction(View view)
+    public void previousMonthAction()
     {
         selectedDate = selectedDate.minusMonths(1);
         setMonthView();
     }
 
-    public void nextMonthAction(View view)
+    public void nextMonthAction()
     {
         selectedDate = selectedDate.plusMonths(1);
         setMonthView();
