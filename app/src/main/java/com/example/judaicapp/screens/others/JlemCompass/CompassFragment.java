@@ -64,10 +64,10 @@ public class CompassFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setUserChanges(getActivity().getIntent());
-
+        prefs = getActivity().getSharedPreferences("", MODE_PRIVATE);
         checkLocationPermission();
         /////////////////////////////////////////////////
-        prefs = getActivity().getSharedPreferences("", MODE_PRIVATE);
+
         gps = new GPSTracker(this.getContext());
         getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         //////////////////////////////////////////
@@ -116,6 +116,7 @@ public class CompassFragment extends Fragment {
             }
             return false;
         } else {
+            SaveBoolean("permission_granted", true);
             return true;
         }
     }
@@ -239,7 +240,7 @@ public class CompassFragment extends Fragment {
             getBearing();
         } else {
             tvAngle.setText(getResources().getString(R.string.msg_permission_not_granted_yet));
-            tvYourLocation.setText(getResources().getString(R.string.msg_permission_not_granted_yet));
+            tvYourLocation.setText("Your Location: 31.6671329,34.5690717");
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 ActivityCompat.requestPermissions(getActivity(),
                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
