@@ -24,6 +24,10 @@ public class Hollidays {
     public static ArrayList<GregorianCalendar> shivaAsar_betammuz = new ArrayList<>();
     public static ArrayList<GregorianCalendar> omer_start = new ArrayList<>();
     public static ArrayList<GregorianCalendar> omer_end = new ArrayList<>();
+    public static ArrayList<GregorianCalendar> moridHatalVetenBracha = new ArrayList<>();
+    public static ArrayList<GregorianCalendar> vetenTal = new ArrayList<>();
+    public static ArrayList<GregorianCalendar> mashiv = new ArrayList<>();
+    public static ArrayList<GregorianCalendar> ayt = new ArrayList<>();
 
 
 
@@ -60,6 +64,33 @@ public class Hollidays {
         rosh_chodesh.add(new GregorianCalendar(2023, 0, 23));
         rosh_chodesh.add(new GregorianCalendar(2021, 1, 16));
 
+        mashiv.add(new GregorianCalendar(2021, 9, 28));
+        mashiv.add(new GregorianCalendar(2022, 9, 16));
+        mashiv.add(new GregorianCalendar(2023, 9, 6));
+
+        ayt.add(new GregorianCalendar(2022, 8, 28));
+        ayt.add(new GregorianCalendar(2022, 8, 29));
+        ayt.add(new GregorianCalendar(2022, 8, 30));
+        ayt.add(new GregorianCalendar(2022, 9, 1));
+        ayt.add(new GregorianCalendar(2022, 9, 2));
+        ayt.add(new GregorianCalendar(2022, 9, 3));
+        ayt.add(new GregorianCalendar(2022, 9, 4));
+        ayt.add(new GregorianCalendar(2023, 8, 18));
+        ayt.add(new GregorianCalendar(2023, 8, 19));
+        ayt.add(new GregorianCalendar(2023, 8, 20));
+        ayt.add(new GregorianCalendar(2023, 8, 21));
+        ayt.add(new GregorianCalendar(2023, 8, 22));
+        ayt.add(new GregorianCalendar(2023, 8, 23));
+        ayt.add(new GregorianCalendar(2023, 8, 24));
+        ayt.add(new GregorianCalendar(2024, 9, 5));
+        ayt.add(new GregorianCalendar(2024, 9, 6));
+        ayt.add(new GregorianCalendar(2024, 9, 7));
+        ayt.add(new GregorianCalendar(2024, 9, 8));
+        ayt.add(new GregorianCalendar(2024, 9, 9));
+        ayt.add(new GregorianCalendar(2024, 9, 10));
+        ayt.add(new GregorianCalendar(2024, 9, 11));
+
+
 
         purim.add(new GregorianCalendar(2021,1,26));
         purim.add(new GregorianCalendar(2021, 1, 26));
@@ -70,6 +101,15 @@ public class Hollidays {
         shushan_purim.add(new GregorianCalendar(2021, 1, 27));
         shushan_purim.add(new GregorianCalendar(2022, 2, 18));
         shushan_purim.add(new GregorianCalendar(2023, 2, 8));
+
+        moridHatalVetenBracha.add(new GregorianCalendar(2021, 2, 29));
+        moridHatalVetenBracha.add(new GregorianCalendar(2022, 3, 17));
+        moridHatalVetenBracha.add(new GregorianCalendar(2023, 3, 7));
+
+        vetenTal.add(new GregorianCalendar(2021, 9, 13));
+        vetenTal.add(new GregorianCalendar(2022, 10, 1));
+        vetenTal.add(new GregorianCalendar(2023, 9, 22));
+
 
 
         pesach.add(new GregorianCalendar(2021, 2, 28));
@@ -98,28 +138,11 @@ public class Hollidays {
 
 
         sukkos.add(new GregorianCalendar(2021, 8, 21));
-        sukkos.add(new GregorianCalendar(2021, 8, 22));
-        sukkos.add(new GregorianCalendar(2021, 8, 23));
-        sukkos.add(new GregorianCalendar(2021, 8, 24));
-        sukkos.add(new GregorianCalendar(2021, 8, 25));
-        sukkos.add(new GregorianCalendar(2021, 8, 26));
-        sukkos.add(new GregorianCalendar(2021, 8, 27));
 
         sukkos.add(new GregorianCalendar(2022, 8, 10));
-        sukkos.add(new GregorianCalendar(2022, 8, 11));
-        sukkos.add(new GregorianCalendar(2022, 8, 12));
-        sukkos.add(new GregorianCalendar(2022, 8, 13));
-        sukkos.add(new GregorianCalendar(2022, 8, 14));
-        sukkos.add(new GregorianCalendar(2022, 8, 15));
-        sukkos.add(new GregorianCalendar(2022, 8, 16));
 
         sukkos.add(new GregorianCalendar(2023, 8, 30));
-        sukkos.add(new GregorianCalendar(2023, 9, 1));
-        sukkos.add(new GregorianCalendar(2023, 9, 2));
-        sukkos.add(new GregorianCalendar(2023, 9, 3));
-        sukkos.add(new GregorianCalendar(2023, 9, 4));
-        sukkos.add(new GregorianCalendar(2023, 9, 5));
-        sukkos.add(new GregorianCalendar(2023, 9, 6));
+
 
 
         chanukah.add(new GregorianCalendar(2021, 9, 18));
@@ -198,14 +221,6 @@ public class Hollidays {
     public static void setOmer_end(ArrayList<GregorianCalendar> omer_end) {
         Hollidays.omer_end = omer_end;
     }
-
-//    public ArrayList<GregorianCalendar> getRosh_chodesh() {
-//        return rosh_chodesh;
-//    }
-//
-//    public void setRosh_chodesh(ArrayList<GregorianCalendar> rosh_chodesh) {
-//        this.rosh_chodesh = rosh_chodesh;
-//    }
 
     public ArrayList<GregorianCalendar> getPurim() {
         return purim;

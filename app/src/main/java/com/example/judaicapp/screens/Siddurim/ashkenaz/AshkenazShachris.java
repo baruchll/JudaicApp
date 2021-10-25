@@ -19,16 +19,16 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Objects;
-import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
 
 public class AshkenazShachris extends Fragment {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     Calendar currentDate = new GregorianCalendar();
+    long sukkosDiff;
+    long sukkosunit = TimeUnit.DAYS.convert(sukkosDiff, TimeUnit.MILLISECONDS);
 
 
     private TextView a_s_hachana, a_s_korbanos, a_s_korbanos_2, a_s_puskei_dezimra, a_s_ashrei,
@@ -88,13 +88,23 @@ public class AshkenazShachris extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         currentDate.clear();
         currentDate.set(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DATE));
+        for (int i = 0; i < Hollidays.sukkos.size(); i++) {
+            sukkosDiff = currentDate.getTimeInMillis() - Hollidays.sukkos.get(i).getTimeInMillis();
+
+        }
+
         shachrisInit();
-        talUmatarBracha();
+        moridHatalandMashiv();
         roshChodesh();
         purim();
         chanukah();
         shushan_purim();
         fastDays();
+        pesach();
+        sukkos();
+
+        vetenOrTal();
+        AYTeshuva();
     }
 
 
@@ -153,11 +163,43 @@ public class AshkenazShachris extends Fragment {
             if (currentDate.getTime().equals(Hollidays.chanukah.get(i).getTime())){
 
                 holiday();
+                a_s_half_hallel.setVisibility(View.GONE);
+                a_s_full_hallel.setVisibility(View.VISIBLE);
+                a_s_kaddish_after_hallel.setVisibility(View.GONE);
                 a_s_chanukah.setVisibility(View.VISIBLE);
                 a_s_ch_chanukah.setVisibility(View.VISIBLE);
                 a_s_kaddish_after_hallel_chanukah.setVisibility(View.VISIBLE);
-                a_s_mussaf_chanukah.setVisibility(View.VISIBLE);
-                a_s_ch_mussaf_chanukah.setVisibility(View.VISIBLE);
+                if (currentDate.getTime().equals(Hollidays.rosh_chodesh.get(i).getTime())){
+                    a_s_mussaf_chanukah.setVisibility(View.VISIBLE);
+                    a_s_ch_mussaf_chanukah.setVisibility(View.VISIBLE);
+                }
+            }
+
+        }
+    }
+
+
+    private void pesach() {
+        for (int i = 0; i < Hollidays.pesach.size(); i++) {
+            if (currentDate.getTime().equals(Hollidays.pesach.get(i).getTime())){
+                holiday();
+                a_s_pesach.setVisibility(View.VISIBLE);
+                a_s_ch_pesach.setVisibility(View.VISIBLE);
+                a_s_half_hallel.setVisibility(View.VISIBLE);
+                a_s_mussaf_shalosh_regalim_1.setVisibility(View.VISIBLE);
+                a_s_mussaf_shalosh_regalim_2.setVisibility(View.VISIBLE);
+                a_s_mussaf_shalosh_regalim_pesach_1.setVisibility(View.VISIBLE);
+                a_s_mussaf_shalosh_regalim_3.setVisibility(View.VISIBLE);
+                a_s_mussaf_shalosh_regalim_pesach_2.setVisibility(View.VISIBLE);
+                a_s_mussaf_shalosh_regalim_pesach_end.setVisibility(View.VISIBLE);
+                a_s_mussaf_shalosh_regalim_4.setVisibility(View.VISIBLE);
+                a_s_ch_mussaf_shalosh_regalim_1.setVisibility(View.VISIBLE);
+                a_s_ch_mussaf_shalosh_regalim_2.setVisibility(View.VISIBLE);
+                a_s_ch_mussaf_shalosh_regalim_pesach_1.setVisibility(View.VISIBLE);
+                a_s_ch_mussaf_shalosh_regalim_3.setVisibility(View.VISIBLE);
+                a_s_ch_mussaf_shalosh_regalim_pesach_2.setVisibility(View.VISIBLE);
+                a_s_ch_mussaf_shalosh_regalim_pesach_end.setVisibility(View.VISIBLE);
+
             }
 
         }
@@ -165,34 +207,157 @@ public class AshkenazShachris extends Fragment {
 
     private void fastDays() {
         for (int i = 0; i < Hollidays.asara_betevet.size(); i++) {
-//            a_s_ch_fast_day.setVisibility(View.VISIBLE);
-//            a_s_avinu_malkainu_fast_day.setVisibility(View.VISIBLE);
+            if (currentDate.getTime().equals(Hollidays.asara_betevet.get(i).getTime())){
+                a_s_ch_fast_day.setVisibility(View.VISIBLE);
+                a_s_avinu_malkainu_fast_day.setVisibility(View.VISIBLE);
+            }
         }
         for (int i = 0; i < Hollidays.shivaAsar_betammuz.size(); i++) {
-
+            if (currentDate.getTime().equals(Hollidays.shivaAsar_betammuz.get(i).getTime())){
+                a_s_ch_fast_day.setVisibility(View.VISIBLE);
+                a_s_avinu_malkainu_fast_day.setVisibility(View.VISIBLE);
+            }
         }
         for (int i = 0; i < Hollidays.taanis_ester.size(); i++) {
-
+            if (currentDate.getTime().equals(Hollidays.taanis_ester.get(i).getTime())){
+                a_s_ch_fast_day.setVisibility(View.VISIBLE);
+                a_s_avinu_malkainu_fast_day.setVisibility(View.VISIBLE);
+            }
         }
         for (int i = 0; i < Hollidays.tzom_gedalya.size(); i++) {
-
+            if (currentDate.getTime().equals(Hollidays.tzom_gedalya.get(i).getTime())) {
+                a_s_ch_fast_day.setVisibility(View.VISIBLE);
+                a_s_avinu_malkainu_fast_day.setVisibility(View.VISIBLE);
+            }
         }
-        for (int i = 0; i < Hollidays.tisha_baav.size(); i++) {
+    }
+
+
+    private void otherSukkos() {
+        holiday();
+        a_s_half_hallel.setVisibility(View.GONE);
+        a_s_full_hallel.setVisibility(View.VISIBLE);
+        a_s_netilas_lulav.setVisibility(View.VISIBLE);
+        a_s_sukkos.setVisibility(View.VISIBLE);
+        a_s_ch_sukkos.setVisibility(View.VISIBLE);
+        a_s_mussaf_shalosh_regalim_1.setVisibility(View.VISIBLE);
+        a_s_mussaf_shalosh_regalim_2.setVisibility(View.VISIBLE);
+        a_s_mussaf_shalosh_regalim_sukkos_1.setVisibility(View.VISIBLE);
+        a_s_mussaf_shalosh_regalim_3.setVisibility(View.VISIBLE);
+        a_s_mussaf_shalosh_regalim_sukkos_2.setVisibility(View.VISIBLE);
+        a_s_mussaf_shalosh_regalim_4.setVisibility(View.VISIBLE);
+        a_s_ch_mussaf_shalosh_regalim_1.setVisibility(View.VISIBLE);
+        a_s_ch_mussaf_shalosh_regalim_2.setVisibility(View.VISIBLE);
+        a_s_ch_mussaf_shalosh_regalim_sukkos_1.setVisibility(View.VISIBLE);
+        a_s_ch_mussaf_shalosh_regalim_3.setVisibility(View.VISIBLE);
+        a_s_ch_mussaf_shalosh_regalim_sukkos_2.setVisibility(View.VISIBLE);
+        a_s_ch_mussaf_shalosh_regalim_4.setVisibility(View.VISIBLE);
+
+    }
+
+    private void sukkos(){
+        for (int i = 0; i < Hollidays.sukkos.size(); i++) {
+            if (currentDate.getTime().equals(Hollidays.sukkos.get(i).getTime())) {
+                otherSukkos();
+                if (sukkosunit < 7 && sukkosunit >= 0) {
+                    if (sukkosunit == 1) {
+                        a_s_mussaf_shalosh_regalim_sukkos_chol_hamoed_1.setVisibility(View.VISIBLE);
+                        a_s_ch_mussaf_shalosh_regalim_sukkos_chol_hamoed_1.setVisibility(View.VISIBLE);
+                    }
+                    if (sukkosunit == 2) {
+                        a_s_mussaf_shalosh_regalim_sukkos_chol_hamoed_2.setVisibility(View.VISIBLE);
+                        a_s_ch_mussaf_shalosh_regalim_sukkos_chol_hamoed_2.setVisibility(View.VISIBLE);
+                    }
+                    if (sukkosunit == 3) {
+                        a_s_mussaf_shalosh_regalim_sukkos_chol_hamoed_3.setVisibility(View.VISIBLE);
+                        a_s_ch_mussaf_shalosh_regalim_sukkos_chol_hamoed_3.setVisibility(View.VISIBLE);
+                    }
+                    if (sukkosunit == 4) {
+                        a_s_mussaf_shalosh_regalim_sukkos_chol_hamoed_4.setVisibility(View.VISIBLE);
+                        a_s_ch_mussaf_shalosh_regalim_sukkos_chol_hamoed_4.setVisibility(View.VISIBLE);
+                    }
+                    if (sukkosunit == 5) {
+                        a_s_mussaf_shalosh_regalim_sukkos_chol_hamoed_5.setVisibility(View.VISIBLE);
+                        a_s_ch_mussaf_shalosh_regalim_sukkos_chol_hamoed_5.setVisibility(View.VISIBLE);
+                    }
+                    if (sukkosunit == 6) {
+                        a_s_mussaf_shalosh_regalim_sukkos_chol_hamoed_hoshana_raba.setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+
 
         }
     }
 
 
+    private void vetenOrTal() {
+        for (int i = 0; i < Hollidays.vetenTal.size(); i++) {
+            long diff1 = Hollidays.vetenTal.get(i).getTimeInMillis() - Hollidays.moridHatalVetenBracha.get(i).getTimeInMillis();
+            long unit = TimeUnit.DAYS.convert(diff1, TimeUnit.MILLISECONDS);
+            if (unit >= 0){
+                a_s_tal_umatar.setVisibility(View.VISIBLE);
+                a_s_ch_tal_umatar.setVisibility(View.VISIBLE);
+            }
+            else{
+                a_s_veten_beracha.setVisibility(View.VISIBLE);
+                a_s_ch_veten_beracha.setVisibility(View.VISIBLE);
+            }
+        }
+    }
 
 
+    private void moridHatalandMashiv() {
+        for (int i = 0; i < Hollidays.moridHatalVetenBracha.size(); i++) {
+            long diff1 = Hollidays.mashiv.get(i).getTimeInMillis() - Hollidays.moridHatalVetenBracha.get(i).getTimeInMillis();
+            long unit = TimeUnit.DAYS.convert(diff1, TimeUnit.MILLISECONDS);
+            if (unit < 0){
+                a_s_morid_hatal.setVisibility(View.VISIBLE);
+                a_s_ch_morid_hatal.setVisibility(View.VISIBLE);
+                if (currentDate.getTime().equals(Hollidays.rosh_chodesh.get(i).getTime())){
+                    a_s_morid_hatal_mussaf.setVisibility(View.VISIBLE);
+                    a_s_ch_morid_hatal_mussaf.setVisibility(View.VISIBLE);
+                }
+                if (sukkosunit < 7 && sukkosunit >= 0){
+                    a_s_mussaf_shalosh_regalim_morid_hatal.setVisibility(View.VISIBLE);
+                    a_s_ch_mussaf_shalosh_regalim_morid_hatal.setVisibility(View.VISIBLE);
+                }
 
+            }
+            else {
+                a_s_mashiv_harauch.setVisibility(View.VISIBLE);
+                a_s_ch_mashiv_harauch.setVisibility(View.VISIBLE);
+            }
+        }
+    }
 
+    private void AYTeshuva() {
+        for (int i = 0; i < Hollidays.ayt.size(); i++) {
+            if (currentDate.getTime().equals(Hollidays.ayt.get(i).getTime())){
+                a_s_avinu_malkainu_ayt.setVisibility(View.VISIBLE);
+                a_s_asseret_yami_teshuva_1.setVisibility(View.VISIBLE);
+                a_s_asseret_yami_teshuva_2.setVisibility(View.VISIBLE);
+                a_s_asseret_yami_teshuva_3.setVisibility(View.VISIBLE);
+                a_s_asseret_yami_teshuva_4.setVisibility(View.VISIBLE);
+                a_s_asseret_yami_teshuva_end.setVisibility(View.VISIBLE);
+                a_s_ch_ayt_1.setVisibility(View.VISIBLE);
+                a_s_ch_ayt_2.setVisibility(View.VISIBLE);
+                a_s_ch_ayt_3.setVisibility(View.VISIBLE);
+                a_s_ch_ayt_4.setVisibility(View.VISIBLE);
+                a_s_ledovid.setVisibility(View.VISIBLE);
+                a_s_hamelech_hakadosh.setVisibility(View.VISIBLE);
+                a_s_ch_hamelech_hakadosh.setVisibility(View.VISIBLE);
+                a_s_hamelech_hamishpat.setVisibility(View.VISIBLE);
+                a_s_ch_hamelech_hamishpat.setVisibility(View.VISIBLE);
 
-    private void talUmatarBracha() {
-
-
-
-
+            }
+            else {
+                a_s_hakel_hakadosh.setVisibility(View.VISIBLE);
+                a_s_ch_hakel_hakadosh.setVisibility(View.VISIBLE);
+                a_s_melech_ohev.setVisibility(View.VISIBLE);
+                a_s_ch_melech_ohev.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
     private void shachrisInit() {
@@ -497,9 +662,9 @@ public class AshkenazShachris extends Fragment {
         });
 
 
-        int dayOfWeek=1;
 
-            if (dayOfWeek == 1){
+
+            if (currentDate.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY){
                 a_s_shir_shel_yom_sunday.setVisibility(View.VISIBLE);
                 a_s_shir_shel_yom_monday.setVisibility(View.GONE);
                 a_s_shir_shel_yom_tuesday.setVisibility(View.GONE);
@@ -508,7 +673,7 @@ public class AshkenazShachris extends Fragment {
                 a_s_shir_shel_yom_friday.setVisibility(View.GONE);
                 monThurs();
             }
-            else if (dayOfWeek == 2){
+            else if (currentDate.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY){
                 a_s_shir_shel_yom_sunday.setVisibility(View.GONE);
                 a_s_shir_shel_yom_monday.setVisibility(View.VISIBLE);
                 a_s_shir_shel_yom_tuesday.setVisibility(View.GONE);
@@ -517,7 +682,7 @@ public class AshkenazShachris extends Fragment {
                 a_s_shir_shel_yom_friday.setVisibility(View.GONE);
                 monThurs();
             }
-            else if (dayOfWeek == 3){
+            else if (currentDate.get(Calendar.DAY_OF_WEEK) == Calendar.TUESDAY){
                 a_s_shir_shel_yom_sunday.setVisibility(View.GONE);
                 a_s_shir_shel_yom_monday.setVisibility(View.GONE);
                 a_s_shir_shel_yom_tuesday.setVisibility(View.VISIBLE);
@@ -526,7 +691,7 @@ public class AshkenazShachris extends Fragment {
                 a_s_shir_shel_yom_friday.setVisibility(View.GONE);
                 monThurs();
             }
-            else if (dayOfWeek == 4){
+            else if (currentDate.get(Calendar.DAY_OF_WEEK) == Calendar.WEDNESDAY){
                 a_s_shir_shel_yom_sunday.setVisibility(View.GONE);
                 a_s_shir_shel_yom_monday.setVisibility(View.GONE);
                 a_s_shir_shel_yom_tuesday.setVisibility(View.GONE);
@@ -535,7 +700,7 @@ public class AshkenazShachris extends Fragment {
                 a_s_shir_shel_yom_friday.setVisibility(View.GONE);
                 monThurs();
             }
-            else if (dayOfWeek == 5){
+            else if (currentDate.get(Calendar.DAY_OF_WEEK) == Calendar.THURSDAY){
                 a_s_shir_shel_yom_sunday.setVisibility(View.GONE);
                 a_s_shir_shel_yom_monday.setVisibility(View.GONE);
                 a_s_shir_shel_yom_tuesday.setVisibility(View.GONE);
@@ -544,7 +709,7 @@ public class AshkenazShachris extends Fragment {
                 a_s_shir_shel_yom_friday.setVisibility(View.GONE);
                 monThurs();
             }
-            else if (dayOfWeek == 6){
+            else if (currentDate.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY){
                 a_s_shir_shel_yom_sunday.setVisibility(View.GONE);
                 a_s_shir_shel_yom_monday.setVisibility(View.GONE);
                 a_s_shir_shel_yom_tuesday.setVisibility(View.GONE);
@@ -558,8 +723,8 @@ public class AshkenazShachris extends Fragment {
         }
 
     public void monThurs(){
-        int dayOfWeek=1;
-        if (dayOfWeek == 2 || dayOfWeek == 5) {
+
+        if (currentDate.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY || currentDate.get(Calendar.DAY_OF_WEEK) == Calendar.THURSDAY) {
             a_s_hachnasat_sefer_torah.setVisibility(View.VISIBLE);
             a_s_kriat_hatorah_mon_and_thurs.setVisibility(View.VISIBLE);
             a_s_kriat_hatorah.setVisibility(View.VISIBLE);

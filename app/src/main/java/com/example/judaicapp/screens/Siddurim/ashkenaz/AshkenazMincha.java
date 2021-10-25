@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.judaicapp.Hollidays;
 import com.example.judaicapp.R;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -21,10 +22,16 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.concurrent.Executor;
+import java.util.concurrent.TimeUnit;
 
 
 public class AshkenazMincha extends Fragment {
+    Calendar currentDate = new GregorianCalendar();
+    long sukkosDiff;
+    long sukkosunit = TimeUnit.DAYS.convert(sukkosDiff, TimeUnit.MILLISECONDS);
     private TextView a_m_ashrei, a_m_shmona_esrei_1,a_m_ayt_1,a_m_shmona_esrei_2,a_m_morid_hatal,a_m_mashiv_harauch,
             a_m_shmona_esrei_3,a_m_ayt_2,a_m_shmona_esrei_4,a_m_hakel_hakadosh,a_m_hamelech_hakadosh,
             a_m_shmona_esrei_5,a_m_veten_beracha,a_m_tal_umatar,a_m_shmona_esrei_6,a_m_melech_ohev,
@@ -61,8 +68,172 @@ public class AshkenazMincha extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         minchaInit();
+        currentDate.clear();
+        currentDate.set(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DATE));
+        sukkos();
+        pesach();
+        rosh_chodesh();
+        tisha_baav();
+        fastDays();
+        vetenOrTal();
+        moridHatalandMashiv();
+        AYTeshuva();
+        purim();
+        chanukah();
     }
 
+    private void AYTeshuva() {
+        for (int i = 0; i < Hollidays.ayt.size(); i++) {
+            if (currentDate.getTime().equals(Hollidays.ayt.get(i).getTime())){
+                a_m_avinu_malkainu_ayt.setVisibility(View.VISIBLE);
+                a_m_ayt_1.setVisibility(View.VISIBLE);
+                a_m_ayt_2.setVisibility(View.VISIBLE);
+                a_m_ayt_3.setVisibility(View.VISIBLE);
+                a_m_ayt_4.setVisibility(View.VISIBLE);
+                a_m_ayt_end.setVisibility(View.VISIBLE);
+                a_m_ch_ayt_1.setVisibility(View.VISIBLE);
+                a_m_ch_ayt_2.setVisibility(View.VISIBLE);
+                a_m_ch_ayt_3.setVisibility(View.VISIBLE);
+                a_m_ch_ayt_4.setVisibility(View.VISIBLE);
+                a_m_hamelech_hakadosh.setVisibility(View.VISIBLE);
+                a_m_ch_hamelech_hakadosh.setVisibility(View.VISIBLE);
+                a_m_hamelech_hamishpat.setVisibility(View.VISIBLE);
+                a_m_ch_hamelech_hamishpat.setVisibility(View.VISIBLE);
+
+            }
+            else {
+                a_m_hakel_hakadosh.setVisibility(View.VISIBLE);
+                a_m_ch_hakel_hakadosh.setVisibility(View.VISIBLE);
+                a_m_melech_ohev.setVisibility(View.VISIBLE);
+                a_m_ch_melech_ohev.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+    private void purim(){
+        for (int i = 0; i < Hollidays.purim.size(); i++) {
+            if (currentDate.getTime().equals(Hollidays.purim.get(i).getTime())){
+                a_m_purim.setVisibility(View.VISIBLE);
+                a_m_ch_purim.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+    private void chanukah(){
+        for (int i = 0; i < Hollidays.chanukah.size(); i++) {
+            if (currentDate.getTime().equals(Hollidays.chanukah.get(i).getTime())){
+                a_m_chanukah.setVisibility(View.VISIBLE);
+                a_m_ch_chanukah.setVisibility(View.VISIBLE);
+
+            }
+
+        }
+    }
+
+    private void vetenOrTal() {
+        for (int i = 0; i < Hollidays.vetenTal.size(); i++) {
+            long diff1 = Hollidays.vetenTal.get(i).getTimeInMillis() - Hollidays.moridHatalVetenBracha.get(i).getTimeInMillis();
+            long unit = TimeUnit.DAYS.convert(diff1, TimeUnit.MILLISECONDS);
+            if (unit >= 0){
+                a_m_tal_umatar.setVisibility(View.VISIBLE);
+                a_m_ch_tal_umatar.setVisibility(View.VISIBLE);
+            }
+            else{
+                a_m_veten_beracha.setVisibility(View.VISIBLE);
+                a_m_ch_veten_beracha.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+
+    private void moridHatalandMashiv() {
+        for (int i = 0; i < Hollidays.moridHatalVetenBracha.size(); i++) {
+            long diff1 = Hollidays.mashiv.get(i).getTimeInMillis() - Hollidays.moridHatalVetenBracha.get(i).getTimeInMillis();
+            long unit = TimeUnit.DAYS.convert(diff1, TimeUnit.MILLISECONDS);
+            if (unit < 0){
+                a_m_morid_hatal.setVisibility(View.VISIBLE);
+                a_m_ch_morid_hatal.setVisibility(View.VISIBLE);
+            }
+            else {
+                a_m_mashiv_harauch.setVisibility(View.VISIBLE);
+                a_m_ch_mashiv_harauch.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+    private void fastDays() {
+        for (int i = 0; i < Hollidays.asara_betevet.size(); i++) {
+            if (currentDate.getTime().equals(Hollidays.asara_betevet.get(i).getTime())){
+                a_m_fast_day.setVisibility(View.VISIBLE);
+                a_m_ch_fast_day.setVisibility(View.VISIBLE);
+                a_m_avinu_malkainu_fast_day.setVisibility(View.VISIBLE);
+            }
+        }
+        for (int i = 0; i < Hollidays.shivaAsar_betammuz.size(); i++) {
+            if (currentDate.getTime().equals(Hollidays.shivaAsar_betammuz.get(i).getTime())){
+                a_m_fast_day.setVisibility(View.VISIBLE);
+                a_m_ch_fast_day.setVisibility(View.VISIBLE);
+                a_m_avinu_malkainu_fast_day.setVisibility(View.VISIBLE);
+            }
+        }
+        for (int i = 0; i < Hollidays.taanis_ester.size(); i++) {
+            if (currentDate.getTime().equals(Hollidays.taanis_ester.get(i).getTime())){
+                a_m_fast_day.setVisibility(View.VISIBLE);
+                a_m_ch_fast_day.setVisibility(View.VISIBLE);
+                a_m_avinu_malkainu_fast_day.setVisibility(View.VISIBLE);
+            }
+        }
+        for (int i = 0; i < Hollidays.tzom_gedalya.size(); i++) {
+            if (currentDate.getTime().equals(Hollidays.tzom_gedalya.get(i).getTime())) {
+                a_m_fast_day.setVisibility(View.VISIBLE);
+                a_m_ch_fast_day.setVisibility(View.VISIBLE);
+                a_m_avinu_malkainu_fast_day.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+
+    private void tisha_baav() {
+        for (int i = 0; i < Hollidays.tisha_baav.size(); i++) {
+            if (currentDate.getTime().equals(Hollidays.tisha_baav.get(i).getTime())){
+                a_m_tisha_baav.setVisibility(View.VISIBLE);
+                a_m_ch_tisha_baav.setVisibility(View.VISIBLE);
+                a_m_fast_day.setVisibility(View.VISIBLE);
+                a_m_ch_fast_day.setVisibility(View.VISIBLE);
+                a_m_avinu_malkainu_fast_day.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+    private void rosh_chodesh() {
+        for (int i = 0; i < Hollidays.rosh_chodesh.size(); i++) {
+            if (currentDate.getTime().equals(Hollidays.rosh_chodesh.get(i).getTime())){
+                a_m_tachanun.setVisibility(View.GONE);
+                a_m_rosh_chodesh.setVisibility(View.VISIBLE);
+                a_m_ch_rosh_chodesh.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+    private void pesach() {
+        for (int i = 0; i < Hollidays.pesach.size(); i++) {
+            if (currentDate.getTime().equals(Hollidays.pesach.get(i).getTime())){
+                a_m_tachanun.setVisibility(View.GONE);
+                a_m_pesach.setVisibility(View.VISIBLE);
+                a_m_ch_pesach.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+    private void sukkos() {
+        for (int i = 0; i < Hollidays.sukkos.size(); i++) {
+            if (sukkosunit < 7 && sukkosunit >= 0){
+                a_m_tachanun.setVisibility(View.VISIBLE);
+                a_m_sukkos.setVisibility(View.VISIBLE);
+                a_m_ch_sukkos.setVisibility(View.VISIBLE);
+            }
+        }
+    }
 
 
     private void minchaInit() {

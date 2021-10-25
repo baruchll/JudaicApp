@@ -62,6 +62,28 @@ public class AshkenazMaariv extends Fragment {
         currentDate.clear();
         currentDate.set(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DATE));
         maarivInit();
+        omerDay();
+        AYTeshuva();
+        purim();
+        chanukah();
+    }
+
+    private void purim(){
+        for (int i = 0; i < Hollidays.purim.size(); i++) {
+            if (currentDate.getTime().equals(Hollidays.purim.get(i).getTime())){
+                a_ma_purim.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+    private void chanukah(){
+        for (int i = 0; i < Hollidays.chanukah.size(); i++) {
+            if (currentDate.getTime().equals(Hollidays.chanukah.get(i).getTime())){
+                a_ma_chanukah.setVisibility(View.VISIBLE);
+
+            }
+
+        }
     }
 
     private void maarivInit() {
@@ -149,19 +171,49 @@ public class AshkenazMaariv extends Fragment {
         });
 
 
+    }
+
+    private void omerDay() {
         omerCount = getResources().getStringArray(R.array.a_ma_sefiras_haomer_2);
 
 
         long diff = currentDate.getTimeInMillis() - Hollidays.omer_start.get(1).getTimeInMillis();
-        System.out.println ("Days: " + TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS));
-        for (int i = 0; (currentDate.equals(Hollidays.omer_start.get(1).getTime()) || Hollidays.omer_start.get(1).getTime().before(currentDate.getTime())) && currentDate.before(Hollidays.omer_start.get(1).getTime()); i++){
-            a_ma_sefiras_haomer_2.setText(omerCount[i].replaceAll("_b", "<br/>"));
+        long unit;
+        unit = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+
+
+        if (unit > 48 || unit < 0){
+            a_ma_sefiras_haomer_1.setVisibility(View.VISIBLE);
+            a_ma_sefiras_haomer_2.setText(Html.fromHtml(omerCount[(int) unit].replaceAll("_b", "<br/>")));
             a_ma_sefiras_haomer_2.setVisibility(View.VISIBLE);
-            //a_ma_sefiras_haomer_2.setTextColor(Integer.parseInt("blue"));
+            a_ma_sefiras_haomer_3.setVisibility(View.VISIBLE);
         }
+        else {
+            a_ma_sefiras_haomer_1.setVisibility(View.GONE);
+            a_ma_sefiras_haomer_2.setVisibility(View.GONE);
+            a_ma_sefiras_haomer_3.setVisibility(View.GONE);
+        }
+    }
 
+    private void AYTeshuva() {
+        for (int i = 0; i < Hollidays.ayt.size(); i++) {
+            if (currentDate.getTime().equals(Hollidays.ayt.get(i).getTime())){
 
+                a_ma_asseret_yami_teshuva_1.setVisibility(View.VISIBLE);
+                a_ma_asseret_yami_teshuva_2.setVisibility(View.VISIBLE);
+                a_ma_asseret_yami_teshuva_3.setVisibility(View.VISIBLE);
+                a_ma_asseret_yami_teshuva_4.setVisibility(View.VISIBLE);
+                a_ma_asseret_yami_teshuva_end.setVisibility(View.VISIBLE);
+                a_ma_ledovid.setVisibility(View.VISIBLE);
+                a_ma_hamelech_hakadosh.setVisibility(View.VISIBLE);
+                a_ma_hamelech_hamishpat.setVisibility(View.VISIBLE);
 
+            }
+            else {
+                a_ma_hakel_hakadosh.setVisibility(View.VISIBLE);
+                a_ma_melech_ohev.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
 }
