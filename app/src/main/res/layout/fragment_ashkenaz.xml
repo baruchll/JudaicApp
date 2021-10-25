@@ -23,11 +23,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/app_blue"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="שחרית"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             app:cornerRadius="0dp" />
 
         <Button
@@ -35,11 +35,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/two"
+            android:backgroundTint="@color/black"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="מנחה"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             app:cornerRadius="0dp" />
 
         <Button
@@ -47,11 +47,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/three"
+            android:backgroundTint="@color/app_blue"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="ערבית"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             app:cornerRadius="0dp" />
 
         <Button
@@ -59,11 +59,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/four"
+            android:backgroundTint="@color/black"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="ברכת המזון"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             app:cornerRadius="0dp" />
 
         <Button
@@ -71,11 +71,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/five"
+            android:backgroundTint="@color/app_blue"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="ברכות"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             app:cornerRadius="0dp" />
 
         <Button
@@ -83,11 +83,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/cream"
+            android:backgroundTint="@color/black"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/tefilat"
-            android:textColor="@color/app_blue"
+            android:textColor="@color/white"
             app:cornerRadius="0dp" />
 
     </LinearLayout>

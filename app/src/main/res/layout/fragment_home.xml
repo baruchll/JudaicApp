@@ -25,9 +25,10 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/four"
+        android:backgroundTint="@color/app_blue"
         android:text="@string/daily_halacha_header"
         android:textAlignment="center"
-        android:textColor="@color/maybe"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
@@ -41,10 +42,13 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/four"
+        android:backgroundTint="@color/app_blue"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline9"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="SpeakableTextPresentCheck">
 
         <TextView
@@ -78,12 +82,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="48"
-                android:backgroundTint="@color/three"
+                android:backgroundTint="@color/black"
                 android:fadingEdge="none"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/siddur"
-                android:textColor="@color/maybe"
+                android:textColor="@color/white"
                 app:cornerRadius="0dip"
                 tools:ignore="TextContrastCheck" />
 
@@ -92,12 +96,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="24"
-                android:backgroundTint="@color/three"
+                android:backgroundTint="@color/black"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/ashkenaz_siddur"
                 android:textAlignment="textStart"
-                android:textColor="@color/maybe"
+                android:textColor="@color/white"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -106,12 +110,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="24"
-                android:backgroundTint="@color/three"
+                android:backgroundTint="@color/black"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/sefard_siddur"
                 android:textAlignment="textStart"
-                android:textColor="@color/maybe"
+                android:textColor="@color/white"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -120,12 +124,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="24"
-                android:backgroundTint="@color/three"
+                android:backgroundTint="@color/black"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/edot_hamizrach_siddur"
                 android:textAlignment="textStart"
-                android:textColor="@color/maybe"
+                android:textColor="@color/white"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -134,11 +138,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="48"
-                android:backgroundTint="@color/four"
+                android:backgroundTint="@color/app_blue"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/limud_yomi"
-                android:textColor="@color/maybe"
+                android:textColor="@color/white"
                 app:cornerRadius="0dip"
                 tools:ignore="TextContrastCheck" />
 
@@ -147,12 +151,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="18"
-                android:backgroundTint="@color/four"
+                android:backgroundTint="@color/app_blue"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/daf_yomi"
                 android:textAlignment="textStart"
-                android:textColor="@color/maybe"
+                android:textColor="@color/white"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -161,12 +165,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="18"
-                android:backgroundTint="@color/four"
+                android:backgroundTint="@color/app_blue"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/mishna_yomi"
                 android:textAlignment="textStart"
-                android:textColor="@color/maybe"
+                android:textColor="@color/white"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -175,12 +179,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="18"
-                android:backgroundTint="@color/four"
+                android:backgroundTint="@color/app_blue"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/shtayim_mikrah"
                 android:textAlignment="textStart"
-                android:textColor="@color/maybe"
+                android:textColor="@color/white"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -189,12 +193,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="18"
-                android:backgroundTint="@color/four"
+                android:backgroundTint="@color/app_blue"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/tehillim"
                 android:textAlignment="textStart"
-                android:textColor="@color/maybe"
+                android:textColor="@color/white"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -203,12 +207,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="18"
-                android:backgroundTint="@color/four"
+                android:backgroundTint="@color/app_blue"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/recorded_shiurim"
                 android:textAlignment="textStart"
-                android:textColor="@color/maybe"
+                android:textColor="@color/white"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -217,11 +221,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="48"
-                android:backgroundTint="@color/five"
+                android:backgroundTint="@color/black"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/other_functions"
-                android:textColor="@color/maybe"
+                android:textColor="@color/white"
                 app:cornerRadius="0dip"
                 tools:ignore="TextContrastCheck" />
 
@@ -230,12 +234,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="18"
-                android:backgroundTint="@color/five"
+                android:backgroundTint="@color/black"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/chat_with_rav"
                 android:textAlignment="textStart"
-                android:textColor="@color/maybe"
+                android:textColor="@color/white"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -244,12 +248,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="18"
-                android:backgroundTint="@color/five"
+                android:backgroundTint="@color/black"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/jerusalem_compass"
                 android:textAlignment="textStart"
-                android:textColor="@color/maybe"
+                android:textColor="@color/white"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -258,12 +262,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="18"
-                android:backgroundTint="@color/five"
+                android:backgroundTint="@color/black"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/jewish_calender"
                 android:textAlignment="textStart"
-                android:textColor="@color/maybe"
+                android:textColor="@color/white"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -272,12 +276,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="18"
-                android:backgroundTint="@color/five"
+                android:backgroundTint="@color/black"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/tefillin_guide"
                 android:textAlignment="textStart"
-                android:textColor="@color/maybe"
+                android:textColor="@color/white"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
 
@@ -286,12 +290,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="18"
-                android:backgroundTint="@color/five"
+                android:backgroundTint="@color/black"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/daily_prayer_times"
                 android:textAlignment="textStart"
-                android:textColor="@color/maybe"
+                android:textColor="@color/white"
                 android:visibility="gone"
                 app:cornerRadius="0dp" />
         </LinearLayout>

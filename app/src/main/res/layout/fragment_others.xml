@@ -21,11 +21,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/one"
+            android:backgroundTint="@color/app_blue"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/chat_with_rav"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             app:cornerRadius="0dp" />
 
         <Button
@@ -33,11 +33,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/two"
+            android:backgroundTint="@color/black"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/jerusalem_compass"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             app:cornerRadius="0dp" />
 
         <Button
@@ -45,11 +45,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/three"
+            android:backgroundTint="@color/app_blue"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/jewish_calender"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             app:cornerRadius="0dp" />
 
         <Button
@@ -57,11 +57,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/four"
+            android:backgroundTint="@color/black"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/tefillin_guide"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             app:cornerRadius="0dp" />
 
         <Button
@@ -69,11 +69,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/five"
+            android:backgroundTint="@color/app_blue"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/daily_prayer_times"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             app:cornerRadius="0dp" />
 
     </LinearLayout>

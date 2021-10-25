@@ -22,11 +22,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/two"
+            android:backgroundTint="@color/app_blue"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/ashkenaz_siddur"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             app:cornerRadius="0dp" />
 
         <Button
@@ -34,11 +34,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/three"
+            android:backgroundTint="@color/black"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/sefard_siddur"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             app:cornerRadius="0dp" />
 
         <Button
@@ -46,11 +46,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/four"
+            android:backgroundTint="@color/app_blue"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/edot_hamizrach_siddur"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             app:cornerRadius="0dp" />
 
         <Button
@@ -58,11 +58,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/five"
+            android:backgroundTint="@color/black"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/tefilat"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             app:cornerRadius="0dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
