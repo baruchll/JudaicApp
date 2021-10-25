@@ -591,7 +591,7 @@ public class MishnahYomi extends Fragment {
             public void onClick(View v) {
                 gone();
                 pdfView.setVisibility(View.VISIBLE);
-                new RetrievePdffromUrl().execute("");
+                new RetrievePdffromUrl().execute("https://firebasestorage.googleapis.com/v0/b/judaicapp-62d9f.appspot.com/o/mishnah%2Ftaharos%2Fohalos.pdf?alt=media&token=ffea975a-da52-43cd-ac35-7cdcb190db52");
             }
         });
         negaim_btn.setOnClickListener(new View.OnClickListener() {
@@ -599,7 +599,7 @@ public class MishnahYomi extends Fragment {
             public void onClick(View v) {
                 gone();
                 pdfView.setVisibility(View.VISIBLE);
-                new RetrievePdffromUrl().execute("");
+                new RetrievePdffromUrl().execute("https://firebasestorage.googleapis.com/v0/b/judaicapp-62d9f.appspot.com/o/mishnah%2Ftaharos%2Fnegaim.pdf?alt=media&token=c8efb42f-d323-4b63-b031-2ae509e11281");
             }
         });
         parah_btn.setOnClickListener(new View.OnClickListener() {
@@ -607,7 +607,7 @@ public class MishnahYomi extends Fragment {
             public void onClick(View v) {
                 gone();
                 pdfView.setVisibility(View.VISIBLE);
-                new RetrievePdffromUrl().execute("");
+                new RetrievePdffromUrl().execute("https://firebasestorage.googleapis.com/v0/b/judaicapp-62d9f.appspot.com/o/mishnah%2Ftaharos%2Fparah.pdf?alt=media&token=e81a7a3c-32f9-46f6-8c4b-15483331fb15");
             }
         });
         taharos_btn.setOnClickListener(new View.OnClickListener() {
@@ -615,7 +615,7 @@ public class MishnahYomi extends Fragment {
             public void onClick(View v) {
                 gone();
                 pdfView.setVisibility(View.VISIBLE);
-                new RetrievePdffromUrl().execute("");
+                new RetrievePdffromUrl().execute("https://firebasestorage.googleapis.com/v0/b/judaicapp-62d9f.appspot.com/o/mishnah%2Ftaharos%2Ftaharos.pdf?alt=media&token=b23d22d1-57a8-48fd-aa12-e92ee0fa0812");
             }
         });
         mikvaos_btn.setOnClickListener(new View.OnClickListener() {
@@ -623,7 +623,7 @@ public class MishnahYomi extends Fragment {
             public void onClick(View v) {
                 gone();
                 pdfView.setVisibility(View.VISIBLE);
-                new RetrievePdffromUrl().execute("");
+                new RetrievePdffromUrl().execute("https://firebasestorage.googleapis.com/v0/b/judaicapp-62d9f.appspot.com/o/mishnah%2Ftaharos%2Fmikvaaos.pdf?alt=media&token=a4bb6e15-8de3-4975-87cd-c02817e1786a");
             }
         });
         niddah_btn.setOnClickListener(new View.OnClickListener() {
@@ -631,7 +631,7 @@ public class MishnahYomi extends Fragment {
             public void onClick(View v) {
                 gone();
                 pdfView.setVisibility(View.VISIBLE);
-                new RetrievePdffromUrl().execute("");
+                new RetrievePdffromUrl().execute("https://firebasestorage.googleapis.com/v0/b/judaicapp-62d9f.appspot.com/o/mishnah%2Ftaharos%2Fniddah.pdf?alt=media&token=c0f714e8-afd4-4416-bf03-de218cb2de73");
             }
         });
         machshirin_btn.setOnClickListener(new View.OnClickListener() {
@@ -639,7 +639,7 @@ public class MishnahYomi extends Fragment {
             public void onClick(View v) {
                 gone();
                 pdfView.setVisibility(View.VISIBLE);
-                new RetrievePdffromUrl().execute("");
+                new RetrievePdffromUrl().execute("https://firebasestorage.googleapis.com/v0/b/judaicapp-62d9f.appspot.com/o/mishnah%2Ftaharos%2Fmachshirin.pdf?alt=media&token=ce62035a-40ea-41c7-9d03-79727b36a850");
             }
         });
         zavim_btn.setOnClickListener(new View.OnClickListener() {
@@ -647,7 +647,7 @@ public class MishnahYomi extends Fragment {
             public void onClick(View v) {
                 gone();
                 pdfView.setVisibility(View.VISIBLE);
-                new RetrievePdffromUrl().execute("");
+                new RetrievePdffromUrl().execute("https://firebasestorage.googleapis.com/v0/b/judaicapp-62d9f.appspot.com/o/mishnah%2Ftaharos%2Fzavim.pdf?alt=media&token=5089acf2-e6f5-4773-9342-aced12f987c9");
             }
         });
         tevul_yom_btn.setOnClickListener(new View.OnClickListener() {
@@ -655,7 +655,7 @@ public class MishnahYomi extends Fragment {
             public void onClick(View v) {
                 gone();
                 pdfView.setVisibility(View.VISIBLE);
-                new RetrievePdffromUrl().execute("");
+                new RetrievePdffromUrl().execute("https://firebasestorage.googleapis.com/v0/b/judaicapp-62d9f.appspot.com/o/mishnah%2Ftaharos%2Ftvul%20yom.pdf?alt=media&token=fe879c9b-297f-4770-856d-0f5b2abb6e16");
             }
         });
         yadim_btn.setOnClickListener(new View.OnClickListener() {
@@ -663,7 +663,7 @@ public class MishnahYomi extends Fragment {
             public void onClick(View v) {
                 gone();
                 pdfView.setVisibility(View.VISIBLE);
-                new RetrievePdffromUrl().execute("");
+                new RetrievePdffromUrl().execute("https://firebasestorage.googleapis.com/v0/b/judaicapp-62d9f.appspot.com/o/mishnah%2Ftaharos%2Fyadim.pdf?alt=media&token=d52bfb68-b8f1-4693-8edc-004f9472c6e1");
             }
         });
         ukatzim_btn.setOnClickListener(new View.OnClickListener() {
@@ -671,7 +671,7 @@ public class MishnahYomi extends Fragment {
             public void onClick(View v) {
                 gone();
                 pdfView.setVisibility(View.VISIBLE);
-                new RetrievePdffromUrl().execute("");
+                new RetrievePdffromUrl().execute("https://firebasestorage.googleapis.com/v0/b/judaicapp-62d9f.appspot.com/o/mishnah%2Ftaharos%2Fukatzim.pdf?alt=media&token=a9719efc-49e6-4e04-a573-83e6ee37e928");
             }
         });
 
