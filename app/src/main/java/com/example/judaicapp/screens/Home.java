@@ -23,6 +23,7 @@ import com.example.judaicapp.screens.limud.dafYomi.TheDaf;
 import com.example.judaicapp.screens.limud.mishnaYomi.MishnahYomi;
 import com.example.judaicapp.screens.limud.shtayim_mikrah.ShtayimMikrah;
 import com.example.judaicapp.screens.limud.tehillim.TehillimYomi;
+import com.example.judaicapp.screens.others.JewishCalendar.CalendarFragment;
 import com.example.judaicapp.screens.others.JlemCompass.CompassFragment;
 import com.example.judaicapp.screens.others.Zmanim.Zmanim;
 import com.example.judaicapp.screens.others.rav_chat.ChatLogin;
@@ -209,8 +210,8 @@ public class Home extends Fragment {
 
 
 
-
         compass.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new CompassFragment()).commit());
+        calender.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new CalendarFragment()).commit());
         rav_chat.setOnClickListener(v -> getParentFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new ChatLogin()).commit());
         zmanai_hayom.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Zmanim()).commit());
         tefilllin.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("hi").replace(R.id.nav_host_fragment, new TefillinVideo()).commit());

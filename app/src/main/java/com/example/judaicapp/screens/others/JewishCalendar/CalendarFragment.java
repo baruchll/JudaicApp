@@ -1,5 +1,14 @@
 package com.example.judaicapp.screens.others.JewishCalendar;
 
+import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,32 +26,39 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 
-import com.example.judaicapp.R;
+import com.kosherjava.zmanim.hebrewcalendar.JewishCalendar;
 import com.kosherjava.zmanim.hebrewcalendar.JewishDate;
 import com.kosherjava.zmanim.hebrewcalendar.HebrewDateFormatter;
 
 
 
-public class Calendar extends AppCompatActivity implements CalendarAdapter.OnItemListener
-{
+import com.example.judaicapp.R;
+
+
+public class CalendarFragment extends Fragment implements CalendarAdapter.OnItemListener {
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
     private LocalDate selectedDate;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.calendar_fragment);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_calendar, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         initWidgets();
         selectedDate = LocalDate.now();
         setMonthView();
     }
-
     private void initWidgets()
     {
-        calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
-        monthYearText = findViewById(R.id.monthYearTV);
+        calendarRecyclerView = getView().findViewById(R.id.calendarRecyclerView);
+        monthYearText = getView().findViewById(R.id.monthYearTV);
     }
 
     private void setMonthView()
@@ -51,7 +67,7 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         ArrayList<String> daysInMonth = daysInMonthArray(selectedDate);
 
         CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth, this);
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getActivity().getApplicationContext(), 7);
         calendarRecyclerView.setLayoutManager(layoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
     }
@@ -113,7 +129,15 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
             HebrewDateFormatter test = new HebrewDateFormatter();
             test.setHebrewFormat(true);
             String dateFormat = test.format(clickedDateJewish);
-            Toast.makeText(this, dateFormat, Toast.LENGTH_LONG).show();
+            String message = dateFormat;
+            Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
         }
     }
+
+
+
+
+
+
+
 }
