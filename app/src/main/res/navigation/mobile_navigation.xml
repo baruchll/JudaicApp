@@ -39,6 +39,11 @@
         android:label="זמני היום"
         tools:layout="@layout/fragment_zmanim" />
     <fragment
+        android:id="@+id/Calendar"
+        android:name="com.example.judaicapp.screens.others.JewishCalendar.Calendar"
+        android:label="לוח שנה עברי"
+        tools:layout="@layout/fragment_others" />
+    <fragment
         android:id="@+id/ashkenazFragment"
         android:name="com.example.judaicapp.screens.Siddurim.Ashkenaz"
         android:label="אשכנז"

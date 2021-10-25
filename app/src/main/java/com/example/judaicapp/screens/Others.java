@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.judaicapp.R;
+import com.example.judaicapp.screens.others.JewishCalendar.Calendar;
 import com.example.judaicapp.screens.others.JlemCompass.CompassFragment;
 import com.example.judaicapp.screens.others.Zmanim.Zmanim;
 import com.example.judaicapp.screens.others.rav_chat.ChatLogin;
@@ -54,5 +55,7 @@ public class Others extends Fragment {
         chat.setOnClickListener(v -> getParentFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new ChatLogin()).commit());
         zmanim.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Zmanim()).commit());
         tefillin.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("hi").replace(R.id.nav_host_fragment, new TefillinVideo()).commit());
+        //calendar.setOnClickListener(v -> getParentFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new Calendar()).commit());
+
     }
 }
