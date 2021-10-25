@@ -44,12 +44,9 @@ public class Zmanim extends Fragment {
     public static ComplexZmanimCalendar czc;
 
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
 
-    }
+
 
     private void test() {
         LocationManager locationManager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
