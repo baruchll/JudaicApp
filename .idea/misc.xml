@@ -5,43 +5,24 @@
       <map>
         <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/drawable/ic_image.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/drawable/ic_judaicapp.xml" value="0.2203125" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/activity_ban_screen.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/activity_chat_login.xml" value="0.33" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/activity_edot_siddur.xml" value="0.20416666666666666" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/activity_home_screen.xml" value="0.5" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/activity_shabbos_screen.xml" value="0.20416666666666666" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/activity_start_animation.xml" value="0.15677083333333333" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/app_bar_main.xml" value="0.20416666666666666" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/calendar_cell.xml" value="0.20416666666666666" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/calendar_fragment.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/chat.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/content_main.xml" value="0.20416666666666666" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/fragment_ashkenaz.xml" value="0.19010416666666666" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/fragment_brachos.xml" value="0.20416666666666666" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/fragment_calendar.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/fragment_chat.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/fragment_compass.xml" value="0.22" />
         <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/fragment_home.xml" value="0.25" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/fragment_limud_yomi.xml" value="0.19010416666666666" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/fragment_mishnah_yomi.xml" value="0.20416666666666666" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/fragment_others.xml" value="0.22" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/fragment_recorded_shiurim.xml" value="0.20416666666666666" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/fragment_shtayim_mikrah.xml" value="0.19010416666666666" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/fragment_siddur.xml" value="0.19010416666666666" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/fragment_tefilas_haderech.xml" value="0.20416666666666666" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/fragment_zmanim.xml" value="0.11944444444444445" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/nav_header_main.xml" value="0.20416666666666666" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/splash_screen.xml" value="0.20416666666666666" />
-        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/menu/activity_main_drawer.xml" value="0.5" />
+        <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/fragment_others.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/JudaicApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.15925925925925927" />
         <entry key="..\:/Users/Baruch/AndroidStudioProjects/JudaicApp/app/src/main/res/drawable/ic_halacha_yomit.xml" value="0.3828125" />
         <entry key="..\:/Users/Baruch/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/activity_ashkenaz_siddur.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Baruch/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/activity_ban_screen.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Baruch/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/activity_chat_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Baruch/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/activity_compass.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Baruch/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/activity_home_screen.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Baruch/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/activity_jlem_compass.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Baruch/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/activity_limud_yomi.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/Baruch/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/activity_sefard_siddur.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Baruch/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/activity_shabbos_screen.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Baruch/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/activity_siddur_ashkenaz.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/Baruch/AndroidStudioProjects/JudaicApp/app/src/main/res/layout/app_bar_main.xml" value="0.36666666666666664" />
@@ -63,18 +44,27 @@
         <entry key="..\:/Users/Baruch/AndroidStudioProjects/JudaicApp/app/src/main/res/menu/ashkenaz_siddur.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Baruch/AndroidStudioProjects/JudaicApp/app/src/main/res/menu/home_screen.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/activity_animation.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/activity_ban_screen.xml" value="0.20863616930312098" />
         <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/activity_home_screen.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/activity_start_animation.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/calendar_cell.xml" value="0.20863616930312098" />
         <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/fragment_animation.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/fragment_ashkenaz.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/fragment_ashkenaz_maariv.xml" value="0.3055555555555556" />
+        <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/fragment_ashkenaz_mincha.xml" value="0.20863616930312098" />
         <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/fragment_ashkenaz_shachris.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/fragment_birkas_hamazon.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/fragment_brachos.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/fragment_calendar.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/fragment_compass.xml" value="0.20863616930312098" />
         <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/fragment_home.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/fragment_limud_yomi.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/fragment_mishnah_yomi.xml" value="0.20863616930312098" />
         <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/fragment_others.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/fragment_recorded_shiurim.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/fragment_shtayim_mikrah.xml" value="0.20863616930312098" />
         <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/fragment_siddur.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/fragment_tefilas_haderech.xml" value="0.20863616930312098" />
         <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/fragment_tehillim.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/fragment_the_daf.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Baruch/StudioProjects/JudaicApp/app/src/main/res/layout/nav_header_main.xml" value="0.36666666666666664" />
@@ -86,7 +76,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_14_PREVIEW" project-jdk-name="14" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="14" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
