@@ -20,7 +20,7 @@ import com.example.judaicapp.screens.Siddurim.ashkenaz.Brachos;
 
 
 public class Ashkenaz extends Fragment {
-    Button shachris, mincha, maariv, hamazon, rishona;
+    Button shachris, mincha, maariv, hamazon, rishona, haderech;
 
 
 
@@ -42,6 +42,7 @@ public class Ashkenaz extends Fragment {
         maariv = getView().findViewById(R.id.menu_maariv);
         hamazon = getView().findViewById(R.id.menu_bracha_achrona);
         rishona = getView().findViewById(R.id.menu_brachos);
+        haderech = getView().findViewById(R.id.menu_haderech);
 
 
         shachris.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new AshkenazShachris()).commit());
@@ -49,6 +50,7 @@ public class Ashkenaz extends Fragment {
         maariv.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new AshkenazMaariv()).commit());
         hamazon.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new BirkasHamazon()).commit());
         rishona.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new Brachos()).commit());
+        haderech.setOnClickListener(v -> getParentFragmentManager().beginTransaction().addToBackStack("test").replace(R.id.nav_host_fragment, new TefilasHaderech()).commit());
 
     }
 }
