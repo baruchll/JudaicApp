@@ -159,7 +159,7 @@ public class MishnahYomi extends Fragment {
             gone();
             nezikin.setVisibility(View.VISIBLE);
         });
-        kedashim.setOnClickListener(v -> {
+        seder_kodshin_btn.setOnClickListener(v -> {
             gone();
             kedashim.setVisibility(View.VISIBLE);
         });

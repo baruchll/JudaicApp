@@ -50,6 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@color/black"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="סדר מועד"
@@ -71,6 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@color/black"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="סדר נזיקין"
@@ -92,6 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@color/black"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="סדר טהרות"
@@ -121,77 +124,121 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="ברכות" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="ברכות"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/peah_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="פאה" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="פאה"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/demai_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="דמאי" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="דמאי"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/kilayim_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="כלאים" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="כלאים"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/shviis_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="שביעית" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="שביעית"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/terumos_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="תרומות" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="תרומות"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/maaseros_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="מעשרות" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="מעשרות"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/maaser_sheni_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="מעשר שני" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="מעשר שני"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/challah_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="חלה" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="חלה"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/orlah_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="ערלה" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="ערלה"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/bikkurim_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="ביכורים" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="ביכורים"
+                app:cornerRadius="0dp" />
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -220,84 +267,132 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="שבת" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="שבת"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/eiruvin_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="עירובין" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="עירובין"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/pesachin_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="פסכים" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="פסכים"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/shekalim_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="שקלים" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="שקלים"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/yuma_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="יומא" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="יומא"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/sukkah_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="סוכה" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="סוכה"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/baitza_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="ביצה" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="ביצה"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/rosh_hashanah_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="ראש השנה" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="ראש השנה"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/taanis_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="תענית" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="תענית"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/megillah_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="מגילה" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="מגילה"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/moed_katan_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="מועד קטן" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="מועד קטן"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/chagigah_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="חגיגה" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="חגיגה"
+                app:cornerRadius="0dp" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -318,49 +413,77 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="יבמות" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="יבמות"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/kesubos_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="כתובות" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="כתובות"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/nedarim_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="נדרים" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="נדרים"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/nazir_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="נזיר" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="נזיר"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/sota_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="סוטה" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="סוטה"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/gittin_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="גיטין" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="גיטין"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/kidushin_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="קידושין" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="קידושין"
+                app:cornerRadius="0dp" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -389,70 +512,110 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="בבא קמא" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="בבא קמא"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/baba_metziah_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="בבא מציעא" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="בבא מציעא"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/baba_basra_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="בבא בתרא" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="בבא בתרא"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/sanhedrin_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="סנהדרין" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="סנהדרין"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/makkos_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="מכות" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="מכות"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/shevous_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="שבועות" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="שבועות"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/aiduyos_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="עדיות" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="עדיות"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/avoda_zara_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="עבודה זרה" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="עבודה זרה"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/avos_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="אבות" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="אבות"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/horayos_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="הוריות" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="הוריות"
+                app:cornerRadius="0dp" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -481,77 +644,121 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="זבחים" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="זבחים"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/menachos_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="מנחות" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="מנחות"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/chulin_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="חולין" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="חולין"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/bechoros_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="בכורות" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="בכורות"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/arachin_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="ערכין" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="ערכין"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/temura_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="תמורה" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="תמורה"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/kritus_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="כריתות" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="כריתות"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/meila_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="מעילה" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="מעילה"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/tomid_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="תמיד" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="תמיד"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/midos_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="מדות" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="מדות"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/kinim_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="קינים" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="קינים"
+                app:cornerRadius="0dp" />
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -581,84 +788,132 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="כלים" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="כלים"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/ohalos_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="אהלות" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="אהלות"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/negaim_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="נגעים" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="נגעים"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/parah_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="פרה" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="פרה"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/taharos_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="טהרות" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="טהרות"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/mikvaos_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="מקואות" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="מקואות"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/niddah_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="נדה" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="נדה"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/machshirin_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="מכשירין" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="מכשירין"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/zavim_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="זבים" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="זבים"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/tevul_yom_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="טבול יום" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="טבול יום"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/yadim_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="ידים" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="ידים"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/ukatzim_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="עוקצים" />
+                android:backgroundTint="@color/black"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="עוקצים"
+                app:cornerRadius="0dp" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
