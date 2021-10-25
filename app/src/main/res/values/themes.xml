@@ -12,7 +12,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.JudaicApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.JudaicApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.JudaicApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" >
 
