@@ -39,42 +39,63 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="סדר זרעים" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="סדר זרעים"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/seder_moed_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="סדר מועד" />
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="סדר מועד"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/seder_nashim_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="סדר נשים" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="סדר נשים"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/seder_nezikin_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="סדר נזיקין" />
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="סדר נזיקין"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/seder_kodshin_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="סדר קדשים" />
+                android:backgroundTint="@color/app_blue"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="סדר קדשים"
+                app:cornerRadius="0dp" />
 
             <Button
                 android:id="@+id/seder_taharos_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="סדר טהרות" />
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="סדר טהרות"
+                app:cornerRadius="0dp" />
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
