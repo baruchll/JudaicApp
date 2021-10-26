@@ -55,7 +55,7 @@
             android:id="@+id/halacha_yomit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/maybe" />
+            android:textColor="@color/white" />
     </ScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout

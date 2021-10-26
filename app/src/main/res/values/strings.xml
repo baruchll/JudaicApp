@@ -21,8 +21,8 @@
     <string name="limud_yomi">לימוד יומי</string>
     <string name="daf_yomi">דף יומי</string>
     <string name="mishna_yomi">משנה יומית</string>
-    <string name="shtayim_mikrah">שתיים מקרא</string>
-    <string name="tehillim">תהילים יומי</string>
+    <string name="shtayim_mikrah">מקרא</string>
+    <string name="tehillim">תהילים</string>
     <string name="recorded_shiurim">שיעורים מוקלטים</string>
     <string name="other_functions">פונקציות נוספות</string>
     <string name="chat_with_rav">שאלה לרב</string>
@@ -34,13 +34,6 @@
     <string name="title_activity_ashkenaz_siddur">AshkenazSiddur</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
-    <string name="shiurim">
-        שיעור של רב X
-        \n
-        בנושא של X
-    </string>
-
-
     <!-- compass strings -->
     <string name="compass_dial" translatable="false">Compass Dial</string>
     <string name="compass_hands" translatable="false">Compass Hands</string>
